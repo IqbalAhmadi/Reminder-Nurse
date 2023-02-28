@@ -7,8 +7,13 @@ const MedicationList = ({}) => {
   const { loading, data } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
-  console.log(data);
-  return <>{data}</>;
+  return (
+    <ol>
+      {data.medicines.map((medicine) => {
+        return <li key={medicine._id}>{medicine.name}</li>;
+      })}
+    </ol>
+  );
 };
 
 export default MedicationList;
