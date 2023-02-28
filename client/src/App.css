@@ -6,6 +6,10 @@
 }
 
 header {
+  border-bottom: 10px solid var(--black, black);
+  display: grid;
+  grid-template-columns: auto 1 fr;
+
   margin: 5px;
   border: solid var(--dark);
 }

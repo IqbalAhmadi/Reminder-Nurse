@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+// import Current from './pages/Current';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -17,7 +18,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/current" element={<Current />} />
+          {/* <Route path="/current" element={<Current />} /> */}
         </Routes>
       </Router>
     </ApolloProvider>

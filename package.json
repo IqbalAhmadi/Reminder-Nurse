@@ -27,5 +27,8 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "dependencies": {
+    "react-bootstrap": "^2.7.2"
   }
 }
