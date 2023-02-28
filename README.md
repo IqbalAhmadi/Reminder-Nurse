@@ -63,10 +63,11 @@ From current Medications screen, users can quickly delete medications.
 
 ## Mockup Images
 
-Images are comming soon ...
+Images are coming soon ...
 
-<!-- ![image 1]()
-![image 2]()
+[![image 1](./assets/images/wireframe.png)](https://www.figma.com/file/80PipsIdQMKVywFyTsRBBb/Reminder-Nurse?node-id=0%3A1&t=h3E3tFNgBNsv1Rsq-0)
+
+<!-- ![image 2]()
 ![image 3]()
 ![image 4]() -->
 
