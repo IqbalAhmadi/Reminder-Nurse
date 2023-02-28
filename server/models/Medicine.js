@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = required('../utils/dateFormat');
+const dateFormat = require('../utils/dateFormat');
 
 const medicineSchema = new Schema({
   name: {
