@@ -1,0 +1,11 @@
+:root {
+  --dark: #658864;
+  --gray: #b7b78a;
+  --contrast: #dddddd;
+  --light: #eeeeee;
+}
+
+header {
+  margin: 5px;
+  border: solid var(--dark);
+}
