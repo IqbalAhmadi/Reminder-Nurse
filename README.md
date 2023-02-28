@@ -14,7 +14,7 @@ We have a lot of development ideas, and we are open to newer ones. Below are som
 
 ## Frameworks implemented
 
--
+- Chakra UI
 -
 
 ## Server Side APIs
@@ -28,8 +28,11 @@ We have a lot of development ideas, and we are open to newer ones. Below are som
 - CSS
 - Javascript
 - React
-- mySQL
 - NoSQL
+- MongoDB
+- Mongoose
+- Express
+- Node.js
 
 ## Installation
 
