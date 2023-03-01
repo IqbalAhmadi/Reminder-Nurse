@@ -8,6 +8,7 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
     "prettier": "npx prettier --write ."
   },
   "repository": {
