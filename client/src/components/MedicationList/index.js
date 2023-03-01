@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 const MedicationList = ({ medicines }) => {
+  const handleMedicineDelete = async () => {};
+
   return (
     <ol className="medication-list display-flex flex-wrap">
       {medicines.map((medicine) => {
@@ -10,8 +13,12 @@ const MedicationList = ({ medicines }) => {
             <section className="display-flex">
               <h3>{medicine.name}</h3>
               <section className="m-1">
-                <Button variant="secondary">Modify</Button>
-                <Button variant="danger">Delete</Button>
+                <Button variant="secondary">
+                  <Link to={'../medicine/' + medicine._id}>Modify</Link>
+                </Button>
+                <Button variant="danger" onClick={handleMedicineDelete}>
+                  Delete
+                </Button>
               </section>
             </section>
           </li>
