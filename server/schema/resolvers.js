@@ -3,8 +3,14 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
+    // get single medicine
+    medicine: async (parent, { medicineId }, context) => {
+      if (!context.user)
+        throw new AuthenticationError('You need to be logged in!');
+      return Medicine.findOne({ _id: medicineId, userId: context.user.id });
+    },
     // gets all medicine matching userId using context
-    userMedication: async (parent, args, context) => {
+    medicines: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
       return Medicine.find({ userId: context.user.id });

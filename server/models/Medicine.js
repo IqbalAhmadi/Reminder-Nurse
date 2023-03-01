@@ -29,7 +29,16 @@ const medicineSchema = new Schema({
     default: 'every',
     required: true,
   },
-  times: [Date],
+  times: [
+    {
+      type: Date,
+      get: (timestamp) => {
+        const hour = timestamp.getHours() * 100;
+        const minutes = timestamp.getMinutes();
+        return hour + minutes;
+      },
+    },
+  ],
   isActive: {
     type: Boolean,
     required: true,
