@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
+import Button from 'react-bootstrap/Button';
 
 const Current = () => {
   const { loading, data } = useQuery(QUERY_MEDICINES);
@@ -11,7 +12,7 @@ const Current = () => {
   return (
     <section className="current">
       <h1>Current Medication</h1>
-      <button>Add Medication</button>
+      <Button>Add Medication</Button>
       <section>
         <MedicationList medicines={data.medicines} />
       </section>
