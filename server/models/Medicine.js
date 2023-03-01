@@ -1,3 +1,4 @@
+const dayjs = require('dayjs');
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -11,7 +12,7 @@ const medicineSchema = new Schema({
     type: Date,
     required: true,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    get: (timestamp) => dayjs(timestamp).format('YYYY-MM-DD'),
   },
   amount: {
     type: Number,
@@ -33,10 +34,12 @@ const medicineSchema = new Schema({
     {
       type: Date,
       get: (timestamp) => {
-        const hour = timestamp.getHours() * 100;
-        const minutes = timestamp.getMinutes();
-        return hour + minutes;
+        // format to HH:MM
+        return dayjs(timestamp).format('HH:mm');
       },
+      // set: (timestamp) => {
+      //   const date = new Date();
+      // },
     },
   ],
   isActive: {

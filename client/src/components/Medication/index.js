@@ -26,7 +26,6 @@ const Medication = ({ medicine }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name != 'times') setFormData({ ...formData, [name]: value });
-    console.log(e.target.defaultValue);
   };
 
   return (

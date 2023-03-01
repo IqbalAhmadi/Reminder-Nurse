@@ -15,7 +15,7 @@ const Medicine = () => {
   if (error) return <h2>{error.toString()}</h2>;
 
   return (
-    <section className='edit-medication'>
+    <section className="edit-medication">
       <Button>
         <Link to={'../medicines'}>Go Back</Link>
       </Button>
