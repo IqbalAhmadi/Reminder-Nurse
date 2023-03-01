@@ -1,16 +1,38 @@
 :root {
-  --dark: #658864;
-  --gray: #b7b78a;
-  --contrast: #dddddd;
-  --light: #eeeeee;
+  --dark: #6096b4;
+  --gray: #5c9eb6;
+  --light: #bdcdd6;
+  --contrast: #eee9da;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--contrast);
 }
 
 header {
-  display: grid;
-  grid-template-columns: auto 1 fr;
-
   margin: 5px;
-  border: solid var(--dark);
+  text-align: center;
+  border: solid var(--contrast);
+}
+
+body {
+  margin: 10px;
+  background-color: var(--dark);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.medication-list li {
+  padding: 5px;
+  margin: 10px;
+  border: solid var(--contrast);
+  background-color: var(--gray);
 }
 
 /* Login & Sign In Form Styles */
