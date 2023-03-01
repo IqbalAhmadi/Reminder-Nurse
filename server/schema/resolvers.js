@@ -16,12 +16,12 @@ const resolvers = {
       return Medicine.find({ userId: context.user.id });
     },
     dailymeds: async (parent, args, context) => {
-          // -- commenting out until authenticator has been implemented
+      // -- commenting out until authenticator has been implemented
       // if (!context.user)
       //   throw new AuthenticationError('You need to be logged in!');
       // return Medicine.find({ userId: context.user.id, isActive: true })
-      return Medicine.find({ isActive: true })
-    }
+      return Medicine.find({ isActive: true });
+    },
   },
   Mutation: {
     // adds new medicine using context for userId

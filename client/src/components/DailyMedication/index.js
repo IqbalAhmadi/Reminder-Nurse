@@ -7,20 +7,24 @@ import React from 'react';
 // })
 
 const DailyMedication = ({ dailymeds }) => {
-    if (!dailymeds.length) {
-        return <h2>You do not have any medication for today.</h2>;
-    }
+  if (!dailymeds.length) {
+    return <h2>You do not have any medication for today.</h2>;
+  }
 
-    return (
-        <ol>
-            {dailymeds.map((dailymeds) => {
-                return <li key={dailymeds._id} className="list-group-item">
-                <p>{dailymeds.name}</p>
-                <p>{dailymeds.amount} at {dailymeds.times}</p>
-                </li>
-            })}
-        </ol>
-    );
+  return (
+    <ol>
+      {dailymeds.map((dailymeds) => {
+        return (
+          <li key={dailymeds._id} className="list-group-item">
+            <p>{dailymeds.name}</p>
+            <p>
+              {dailymeds.amount} at {dailymeds.times}
+            </p>
+          </li>
+        );
+      })}
+    </ol>
+  );
 };
 
 export default DailyMedication;
