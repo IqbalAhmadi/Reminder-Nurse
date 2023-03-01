@@ -30,6 +30,17 @@ button:hover {
 
 /* /medicines styling */
 
+.tab-content {
+  border: solid var(--contrast);
+}
+
+.nav-item .nav-link {
+  background-color: var(--light);
+}
+.nav-item.nav-link.active {
+  background-color: var(--contrast);
+}
+
 .medication-list li {
   padding: 5px;
   margin: 10px;
