@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Current from './pages/Current';
+import Daily from './pages/Daily'
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/current" element={<Current />} />
+          <Route path="/daily" element={<Daily />} />
         </Routes>
       </Router>
     </ApolloProvider>
