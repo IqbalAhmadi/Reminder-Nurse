@@ -48,7 +48,7 @@ const resolvers = {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
-      const updatedMedicine = await Medicine.updateOne(
+      const updatedMedicine = await Medicine.findOneAndUpdate(
         { _id: medicineId, userId: context.user.id },
         { ...medicine },
         { new: true }
@@ -58,12 +58,21 @@ const resolvers = {
     },
     // toggles isActive of specific medicine
     toggleMedicine: async (parent, { medicineId }, context) => {
+      // delete after context implementation
+      const tempToggledMedicine = await Medicine.findOneAndUpdate(
+        { _id: medicineId },
+        [{ $set: { isActive: { $not: '$isActive' } } }],
+        { new: true }
+      );
+
+      return tempToggledMedicine;
+
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
-      const toggledMedicine = await Medicine.updateOne(
-        { id: medicineId, userId: context.user.id },
-        { $set: { isActive: { $not: '$isActive' } } },
+      const toggledMedicine = await Medicine.findOneAndUpdate(
+        { _id: medicineId, userId: context.user.id },
+        [{ $set: { isActive: { $not: '$isActive' } } }],
         { new: true }
       );
 
