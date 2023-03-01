@@ -3,8 +3,6 @@
   --gray: #5c9eb6;
   --light: #bdcdd6;
   --contrast: #eee9da;
-
-  background-color: var(--dark);
 }
 
 h1,
@@ -23,6 +21,7 @@ header {
 
 body {
   margin: 10px;
+  background-color: var(--dark);
 }
 
 button:hover {

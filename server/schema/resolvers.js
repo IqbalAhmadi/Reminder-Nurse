@@ -5,22 +5,29 @@ const resolvers = {
   Query: {
     // get single medicine
     medicine: async (parent, { medicineId }, context) => {
+      // delete after context implementation
+      return Medicine.findOne({ _id: medicineId });
+
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
       return Medicine.findOne({ _id: medicineId, userId: context.user.id });
     },
     // gets all medicine matching userId using context
     medicines: async (parent, args, context) => {
+      // delete after context implementation
+      return Medicine.find({});
+
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
       return Medicine.find({ userId: context.user.id });
     },
     dailymeds: async (parent, args, context) => {
-      // -- commenting out until authenticator has been implemented
-      // if (!context.user)
-      //   throw new AuthenticationError('You need to be logged in!');
-      // return Medicine.find({ userId: context.user.id, isActive: true })
+      // delete after context implementation
       return Medicine.find({ isActive: true });
+
+      if (!context.user)
+        throw new AuthenticationError('You need to be logged in!');
+      return Medicine.find({ userId: context.user.id, isActive: true });
     },
   },
   Mutation: {
