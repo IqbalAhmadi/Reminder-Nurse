@@ -28,11 +28,34 @@ button:hover {
   cursor: pointer;
 }
 
+/* /medicines styling */
+
 .medication-list li {
   padding: 5px;
   margin: 10px;
   border: solid var(--contrast);
   background-color: var(--gray);
+}
+
+.medication-list a {
+  color: white;
+  text-decoration: none;
+}
+
+/* /medicine:medicineId styling */
+
+.edit-medication button {
+  display: block;
+  margin-left: auto;
+}
+
+.edit-medication h2 {
+  margin: 10px;
+}
+
+.edit-medication a {
+  color: white;
+  text-decoration: none;
 }
 
 /* Login & Sign In Form Styles */
