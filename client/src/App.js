@@ -4,7 +4,8 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Current from './pages/Current';
+import Medicines from './pages/Medicines';
+import Medicine from './pages/Medicine';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -18,7 +19,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/current" element={<Current />} />
+          <Route path="/medicines" element={<Medicines />} />
+          <Route path="/medicine/:medicineId" element={<Medicine />} />
+          <Route
+            path="*"
+            element={<h1 className="display-2">Wrong page!</h1>}
+          />
         </Routes>
       </Router>
     </ApolloProvider>

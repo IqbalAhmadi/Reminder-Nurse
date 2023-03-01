@@ -2,22 +2,24 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
-import Button from 'react-bootstrap/Button';
+import { Container, Button } from 'react-bootstrap';
 
-const Current = () => {
+const Medicines = () => {
   const { loading, data } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
 
   return (
-    <section className="current">
-      <h1>Current Medication</h1>
-      <Button>Add Medication</Button>
+    <Container>
+      <section className="display-flex justify-space-between flex-wrap">
+        <h1>Current Medication</h1>
+        <Button>Add Medication</Button>
+      </section>
       <section>
         <MedicationList medicines={data.medicines} />
       </section>
-    </section>
+    </Container>
   );
 };
 
-export default Current;
+export default Medicines;
