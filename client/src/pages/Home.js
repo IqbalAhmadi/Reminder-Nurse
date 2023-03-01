@@ -1,7 +1,14 @@
 import React from 'react';
+import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
 
 const Home = () => {
-  return <div className="card bg-white card-rounded w-50">HOME</div>;
+  return (
+    <div className="card bg-white card-rounded w-50">
+      <SignupForm />
+      <LoginForm />
+    </div>
+  );
 };
 
 export default Home;

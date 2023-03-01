@@ -6,6 +6,41 @@
 }
 
 header {
+  display: grid;
+  grid-template-columns: auto 1 fr;
+
   margin: 5px;
   border: solid var(--dark);
+}
+
+/* Login & Sign In Form Styles */
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-input {
+  margin-bottom: 15px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.form-submit-btn {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
 }
