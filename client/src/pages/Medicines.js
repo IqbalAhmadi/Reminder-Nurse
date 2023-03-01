@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
-import { Container, Button, ButtonGroup, Tab, Tabs } from 'react-bootstrap';
+import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 
 const Medicines = () => {
   const { loading, data } = useQuery(QUERY_MEDICINES);
