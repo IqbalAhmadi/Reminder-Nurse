@@ -31,3 +31,18 @@ export const QUERY_MEDICINES = gql`
     }
   }
 `;
+
+export const QUERY_DAILYMEDS = gql`
+  query Dailymeds {
+    dailymeds {
+      _id
+      amount
+      interval
+      name
+      start
+      subInterval
+      times
+      userId
+    }
+  }
+`;

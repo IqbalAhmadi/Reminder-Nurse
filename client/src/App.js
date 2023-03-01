@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
+import Daily from './pages/Daily';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -19,6 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/daily" element={<Daily />} />
           <Route path="/medicines" element={<Medicines />} />
           <Route path="/medicine/:medicineId" element={<Medicine />} />
           <Route

@@ -25,6 +25,7 @@ const typeDefs = gql`
   type Query {
     medicine(medicineId: ID!): Medicine
     medicines: [Medicine]
+    dailymeds: [Medicine]
   }
 
   type Mutation {
