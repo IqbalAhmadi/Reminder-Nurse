@@ -29,20 +29,21 @@ const LoginForm = () => {
       event.stopPropagation();
     }
 
-    try {
-      const response = await loginUser(userFormData);
+    // TODO: Needs to work on this
+    // try {
+    //   const response = await loginUser(userFormData);
 
-      if (!response.ok) {
-        throw new Error('Oops! something went wrong!');
-      }
+    //   if (!response.ok) {
+    //     throw new Error('Oops! something went wrong!');
+    //   }
 
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
-    } catch (err) {
-      console.error(err);
-      setShowAlert(true);
-    }
+    //   const { token, user } = await response.json();
+    //   console.log(user);
+    //   Auth.login(token);
+    // } catch (err) {
+    //   console.error(err);
+    //   setShowAlert(true);
+    // }
 
     setUserFormData({
       username: '',
