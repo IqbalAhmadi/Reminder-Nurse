@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
-import './index.css';
+// import './index.css';
 
 const SignupForm = () => {
   // set initial form state
