@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 
 const Medicines = () => {
   const { loading, data } = useQuery(QUERY_MEDICINES);
@@ -11,12 +11,16 @@ const Medicines = () => {
 
   return (
     <Container>
-      <section className="display-flex justify-space-between flex-wrap">
-        <h1>Current Medication</h1>
-        <Button>Add Medication</Button>
-      </section>
-      <section>
-        <MedicationList medicines={data.medicines} />
+      <Button>Add Medication</Button>
+      <section className="medicines">
+        <Tabs defaultActiveKey="active" id="active-inactive-medication" justify>
+          <Tab eventKey="active" title="Active Medication">
+            <MedicationList medicines={data.medicines} isActive={true} />
+          </Tab>
+          <Tab eventKey="inactive" title="Inactive Medication">
+            <MedicationList medicines={data.medicines} isActive={false} />
+          </Tab>
+        </Tabs>
       </section>
     </Container>
   );
