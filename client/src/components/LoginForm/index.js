@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
+import './index.css';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
@@ -53,8 +53,14 @@ const LoginForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form
+        className="form-container"
+        noValidate
+        validated={validated}
+        onSubmit={handleFormSubmit}
+      >
         <Alert
+          className="alert"
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
@@ -62,9 +68,10 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group>
+        <Form.Group className="form-title">
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
+            className="form-input"
             type="text"
             placeholder="Your username"
             name="username"
@@ -77,9 +84,10 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="form-title">
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
+            className="form-input"
             type="password"
             placeholder="Your password"
             name="password"
@@ -92,6 +100,7 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Button
+          className="form-submit-btn"
           disabled={!(userFormData.username && userFormData.password)}
           type="submit"
           variant="success"
