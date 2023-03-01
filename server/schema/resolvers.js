@@ -11,11 +11,9 @@ const resolvers = {
     },
     // gets all medicine matching userId using context
     medicines: async (parent, args, context) => {
-      // if (!context.user)
-      //   throw new AuthenticationError('You need to be logged in!');
-      // return Medicine.find({ userId: context.user.id });
-
-      return Medicine.find({});
+      if (!context.user)
+        throw new AuthenticationError('You need to be logged in!');
+      return Medicine.find({ userId: context.user.id });
     },
   },
   Mutation: {
