@@ -1,10 +1,4 @@
 import React from 'react';
-// importing node scheduler package
-//const schedule = require('node-schedule')
-// // at 23:59PM, runs the following function
-// const getDailyList = schedule.scheduleJob('0 59 23 * * *', function() {
-//     console.log('test')
-// })
 
 const DailyMedication = ({ dailymeds }) => {
   if (!dailymeds.length) {
@@ -14,19 +8,19 @@ const DailyMedication = ({ dailymeds }) => {
   return (
     <div>
       <h2>Daily Medication</h2>
-      <ul class="list-group">
-        {dailymeds.map((dailymeds) => {
+      <ul className="list-group">
+        {dailymeds.map((med) => {
           return (
-            <div className="card">
-              <div key={dailymeds._id} className="card-body px-4 pt-3">
-                <h3 className="text-primary">{dailymeds.name}</h3>
-                <p className="text-dark">Take dosage at {dailymeds.times}</p>
+            <li key={med._id + med.time} className="card">
+              <div className="card-body px-4 pt-3">
+                <h3 className="text-primary">{med.name}</h3>
+                <p className="text-dark">Take dosage at {med.time}</p>
                 <hr />
                 <p className="text-muted small">
-                  You have {dailymeds.amount} remaining dosages.
+                  You have {med.amount} remaining dosages.
                 </p>
               </div>
-            </div>
+            </li>
           );
         })}
       </ul>
