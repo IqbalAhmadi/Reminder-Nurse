@@ -53,7 +53,7 @@ const LoginForm = () => {
   return (
     <>
       <Form
-        className="form-container"
+        className="form-container-login"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
@@ -68,7 +68,10 @@ const LoginForm = () => {
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group className="form-title">
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <h4 className="title-signup">Sign In</h4>
+          <Form.Label className="label-usrName" htmlFor="username">
+            Username
+          </Form.Label>
           <Form.Control
             className="form-input"
             type="text"
@@ -84,7 +87,9 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group className="form-title">
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label className="label-usrName" htmlFor="password">
+            Password
+          </Form.Label>
           <Form.Control
             className="form-input"
             type="password"

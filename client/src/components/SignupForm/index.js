@@ -72,7 +72,10 @@ const SignupForm = () => {
         </Alert>
 
         <Form.Group className="form-title">
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <h4 className="title-signup">Sign Up</h4>
+          <Form.Label className="label-usrName" htmlFor="username">
+            Username
+          </Form.Label>
           <Form.Control
             className="form-input"
             type="text"
@@ -88,7 +91,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="form-title">
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label className="label-usrName" htmlFor="password">
+            Password
+          </Form.Label>
           <Form.Control
             className="form-input"
             type="password"
