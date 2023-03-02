@@ -15,9 +15,9 @@ const Medicine = () => {
 
   return (
     <section className="edit-medication">
-      <Button>
-        <Link to={'../medicines'}>Go Back</Link>
-      </Button>
+      <Link to={'../medicines'}>
+        <Button>Go Back</Button>
+      </Link>
       <h2>Edit your medications info</h2>
       {data ? (
         <Medication medicine={data.medicine} />

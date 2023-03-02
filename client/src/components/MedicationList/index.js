@@ -24,9 +24,9 @@ const MedicationList = ({ medicines, isActive }) => {
             <section className="m-1 display-flex justify-content-between flex-wrap">
               <h3>{medicine.name}</h3>
               <section className="d-flex m-1 flex-wrap justify-content-end">
-                <Button variant="secondary">
-                  <Link to={'../medicine/' + medicine._id}>Modify</Link>
-                </Button>
+                <Link to={'../medicine/' + medicine._id}>
+                  <Button variant="secondary">Modify </Button>
+                </Link>
                 <Button
                   variant={isActive ? 'danger' : 'success'}
                   id={medicine._id}

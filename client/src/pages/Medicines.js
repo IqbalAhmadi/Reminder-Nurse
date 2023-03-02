@@ -22,12 +22,16 @@ const Medicines = () => {
           </Tab>
         </Tabs>
         <section className="d-flex flex-wrap justify-content-center">
-          <Button className="form-submit-btn" variant="primary" type="submit">
-            <Link to="../medicine/add">Add Medication</Link>
-          </Button>
-          <Button className="form-submit-btn" variant="primary" type="submit">
-            <Link to="../daily">Go Back</Link>
-          </Button>
+          <Link to="../medicine/add">
+            <Button className="form-submit-btn" variant="primary" type="submit">
+              Add Medication
+            </Button>
+          </Link>
+          <Link to="../daily">
+            <Button className="form-submit-btn" variant="primary" type="submit">
+              Go Back
+            </Button>
+          </Link>
         </section>
       </section>
     </Container>
