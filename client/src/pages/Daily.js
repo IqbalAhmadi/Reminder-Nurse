@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_DAILYMEDS } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 
 const Daily = () => {
@@ -13,9 +13,9 @@ const Daily = () => {
   return (
     <section>
       <Container>
-        <Button>
-          <Link to={'/medicines'}>Edit Medications</Link>
-        </Button>
+        <Link to={'/medicines'}>
+          <Button>Edit Medications</Button>
+        </Link>
         <DailyMedication dailymeds={data.dailymeds} />
       </Container>
     </section>

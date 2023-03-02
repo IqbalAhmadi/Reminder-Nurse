@@ -37,9 +37,12 @@ const medicineSchema = new Schema({
         // format to HH:MM
         return dayjs(timestamp).format('HH:mm');
       },
-      // set: (timestamp) => {
-      //   const date = new Date();
-      // },
+      set: (timestamp) => {
+        const hour = parseInt(timestamp[0] + timestamp[1]);
+        const minute = parseInt(timestamp[3] + timestamp[4]);
+        const date = dayjs().set('hour', hour).set('minute', minute);
+        return date;
+      },
     },
   ],
   isActive: {

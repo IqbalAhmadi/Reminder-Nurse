@@ -3,60 +3,60 @@
     "name": "Xanax",
     "amount": 10,
     "interval": "daily",
-    "times": ["2022-02-28T21:38:44.599+00:00", "2022-02-28T11:38:44.599+00:00"]
+    "times": ["10:30", "03:30"]
   },
   {
     "name": "Klonopin",
     "amount": 20,
     "interval": "weekly",
-    "times": "2022-02-28T20:45:44.599+00:00"
+    "times": ["11:30", "04:30"]
   },
   {
     "name": "Valium",
     "amount": 30,
     "interval": "monthly",
-    "times": "2022-02-28T20:21:44.599+00:00"
+    "times": ["12:30", "05:30"]
   },
   {
     "name": "Ambien",
     "amount": 15,
     "interval": "daily",
-    "times": "2022-02-28T20:18:44.599+00:00"
+    "times": ["13:30", "06:30"]
   },
   {
     "name": "Lunesta",
     "amount": 40,
     "interval": "weekly",
-    "times": "2022-02-28T20:10:44.599+00:00"
+    "times": ["14:30", "07:30"]
   },
   {
     "name": "Sonata",
     "amount": 5,
     "interval": "monthly",
-    "times": "2022-02-28T20:59:44.599+00:00"
+    "times": ["15:30", "08:30"]
   },
   {
     "name": "Avinza",
     "amount": 35,
     "interval": "daily",
-    "times": "2022-02-28T21:48:44.599+00:00"
+    "times": ["16:30", "09:30"]
   },
   {
     "name": "OxyContin",
     "amount": 45,
     "interval": "weekly",
-    "times": "2022-02-28T20:38:44.599+00:00"
+    "times": ["17:30", "10:30"]
   },
   {
     "name": "Vicodin",
     "amount": 100,
     "interval": "monthly",
-    "times": "2022-02-28T20:38:44.599+00:00"
+    "times": ["18:30", "11:30"]
   },
   {
     "name": "Adderal",
     "amount": 60,
     "interval": "daily",
-    "times": "2022-02-28T20:38:44.599+00:00"
+    "times": ["19:30", "12:30"]
   }
 ]

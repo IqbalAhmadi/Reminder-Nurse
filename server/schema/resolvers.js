@@ -73,6 +73,15 @@ const resolvers = {
     },
     // updates fields of medicine depending on whats passed in
     updateMedicine: async (parent, { medicineId, medicine }, context) => {
+      // delete after context implementation
+      const tempUpdateMedicine = await Medicine.findOneAndUpdate(
+        { _id: medicineId },
+        { ...medicine },
+        { new: true }
+      );
+
+      return tempUpdateMedicine;
+
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
