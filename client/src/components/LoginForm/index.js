@@ -3,15 +3,18 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import { LOGIN_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
     password: '',
   });
 
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { loading, error }] = useMutation(LOGIN_USER);
+
   // set state for form validation
   const [validated] = useState(false);
   // se state for alert
@@ -32,28 +35,23 @@ const LoginForm = () => {
       event.stopPropagation();
     }
 
-    // TODO: Needs to work on this
-    // try {
-    //   const response = await loginUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error('Oops! something went wrong!');
-    //   }
-
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
+    try {
+      const { data } = await login({ variables: { ...userFormData } });
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
 
     setUserFormData({
       username: '',
       password: '',
     });
-  };
 
+    navigate('/daily');
+  };
+  // just for testing purposes but needs to be deleted after 👇
+  if (error) return <p>Error :</p>;
   return (
     <>
       <Form
@@ -96,6 +94,7 @@ const LoginForm = () => {
           </Form.Label>
           <Form.Control
             className="form-input"
+            disabled={loading}
             type="password"
             placeholder="Your password"
             name="password"
@@ -109,7 +108,9 @@ const LoginForm = () => {
         </Form.Group>
         <Button
           className="form-submit-btn"
-          disabled={!(userFormData.username && userFormData.password)}
+          disabled={
+            !(userFormData.username && userFormData.password) || loading
+          }
           type="submit"
           variant="success"
         >

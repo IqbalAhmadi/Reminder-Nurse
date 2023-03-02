@@ -4,10 +4,10 @@ import SignupForm from '../components/SignupForm';
 
 const Home = () => {
   return (
-    <div>
+    <section>
       <SignupForm />
       <LoginForm />
-    </div>
+    </section>
   );
 };
 
