@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
+import { useNavigate } from 'react-router-dom';
+import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 const SignupForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
     password: '',
   });
+
+  const [addUser, { loading }] = useMutation(ADD_USER);
   //set state for form validation
   const [validated] = useState(false);
   //set state for alert
@@ -28,22 +34,16 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    // TODO: Needs to work on this one too. Same thing in SignupForm.js
-    // try {
-    //   const response = await createUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error('Oh no. Something went wrong here!');
-    //   }
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
-
-    console.log(userFormData);
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+      Auth.login(data.addUser.token);
+      navigate('/daily');
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
 
     setUserFormData({
       username: '',
@@ -109,7 +109,9 @@ const SignupForm = () => {
         </Form.Group>
         <Button
           className="form-submit-btn"
-          disabled={!(userFormData.username && userFormData.password)}
+          disabled={
+            !(userFormData.username && userFormData.password) || loading
+          }
           type="submit"
           variant="success"
         >
