@@ -17,13 +17,13 @@ const MedicationList = ({ medicines, isActive }) => {
   };
 
   return (
-    <ol className="medication-list display-flex flex-wrap">
+    <ol className="medication-list display-flex flex-wrap justify-content-center">
       {medicines.map((medicine) =>
         isActive === medicine.isActive ? (
           <li key={medicine._id} style={{ listStyleType: 'none' }}>
-            <section className="display-flex">
+            <section className="m-1 display-flex justify-content-between flex-wrap">
               <h3>{medicine.name}</h3>
-              <section className="m-1">
+              <section className="d-flex m-1 flex-wrap justify-content-end">
                 <Button variant="secondary">
                   <Link to={'../medicine/' + medicine._id}>Modify</Link>
                 </Button>

@@ -41,6 +41,15 @@ button:hover {
   background-color: var(--contrast);
 }
 
+.medicines a {
+  color: white;
+  text-decoration: none;
+}
+
+.medicines .tab-content {
+  margin-bottom: 10px
+}
+
 .medication-list li {
   padding: 5px;
   margin: 10px;
@@ -48,9 +57,8 @@ button:hover {
   background-color: var(--gray);
 }
 
-.medication-list a {
-  color: white;
-  text-decoration: none;
+.medication-list h3 {
+  margin: auto;
 }
 
 /* /medicine:medicineId styling */
