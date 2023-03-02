@@ -71,9 +71,10 @@ button:hover {
 
 /* Login & Sign In Form Styles */
 
-.form-container {
+.form-container,
+.form-container-login {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -84,6 +85,10 @@ button:hover {
 .form-title {
   margin-bottom: 20px;
   text-align: center;
+}
+.label-usrName::first-letter {
+  font-size: 2rem;
+  color: #276873;
 }
 
 .form-input {
@@ -120,6 +125,9 @@ button:hover {
 .form-submit-btn:active {
   position: relative;
   top: 1px;
+}
+.title-signup {
+  color: #276873;
 }
 
 /* Media Queries */

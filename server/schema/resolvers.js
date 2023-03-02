@@ -1,5 +1,6 @@
-const { Medicine } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
+const { User, Medicine } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -29,8 +30,35 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       return Medicine.find({ userId: context.user.id, isActive: true });
     },
+    // TODO: login user
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
   Mutation: {
+    // User login mutation
+    addUser: async (parent, { username, password }) => {
+      const user = await User.create({ username, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
+      if (!user) {
+        throw new AuthenticationError('Incorrect username or password!');
+      }
+      // check the password
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect username or password!');
+      }
+      const token = signToken(user);
+      return { token, user };
+    },
+
     // adds new medicine using context for userId
     addMedicine: async (parent, { medicine }, context) => {
       if (!context.user)
