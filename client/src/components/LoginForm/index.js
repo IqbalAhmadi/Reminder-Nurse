@@ -13,7 +13,7 @@ const LoginForm = () => {
     password: '',
   });
 
-  const [login, { loading, error }] = useMutation(LOGIN_USER);
+  const [login, { loading }] = useMutation(LOGIN_USER);
 
   // set state for form validation
   const [validated] = useState(false);
@@ -38,6 +38,7 @@ const LoginForm = () => {
     try {
       const { data } = await login({ variables: { ...userFormData } });
       Auth.login(data.login.token);
+      navigate('/daily');
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -47,11 +48,7 @@ const LoginForm = () => {
       username: '',
       password: '',
     });
-
-    navigate('/daily');
   };
-  // just for testing purposes but needs to be deleted after 👇
-  if (error) return <p>Error :</p>;
   return (
     <>
       <Form
@@ -67,7 +64,7 @@ const LoginForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your login credentials!
+          Incorrect username/password!
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Log In</h4>
