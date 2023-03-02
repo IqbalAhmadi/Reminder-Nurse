@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
+import { LOGIN_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 const LoginForm = () => {
   // set initial form state
@@ -8,6 +10,8 @@ const LoginForm = () => {
     username: '',
     password: '',
   });
+
+  const [login, { error, data }] = useMutation(LOGIN_USER);
   // set state for form validation
   const [validated] = useState(false);
   // se state for alert
@@ -68,7 +72,7 @@ const LoginForm = () => {
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group className="form-title">
-          <h4 className="title-signup">Sign In</h4>
+          <h4 className="title-signup">Log In</h4>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>

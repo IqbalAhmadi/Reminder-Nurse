@@ -12,27 +12,29 @@ We have a lot of development ideas, and we are open to newer ones. Below are som
 
 - Information about nearby pharmacies, their locations and timetables
 
-## Frameworks implemented
+## Technologies Utilized
 
-- Chakra UI
--
+- [React](https://reactjs.org/)
+- [Mongoose](https://mongoosejs.com/docs/guide.html)
 
-## Server Side APIs
-
--
--
-
-## Built With
-
-- HTML
-- CSS
-- Javascript
-- React
-- NoSQL
-- MongoDB
-- Mongoose
-- Express
-- Node.js
+- [Chakra UI](https://chakra-ui.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Heroku](https://www.heroku.com)
+- [NPM Apollo Client Package](https://www.npmjs.com/package/stripe)
+- [NPM Apollo-Server-Express Package](https://www.npmjs.com/package/apollo-server-express)
+- [NPM GraphQL Package](https://www.npmjs.com/package/graphql)
+- [NPM Bcrypt Package](https://www.npmjs.com/package/bcrypt)
+- [NPM Express.js Package](https://www.npmjs.com/package/express)
+- [NPM JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
+- [NPM Mongoose Package](https://www.npmjs.com/package/mongoose)
+- [Node.js](https://nodejs.org/en/)
+- [NPM nodemon Package](https://www.npmjs.com/package/nodemon)
+- [NPM JWT-Decode Package](https://www.npmjs.com/package/jwt-decode)
+- [NPM React Package](https://www.npmjs.com/package/react)
+- [NPM React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+- [React-Dom](https://www.npmjs.com/package/react-dom)
+- [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+- [React-Scripts](https://www.npmjs.com/package/react-scripts)
 
 ## Installation
 
@@ -46,7 +48,7 @@ This will install all npm managed dependencies.
 
 ## Usage
 
-An email and password is required for sign up and sign in.
+An email and password is required for sign up and Log in.
 
 ### Dashboard - View Medications
 
@@ -69,10 +71,6 @@ From current Medications screen, users can quickly delete medications.
 Images are coming soon ...
 
 [![image 1](./assets/images/wireframe.png)](https://www.figma.com/file/80PipsIdQMKVywFyTsRBBb/Reminder-Nurse?node-id=0%3A1&t=h3E3tFNgBNsv1Rsq-0)
-
-<!-- ![image 2]()
-![image 3]()
-![image 4]() -->
 
 ## Collaborators
 
