@@ -12,18 +12,25 @@ const DailyMedication = ({ dailymeds }) => {
   }
 
   return (
-    <ol>
-      {dailymeds.map((dailymeds) => {
-        return (
-          <li key={dailymeds._id} className="list-group-item">
-            <p>{dailymeds.name}</p>
-            <p>
-              {dailymeds.amount} at {dailymeds.times}
-            </p>
-          </li>
-        );
-      })}
-    </ol>
+    <div>
+      <h2>Daily Medication</h2>
+      <ul class="list-group">
+        {dailymeds.map((dailymeds) => {
+          return (
+            <div className="card">
+              <div key={dailymeds._id} className="card-body px-4 pt-3">
+                <h3 className="text-primary">{dailymeds.name}</h3>
+                <p className="text-dark">Take dosage at {dailymeds.times}</p>
+                <hr />
+                <p className="text-muted small">
+                  You have {dailymeds.amount} remaining dosages.
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
