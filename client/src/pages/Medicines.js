@@ -21,12 +21,12 @@ const Medicines = () => {
             <MedicationList medicines={data.medicines} isActive={false} />
           </Tab>
         </Tabs>
-        <section className='d-flex flex-wrap justify-content-center'>
+        <section className="d-flex flex-wrap justify-content-center">
           <Button className="form-submit-btn" variant="primary" type="submit">
-            <Link to='../medicine/add'>Add Medication</Link>
+            <Link to="../medicine/add">Add Medication</Link>
           </Button>
           <Button className="form-submit-btn" variant="primary" type="submit">
-            <Link to='../daily'>Go Back</Link>
+            <Link to="../daily">Go Back</Link>
           </Button>
         </section>
       </section>

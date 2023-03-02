@@ -35,7 +35,7 @@ const Medication = ({ medicine }) => {
     await updateMedicine({
       variables: { medicineId: medicine._id, medicine: { ...formData, times } },
     });
-    
+
     navigate('/medicines');
   };
 

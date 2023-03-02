@@ -82,7 +82,6 @@ const resolvers = {
 
       return tempUpdateMedicine;
 
-
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
