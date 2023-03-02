@@ -28,6 +28,20 @@ export const TOGGLE_ACTIVE = gql`
   }
 `;
 
+export const ADD_MEDICINE = gql`
+  mutation addMedicine($medicine: MedicineInput!) {
+    addMedicine(medicine: $medicine){
+      _id
+      name
+      amount
+      interval
+      subInterval
+      times
+      isActive
+    }
+  }
+`;
+
 export const LOGIN_USER = gql`
   mutation login($username: String!, $password: String!) {
     login(username: $username, password: $password) {

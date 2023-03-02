@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { UPDATE_MEDICINE } from '../../utils/mutations';
+import { ADD_MEDICINE, UPDATE_MEDICINE } from '../../utils/mutations';
 import { useNavigate } from 'react-router-dom';
 
-const Medication = ({ medicine }) => {
+const Medication = ({ medicine, isNew }) => {
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [updateMedicine] = useMutation(UPDATE_MEDICINE);
+  const [createMedicine] = useMutation(ADD_MEDICINE);
   const [formData, setFormData] = useState({
     name: medicine?.name || '',
     start: medicine?.start || '',
@@ -32,9 +33,18 @@ const Medication = ({ medicine }) => {
       times.push(timesEl[i].value);
     }
 
-    await updateMedicine({
-      variables: { medicineId: medicine._id, medicine: { ...formData, times } },
-    });
+    isNew
+      ? await updateMedicine({
+          variables: {
+            medicineId: medicine._id,
+            medicine: { ...formData, times },
+          },
+        })
+      : await createMedicine({
+          variables: {
+            medicine: { ...formData, times },
+          },
+        });
 
     navigate('/medicines');
   };

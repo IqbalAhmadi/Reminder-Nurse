@@ -19,8 +19,13 @@ const Medicine = () => {
         <Button>Go Back</Button>
       </Link>
       <h2>Edit your medications info</h2>
-      {data ? (
-        <Medication medicine={data.medicine} />
+      {/* if route has proper id or add load edit or add */}
+      {data || medicineId === 'add' ? (
+        data ? (
+          <Medication medicine={data.medicine} isNew={false} />
+        ) : (
+          <Medication medicine={null} isNew={true} />
+        )
       ) : (
         <Navigate to="../medicines" />
       )}
