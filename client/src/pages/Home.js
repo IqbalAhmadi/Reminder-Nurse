@@ -5,7 +5,7 @@ import Daily from './Daily';
 
 const Home = () => {
   const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
-  return loggedIn ? <Daily /> : <Access setLoggedIn={setLoggedIn}/>;
+  return loggedIn ? <Daily /> : <Access setLoggedIn={setLoggedIn} />;
 };
 
 export default Home;

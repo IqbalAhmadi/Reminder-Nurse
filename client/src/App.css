@@ -152,8 +152,6 @@ button:hover {
   color: #276873;
 }
 
-
-
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -171,4 +169,3 @@ button:hover {
     margin-top: 20px;
   }
 }
-

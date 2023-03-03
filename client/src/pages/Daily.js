@@ -29,7 +29,7 @@ const Daily = () => {
       <Container>
         <DailyMedication dailymeds={sortedMeds} />
         <Link to={'/medicines'}>
-          <Button className='btn-block shadow'>Edit Medications</Button>
+          <Button className="btn-block shadow">Edit Medications</Button>
         </Link>
       </Container>
     </section>
