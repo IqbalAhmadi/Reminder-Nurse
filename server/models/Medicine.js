@@ -1,18 +1,11 @@
 const dayjs = require('dayjs');
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 const medicineSchema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true,
-  },
-  start: {
-    type: Date,
-    required: true,
-    default: Date.now,
-    get: (timestamp) => dayjs(timestamp).format('YYYY-MM-DD'),
   },
   amount: {
     type: Number,
@@ -30,21 +23,14 @@ const medicineSchema = new Schema({
     default: 'every',
     required: true,
   },
-  times: [
-    {
-      type: Date,
-      get: (timestamp) => {
-        // format to HH:MM
-        return dayjs(timestamp).format('HH:mm');
-      },
-      set: (timestamp) => {
-        const hour = parseInt(timestamp[0] + timestamp[1]);
-        const minute = parseInt(timestamp[3] + timestamp[4]);
-        const date = dayjs().set('hour', hour).set('minute', minute);
-        return date;
-      },
-    },
-  ],
+  // time/queue format HH:mm
+  times: [String],
+  queue: [String],
+  queueLastFilled: {
+    type: Date,
+    required: true,
+    default: new Date(1995, 11, 17),
+  },
   isActive: {
     type: Boolean,
     required: true,
@@ -56,6 +42,36 @@ const medicineSchema = new Schema({
     ref: 'User',
   },
 });
+
+// makes inactive if amount < 1
+medicineSchema.pre('save', async function (next) {
+  if ((this.isNew || this.isModified('amount')) && this.amount < 1) {
+    this.isActive = false;
+  }
+
+  next();
+});
+
+// returns true or false if the queue has to be filled
+medicineSchema.methods.fillQueue = async function () {
+  const queueDate = dayjs(this.queueLastFilled);
+  const daysPassed = dayjs().diff(queueDate, 'day');
+  const subInterval = this.subInterval === 'every' ? 1 : 2;
+
+  // depending on interval if enough days have passed then return true else false
+  switch (this.interval) {
+    case 'monthly':
+      if (daysPassed < 30 * subInterval) break;
+    case 'weekly':
+      if (daysPassed < 7 * subInterval) break;
+    case 'daily':
+      if (daysPassed < 1 * subInterval) break;
+    default:
+      return true;
+  }
+
+  return false;
+};
 
 const Medicine = model('Medicine', medicineSchema);
 

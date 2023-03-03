@@ -7,13 +7,18 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import Auth from './utils/auth';
 import { Container } from 'react-bootstrap';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
-import Daily from './pages/Daily';
 import NotFound from './pages/NotFound';
 
 const httpLink = createHttpLink({
@@ -43,8 +48,14 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/medicines" element={<Medicines />} />
-            <Route path="/medicine/:medicineId" element={<Medicine />} />
+            <Route
+              path="/medicines"
+              element={Auth.loggedIn() ? <Medicines /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/medicine/:medicineId"
+              element={Auth.loggedIn() ? <Medicine /> : <Navigate to="/" />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>

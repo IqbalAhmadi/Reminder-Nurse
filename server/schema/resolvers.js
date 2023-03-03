@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Medicine } = require('../models');
 const { signToken } = require('../utils/auth');
+const { updateQueue } = require('../utils/updateQueue');
 
 const resolvers = {
   Query: {
@@ -19,7 +20,14 @@ const resolvers = {
     dailymeds: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.find({ userId: context.user._id, isActive: true });
+      const userMedicines = await Medicine.find({
+        userId: context.user._id,
+        amount: { $gt: 0 },
+        isActive: true,
+      });
+      const updatedMedicines = await updateQueue(userMedicines);
+
+      return updatedMedicines;
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -63,6 +71,7 @@ const resolvers = {
     },
     // updates fields of medicine depending on whats passed in
     updateMedicine: async (parent, { medicineId, medicine }, context) => {
+      console.log(medicine);
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
