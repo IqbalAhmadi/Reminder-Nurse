@@ -43,7 +43,6 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/daily" element={<Daily />} />
             <Route path="/medicines" element={<Medicines />} />
             <Route path="/medicine/:medicineId" element={<Medicine />} />
             <Route path="*" element={<NotFound />} />
