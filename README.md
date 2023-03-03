@@ -2,6 +2,8 @@
 
 ### This MERN Project is under construction 🔥
 
+![](https://img.shields.io/github/repo-size/IqbalAhmadi/reminder-nurse) ![](https://img.shields.io/librariesio/github/IqbalAhmadi/reminder-nurse) ![](https://img.shields.io/github/sponsors/IqbalAhmadi?style=social) ![](https://img.shields.io/github/contributors/IqbalAhmadi/reminder-nurse) ![](https://img.shields.io/github/last-commit/IqbalAhmadi/reminder-nurse) ![](https://img.shields.io/github/languages/top/IqbalAhmadi/reminder-nurse)
+
 ## Description
 
 70% of Americans regularly take prescription drugs, with more than half with at least two prescriptions. Taking the right drug at the correct time is difficult without a plan and daily reminders. With our cross-platform application Reminder Nurse, we help users stay on track with their dosages through notifications.
