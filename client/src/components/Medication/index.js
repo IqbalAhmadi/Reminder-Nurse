@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_MEDICINE, UPDATE_MEDICINE } from '../../utils/mutations';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Medication = ({ medicine, isNew }) => {
   const navigate = useNavigate();
@@ -154,9 +154,20 @@ const Medication = ({ medicine, isNew }) => {
           </ul>
         </Form.Group>
 
-        <Button className="form-submit-btn" variant="primary" type="submit">
-          Save
-        </Button>
+        <section className="d-flex flex-wrap justify-content-evenly">
+          <Button
+            className="form-submit-btn m-0"
+            variant="primary"
+            type="submit"
+          >
+            Save
+          </Button>
+          <Link to={'../medicines'}>
+            <Button className="form-submit-btn" variant="primary">
+              Cancel
+            </Button>
+          </Link>
+        </section>
       </Form>
     </Container>
   );

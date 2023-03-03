@@ -13,7 +13,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
-import Daily from './pages/Daily';
 import NotFound from './pages/NotFound';
 
 const httpLink = createHttpLink({

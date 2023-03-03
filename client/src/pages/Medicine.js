@@ -15,9 +15,6 @@ const Medicine = () => {
 
   return (
     <section className="edit-medication">
-      <Link to={'../medicines'}>
-        <Button>Go Back</Button>
-      </Link>
       <h2>Edit your medications info</h2>
       {/* if route has proper id or add load edit or add */}
       {data || medicineId === 'add' ? (
