@@ -24,7 +24,7 @@ module.exports = {
             await Medicine.findOneAndUpdate(
               { _id: medicine._id },
               {
-                queue: newQueue,
+                queue: [...newQueue],
                 queueLastFilled: Date.now(),
               },
               { new: true }

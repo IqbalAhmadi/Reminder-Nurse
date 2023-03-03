@@ -13,7 +13,7 @@ const typeDefs = gql`
     interval: String
     subInterval: String
     times: [String]
-    queueLastFilled: String
+    queue: [String]
     isActive: Boolean
     userId: ID!
   }

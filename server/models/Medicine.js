@@ -1,18 +1,6 @@
 const dayjs = require('dayjs');
 const { Schema, model } = require('mongoose');
 
-const timeGetter = (timestamp) => {
-  // format to HH:MM
-  return dayjs(timestamp).format('HH:mm');
-};
-
-const timeSetter = (timestamp) => {
-  const hour = parseInt(timestamp[0] + timestamp[1]);
-  const minute = parseInt(timestamp[3] + timestamp[4]);
-  const date = dayjs().set('hour', hour).set('minute', minute);
-  return date;
-};
-
 const medicineSchema = new Schema({
   name: {
     type: String,
@@ -35,20 +23,9 @@ const medicineSchema = new Schema({
     default: 'every',
     required: true,
   },
-  times: [
-    {
-      type: Date,
-      get: timeGetter,
-      set: timeSetter,
-    },
-  ],
-  queue: [
-    {
-      type: Date,
-      get: timeGetter,
-      set: timeSetter,
-    },
-  ],
+  // time/queue format HH:mm
+  times: [String],
+  queue: [String],
   queueLastFilled: {
     type: Date,
     required: true,
@@ -68,8 +45,10 @@ const medicineSchema = new Schema({
 
 // returns true or false if the queue has been filled today
 medicineSchema.methods.checkQueue = async function () {
-  const today = new Date();
-  if (this.queueLastFilled.toDateString() < today.toDateString()) return false;
+  const today = new Date().setHours(0, 0, 0, 0);
+  const queueDate = this.queueLastFilled.setHours(0, 0, 0, 0);
+
+  if (queueDate < today) return false;
   else return true;
 };
 

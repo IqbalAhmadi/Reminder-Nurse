@@ -24,8 +24,7 @@ const resolvers = {
         userId: context.user._id,
         isActive: true,
       });
-
-      const updatedMedicines = updateQueue(userMedicines);
+      const updatedMedicines = await updateQueue(userMedicines);
 
       return updatedMedicines;
     },
