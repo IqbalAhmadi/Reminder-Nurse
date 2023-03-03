@@ -64,8 +64,13 @@ const Medication = ({ medicine, isNew }) => {
   };
 
   const handleAddTime = (e) => {
-    console.log(formData.times);
     const times = [...formData.times, '00:00'];
+    setFormData({ ...formData, times });
+  };
+
+  const handleRemoveTime = (e) => {
+    const times = [...formData.times];
+    times.pop();
     setFormData({ ...formData, times });
   };
 
@@ -143,6 +148,7 @@ const Medication = ({ medicine, isNew }) => {
                   key={index}
                   data={{ time, index }}
                   handleChange={handleChange}
+                  handleRemove={handleRemoveTime}
                 />
               );
             })}
