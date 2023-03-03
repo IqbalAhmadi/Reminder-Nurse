@@ -23,9 +23,6 @@ const resolvers = {
       return Medicine.find({ userId: context.user.id });
     },
     dailymeds: async (parent, args, context) => {
-      // delete after context implementation
-      return Medicine.find({ isActive: true });
-
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
       return Medicine.find({ userId: context.user.id, isActive: true });
