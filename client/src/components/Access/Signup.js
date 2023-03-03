@@ -72,6 +72,7 @@ const SignupForm = ({ setLoggedIn }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Sign Up</h4>
+          <p className="subTitle">Create your account today!</p>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>

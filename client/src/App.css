@@ -25,6 +25,7 @@ header {
 
 body {
   background-color: var(--dark);
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
@@ -94,6 +95,8 @@ button:hover {
 }
 
 /* Login & Sign In Form Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 .form-container,
 .form-container-login {
@@ -109,6 +112,9 @@ button:hover {
 .form-title {
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-size: 36px;
 }
 .label-usrName::first-letter {
   font-size: 2rem;
@@ -152,6 +158,12 @@ button:hover {
   color: #276873;
 }
 
+.subTitle {
+  font-size: 16px;
+  color: #777;
+  margin-top: 5px;
+}
+
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -168,4 +180,21 @@ button:hover {
   .form-submit-btn {
     margin-top: 20px;
   }
+}
+
+/* 404 page */
+
+.error-content {
+  bottom: 570px;
+  font-size: 48px;
+  line-height: 1.5;
+  position: absolute;
+  text-shadow: 0 0 6px rgb(0 0 0 / 20%);
+  width: 100%;
+  z-index: 60;
+}
+
+@media screen and (max-width: 767px) .error-content {
+  /* bottom: 310px; */
+  font-size: 18px;
 }
