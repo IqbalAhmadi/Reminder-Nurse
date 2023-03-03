@@ -3,6 +3,7 @@
   --gray: #5c9eb6;
   --light: #bdcdd6;
   --contrast: #eee9da;
+  --darkest: #1e2f44;
 }
 
 h1,
@@ -14,18 +15,33 @@ p {
 }
 
 header {
-  margin: 5px;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
   text-align: center;
-  border: solid var(--contrast);
+  background-color: var(--darkest);
 }
 
 body {
-  margin: 10px;
   background-color: var(--dark);
 }
 
 button:hover {
   cursor: pointer;
+}
+
+/* / header styling */
+
+.headerImgAdj {
+  max-width: 65%;
+  user-select: none;
+}
+
+/* / daily styling */
+
+.dmedHeader {
+  text-align: center;
 }
 
 /* /medicines styling */

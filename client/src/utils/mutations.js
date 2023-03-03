@@ -30,7 +30,7 @@ export const TOGGLE_ACTIVE = gql`
 
 export const ADD_MEDICINE = gql`
   mutation addMedicine($medicine: MedicineInput!) {
-    addMedicine(medicine: $medicine){
+    addMedicine(medicine: $medicine) {
       _id
       name
       amount
