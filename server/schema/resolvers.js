@@ -22,6 +22,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       const userMedicines = await Medicine.find({
         userId: context.user._id,
+        amount: { $gt: 0 },
         isActive: true,
       });
       const updatedMedicines = await updateQueue(userMedicines);
@@ -70,6 +71,7 @@ const resolvers = {
     },
     // updates fields of medicine depending on whats passed in
     updateMedicine: async (parent, { medicineId, medicine }, context) => {
+      console.log(medicine);
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
