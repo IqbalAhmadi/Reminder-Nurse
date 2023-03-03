@@ -1,6 +1,17 @@
 const dayjs = require('dayjs');
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+
+const timeGetter = (timestamp) => {
+  // format to HH:MM
+  return dayjs(timestamp).format('HH:mm');
+};
+
+const timeSetter = (timestamp) => {
+  const hour = parseInt(timestamp[0] + timestamp[1]);
+  const minute = parseInt(timestamp[3] + timestamp[4]);
+  const date = dayjs().set('hour', hour).set('minute', minute);
+  return date;
+};
 
 const medicineSchema = new Schema({
   name: {
@@ -27,18 +38,22 @@ const medicineSchema = new Schema({
   times: [
     {
       type: Date,
-      get: (timestamp) => {
-        // format to HH:MM
-        return dayjs(timestamp).format('HH:mm');
-      },
-      set: (timestamp) => {
-        const hour = parseInt(timestamp[0] + timestamp[1]);
-        const minute = parseInt(timestamp[3] + timestamp[4]);
-        const date = dayjs().set('hour', hour).set('minute', minute);
-        return date;
-      },
+      get: timeGetter,
+      set: timeSetter,
     },
   ],
+  queue: [
+    {
+      type: Date,
+      get: timeGetter,
+      set: timeSetter,
+    },
+  ],
+  queueLastFilled: {
+    type: Date,
+    required: true,
+    default: new Date(1995, 11, 17),
+  },
   isActive: {
     type: Boolean,
     required: true,
@@ -50,6 +65,13 @@ const medicineSchema = new Schema({
     ref: 'User',
   },
 });
+
+// returns true or false if the queue has been filled today
+medicineSchema.methods.checkQueue = async function () {
+  const today = new Date();
+  if (this.queueLastFilled.toDateString() < today.toDateString()) return false;
+  else return true;
+};
 
 const Medicine = model('Medicine', medicineSchema);
 

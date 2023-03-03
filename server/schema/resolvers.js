@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Medicine } = require('../models');
 const { signToken } = require('../utils/auth');
+const { updateQueue } = require('../utils/updateQueue');
 
 const resolvers = {
   Query: {
@@ -19,7 +20,14 @@ const resolvers = {
     dailymeds: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.find({ userId: context.user._id, isActive: true });
+      const userMedicines = await Medicine.find({
+        userId: context.user._id,
+        isActive: true,
+      });
+
+      const updatedMedicines = updateQueue(userMedicines);
+
+      return updatedMedicines;
     },
     me: async (parent, args, context) => {
       if (context.user) {
