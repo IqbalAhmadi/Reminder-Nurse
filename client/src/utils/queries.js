@@ -38,7 +38,7 @@ export const QUERY_DAILYMEDS = gql`
       interval
       name
       subInterval
-      times
+      queue
       userId
     }
   }
