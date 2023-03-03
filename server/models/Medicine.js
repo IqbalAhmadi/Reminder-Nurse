@@ -56,15 +56,16 @@ medicineSchema.pre('save', async function (next) {
 medicineSchema.methods.fillQueue = async function () {
   const queueDate = dayjs(this.queueLastFilled);
   const daysPassed = dayjs().diff(queueDate, 'day');
+  const subInterval = this.subInterval === 'every' ? 1 : 2;
 
   // depending on interval if enough days have passed then return true else false
   switch (this.interval) {
     case 'monthly':
-      if (daysPassed < 29) break;
+      if (daysPassed < 30 * subInterval) break;
     case 'weekly':
-      if (daysPassed < 7) break;
+      if (daysPassed < 7 * subInterval) break;
     case 'daily':
-      if (daysPassed < 1) break;
+      if (daysPassed < 1 * subInterval) break;
     default:
       return true;
   }
