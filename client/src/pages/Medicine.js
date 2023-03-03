@@ -1,9 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINE } from '../utils/queries';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import Medication from '../components/Medication';
-import { Button } from 'react-bootstrap';
 
 const Medicine = () => {
   const { medicineId } = useParams();
