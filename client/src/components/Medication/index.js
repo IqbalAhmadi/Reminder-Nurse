@@ -15,7 +15,7 @@ const Medication = ({ medicine, isNew }) => {
     amount: medicine?.amount || 0,
     interval: medicine?.interval || 'daily',
     subInterval: medicine?.subInterval || 'every',
-    times: medicine?.times || '00:00',
+    times: medicine?.times || ['00:00'],
   });
 
   const handleSubmit = async (e) => {
@@ -63,6 +63,12 @@ const Medication = ({ medicine, isNew }) => {
     }
   };
 
+  const handleAddTime = (e) => {
+    console.log(formData.times);
+    const times = [...formData.times, '00:00'];
+    setFormData({ ...formData, times });
+  };
+
   return (
     <Container>
       <Form
@@ -96,9 +102,9 @@ const Medication = ({ medicine, isNew }) => {
             onChange={handleChange}
             defaultValue={medicine ? medicine.interval : null}
           >
-            <option defaultValue="daily">Daily</option>
-            <option defaultValue="weekly">Weekly</option>
-            <option defaultValue="monthly">Monthly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
           </Form.Select>
         </Form.Group>
 
@@ -131,25 +137,19 @@ const Medication = ({ medicine, isNew }) => {
         <Form.Group className="form-title" controlId="medicineTimes">
           <Form.Label>Times:</Form.Label>
           <ul className="none d-flex flex-wrap justify-content-evenly">
-            {medicine ? (
-              medicine.times.map((time, index) => {
-                return (
-                  <Time
-                    key={index}
-                    data={{ time, index }}
-                    handleChange={handleChange}
-                  />
-                );
-              })
-            ) : (
-              <Time
-                index={0}
-                data={{ time: '00:00', index: 0 }}
-                handleChange={handleChange}
-              />
-            )}
+            {formData.times.map((time, index) => {
+              return (
+                <Time
+                  key={index}
+                  data={{ time, index }}
+                  handleChange={handleChange}
+                />
+              );
+            })}
           </ul>
-          <Button className="add-time">Add Time</Button>
+          <Button className="add-time" onClick={handleAddTime}>
+            Add Time
+          </Button>
         </Form.Group>
 
         <section className="d-flex flex-wrap justify-content-evenly">
