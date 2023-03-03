@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-const Time = ({ data, handleChange }) => {
+const Time = ({ data, handleChange, handleRemove }) => {
   return (
     <li className="d-flex">
       <Form.Control
@@ -15,7 +15,12 @@ const Time = ({ data, handleChange }) => {
         defaultValue={data.time}
       ></Form.Control>
       {data.index !== 0 ? (
-        <button type="button" className="btn-close" aria-label="Close"></button>
+        <button
+          type="button"
+          className="btn-close"
+          aria-label="Close"
+          onClick={(e) => handleRemove()}
+        ></button>
       ) : null}
     </li>
   );
