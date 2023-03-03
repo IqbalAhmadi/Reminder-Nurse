@@ -12,8 +12,9 @@ const Medication = ({ medicine, isNew }) => {
   const [formData, setFormData] = useState({
     name: medicine?.name || '',
     amount: medicine?.amount || 0,
-    interval: medicine?.interval || '',
-    subInterval: medicine?.subInterval || '',
+    interval: medicine?.interval || 'daily',
+    subInterval: medicine?.subInterval || 'every',
+    times: medicine?.times || '00:00',
   });
 
   const handleSubmit = async (e) => {
@@ -32,16 +33,18 @@ const Medication = ({ medicine, isNew }) => {
       times.push(timesEl[i].value);
     }
 
+    setFormData({ ...formData, times });
+
     isNew
-      ? await updateMedicine({
+      ? await createMedicine({
           variables: {
-            medicineId: medicine._id,
-            medicine: { ...formData, times },
+            medicine: { ...formData },
           },
         })
-      : await createMedicine({
+      : await updateMedicine({
           variables: {
-            medicine: { ...formData, times },
+            medicineId: medicine._id,
+            medicine: { ...formData },
           },
         });
 
