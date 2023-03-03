@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
 import Daily from './pages/Daily';
+import NotFound from './pages/NotFound';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -42,13 +43,9 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/daily" element={<Daily />} />
             <Route path="/medicines" element={<Medicines />} />
             <Route path="/medicine/:medicineId" element={<Medicine />} />
-            <Route
-              path="*"
-              element={<h1 className="display-2">Wrong page!</h1>}
-            />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
       </Router>
