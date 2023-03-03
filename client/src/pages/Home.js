@@ -1,14 +1,11 @@
-import React from 'react';
-import LoginForm from '../components/LoginForm';
-import SignupForm from '../components/SignupForm';
+import React, { useState } from 'react';
+import Auth from '../utils/auth';
+import Access from '../components/Access';
+import Daily from './Daily';
 
 const Home = () => {
-  return (
-    <section>
-      <SignupForm />
-      <LoginForm />
-    </section>
-  );
+  const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
+  return loggedIn ? <Daily /> : <Access setLoggedIn={setLoggedIn}/>;
 };
 
 export default Home;

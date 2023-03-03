@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
-import { LOGIN_USER } from '../../utils/mutations';
-import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
+import { ADD_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
-const LoginForm = () => {
+const SignupForm = ({ setLoggedIn }) => {
   const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
@@ -13,11 +13,10 @@ const LoginForm = () => {
     password: '',
   });
 
-  const [login, { loading }] = useMutation(LOGIN_USER);
-
-  // set state for form validation
+  const [addUser, { loading }] = useMutation(ADD_USER);
+  //set state for form validation
   const [validated] = useState(false);
-  // se state for alert
+  //set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
@@ -28,7 +27,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // checking if form has everything
+    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -36,9 +35,11 @@ const LoginForm = () => {
     }
 
     try {
-      const { data } = await login({ variables: { ...userFormData } });
-      Auth.login(data.login.token);
-      navigate('/daily');
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+      Auth.login(data.addUser.token);
+      setLoggedIn(true);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -49,14 +50,17 @@ const LoginForm = () => {
       password: '',
     });
   };
+
   return (
-    <>
+    <article>
+      {/* This is needed for the validation functionality above */}
       <Form
-        className="form-container-login"
+        className="form-container"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
       >
+        {/* show alert if server response is bad */}
         <Alert
           className="alert"
           dismissible
@@ -64,10 +68,10 @@ const LoginForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Incorrect username/password!
+          Something went wrong with your signup!
         </Alert>
         <Form.Group className="form-title">
-          <h4 className="title-signup">Log In</h4>
+          <h4 className="title-signup">Sign Up</h4>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
@@ -84,14 +88,12 @@ const LoginForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="form-title">
           <Form.Label className="label-usrName" htmlFor="password">
             Password
           </Form.Label>
           <Form.Control
             className="form-input"
-            disabled={loading}
             type="password"
             placeholder="Your password"
             name="password"
@@ -114,8 +116,8 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
-    </>
+    </article>
   );
 };
 
-export default LoginForm;
+export default SignupForm;
