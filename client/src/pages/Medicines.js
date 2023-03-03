@@ -27,7 +27,7 @@ const Medicines = () => {
               Add Medication
             </Button>
           </Link>
-          <Link to="../daily">
+          <Link to="../">
             <Button className="form-submit-btn" variant="primary" type="submit">
               Go Back
             </Button>

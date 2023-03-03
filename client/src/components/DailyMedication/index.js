@@ -7,11 +7,11 @@ const DailyMedication = ({ dailymeds }) => {
 
   return (
     <div>
-      <h2>Daily Medication</h2>
+      <h2 className='dmedHeader'>Daily Medication</h2>
       <ul className="list-group">
         {dailymeds.map((med) => {
           return (
-            <li key={med._id + med.time} className="card">
+            <li key={med._id + med.time} className="card shadow p-2 mb-4 bg-white rounded">
               <div className="card-body px-4 pt-3">
                 <h3 className="text-primary">{med.name}</h3>
                 <p className="text-dark">Take dosage at {med.time}</p>

@@ -16,19 +16,21 @@ const Daily = () => {
       sortedMeds.push({ ...med, time: time });
     });
   });
+  // change times to queue to reflect queue model change
   sortedMeds.sort((a, b) => {
     const timeA = parseInt(a.time[0] + a.time[1] + a.time[3] + a.time[4]);
     const timeB = parseInt(b.time[0] + b.time[1] + b.time[3] + b.time[4]);
     return timeA - timeB;
   });
+  // add logic for checkboxes / boolean
 
   return (
     <section>
       <Container>
-        <Link to={'/medicines'}>
-          <Button>Edit Medications</Button>
-        </Link>
         <DailyMedication dailymeds={sortedMeds} />
+        <Link to={'/medicines'}>
+          <Button className='btn-block shadow'>Edit Medications</Button>
+        </Link>
       </Container>
     </section>
   );

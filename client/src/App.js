@@ -39,15 +39,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Container>
           <Navbar />
+          <Container>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/medicines" element={<Medicines />} />
             <Route path="/medicine/:medicineId" element={<Medicine />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Container>
+          </Container>
       </Router>
     </ApolloProvider>
   );
