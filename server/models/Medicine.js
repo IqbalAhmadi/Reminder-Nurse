@@ -43,13 +43,33 @@ const medicineSchema = new Schema({
   },
 });
 
-// returns true or false if the queue has been filled today
-medicineSchema.methods.checkQueue = async function () {
-  const today = new Date().setHours(0, 0, 0, 0);
-  const queueDate = this.queueLastFilled.setHours(0, 0, 0, 0);
+// makes inactive if amount < 1
+medicineSchema.pre('save', async function (next) {
+  if ((this.isNew || this.isModified('amount')) && this.amount < 1) {
+    this.isActive = false;
+  }
 
-  if (queueDate < today) return false;
-  else return true;
+  next();
+});
+
+// returns true or false if the queue has to be filled
+medicineSchema.methods.fillQueue = async function () {
+  const queueDate = dayjs(this.queueLastFilled);
+  const daysPassed = dayjs().diff(queueDate, 'day');
+
+  // depending on interval if enough days have passed then return true else false
+  switch (this.interval) {
+    case 'monthly':
+      if (daysPassed < 29) break;
+    case 'weekly':
+      if (daysPassed < 7) break;
+    case 'daily':
+      if (daysPassed < 1) break;
+    default:
+      return true;
+  }
+
+  return false;
 };
 
 const Medicine = model('Medicine', medicineSchema);

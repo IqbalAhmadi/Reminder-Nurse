@@ -7,10 +7,9 @@ module.exports = {
 
     await Promise.all(
       userMedicines.map(async (medicine) => {
-        const queue = medicine.queue;
-        const isQueued = await medicine.checkQueue();
+        const fillQueue = await medicine.fillQueue();
 
-        if (!isQueued) {
+        if (fillQueue) {
           const newQueue = medicine.queue.concat(
             medicine.times.filter((time) => {
               for (let i = 0; i < medicine.queue.length; i++) {
