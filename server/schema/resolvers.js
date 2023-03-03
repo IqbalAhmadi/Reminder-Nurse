@@ -8,18 +8,18 @@ const resolvers = {
     medicine: async (parent, { medicineId }, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.findOne({ _id: medicineId, userId: context.user.id });
+      return Medicine.findOne({ _id: medicineId, userId: context.user._id });
     },
     // gets all medicine matching userId using context
     medicines: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.find({ userId: context.user.id });
+      return Medicine.find({ userId: context.user._id });
     },
     dailymeds: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.find({ userId: context.user.id, isActive: true });
+      return Medicine.find({ userId: context.user._id, isActive: true });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -56,7 +56,7 @@ const resolvers = {
 
       const newMedicine = await Medicine.create({
         ...medicine,
-        userId: context.user.id,
+        userId: context.user._id,
       });
 
       return newMedicine;
@@ -67,7 +67,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
 
       const updatedMedicine = await Medicine.findOneAndUpdate(
-        { _id: medicineId, userId: context.user.id },
+        { _id: medicineId, userId: context.user._id },
         { ...medicine },
         { new: true }
       );
@@ -80,7 +80,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
 
       const toggledMedicine = await Medicine.findOneAndUpdate(
-        { _id: medicineId, userId: context.user.id },
+        { _id: medicineId, userId: context.user._id },
         [{ $set: { isActive: { $not: '$isActive' } } }],
         { new: true }
       );
