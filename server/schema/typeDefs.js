@@ -9,7 +9,6 @@ const typeDefs = gql`
   type Medicine {
     _id: ID!
     name: String
-    start: String
     amount: Int
     interval: String
     subInterval: String
@@ -25,7 +24,6 @@ const typeDefs = gql`
 
   input MedicineInput {
     name: String
-    start: String
     amount: Int
     interval: String
     subInterval: String

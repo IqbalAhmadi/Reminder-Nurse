@@ -8,12 +8,6 @@ const medicineSchema = new Schema({
     required: true,
     trim: true,
   },
-  start: {
-    type: Date,
-    required: true,
-    default: Date.now,
-    get: (timestamp) => dayjs(timestamp).format('YYYY-MM-DD'),
-  },
   amount: {
     type: Number,
     required: true,

@@ -5,7 +5,6 @@ export const QUERY_MEDICINE = gql`
     medicine(medicineId: $medicineId) {
       _id
       name
-      start
       amount
       interval
       subInterval
@@ -21,7 +20,6 @@ export const QUERY_MEDICINES = gql`
     medicines {
       _id
       name
-      start
       amount
       interval
       subInterval
@@ -39,7 +37,6 @@ export const QUERY_DAILYMEDS = gql`
       amount
       interval
       name
-      start
       subInterval
       times
       userId

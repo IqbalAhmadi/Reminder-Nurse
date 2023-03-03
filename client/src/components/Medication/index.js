@@ -11,7 +11,6 @@ const Medication = ({ medicine, isNew }) => {
   const [createMedicine] = useMutation(ADD_MEDICINE);
   const [formData, setFormData] = useState({
     name: medicine?.name || '',
-    start: medicine?.start || '',
     amount: medicine?.amount || 0,
     interval: medicine?.interval || '',
     subInterval: medicine?.subInterval || '',
