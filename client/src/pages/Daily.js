@@ -11,8 +11,6 @@ const Daily = () => {
 
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>{error}</h2>;
-  if (data.dailymeds.length < 1)
-    return <h2>You do not have any medication for today.</h2>;
 
   data.dailymeds.forEach((med) => {
     med.queue.forEach((time) => {
