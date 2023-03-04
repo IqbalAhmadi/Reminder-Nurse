@@ -7,9 +7,10 @@ import { Container, Button } from 'react-bootstrap';
 
 const Daily = () => {
   const sortedMedicine = [];
-  const { loading, data } = useQuery(QUERY_DAILYMEDS);
+  const { loading, data, error } = useQuery(QUERY_DAILYMEDS);
 
   if (loading) return <h2>Loading...</h2>;
+  if (error) return <h2>{error}</h2>;
 
   data.dailymeds.forEach((med) => {
     med.queue.forEach((time) => {
