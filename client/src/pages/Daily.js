@@ -32,15 +32,19 @@ const Daily = () => {
       <Container>
         <div>
           <h2 className="dmedHeader">Daily Medication</h2>
-          <ul className="list-group">
-            {sortedMedicine.map((medicine) => (
-              <li
-                key={medicine._id + medicine.time}
-                className="card shadow p-2 mb-4 bg-white rounded container dailyCard"
-              >
-                <DailyMedication medicine={medicine} />
-              </li>
-            ))}
+          <ul className="d-flex flex-wrap justify-content-around">
+            {sortedMedicine.length ? (
+              sortedMedicine.map((medicine, index) => (
+                <li
+                  key={medicine._id + medicine.time}
+                  className="card shadow m-5 p-2 mb-4 bg-white rounded dailyCard"
+                >
+                  <DailyMedication medicine={medicine} />
+                </li>
+              ))
+            ) : (
+              <h2>You do not have any medication for today. </h2>
+            )}
           </ul>
         </div>
         <Link to={'/medicines'}>
