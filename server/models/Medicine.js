@@ -24,7 +24,20 @@ const medicineSchema = new Schema({
     required: true,
   },
   // time/queue format HH:mm
-  times: [String],
+  times: [
+    {
+      type: String,
+      validate: function (time) {
+        // check there aren't duplicate times
+        let found = 0;
+
+        for (let i = 0; i < this.times.length; i++)
+          if (this.times[i] == time) found++;
+        if (found > 1) return false;
+        else return true;
+      },
+    },
+  ],
   queue: [String],
   queueLastFilled: {
     type: Date,
