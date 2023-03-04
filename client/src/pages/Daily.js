@@ -30,7 +30,9 @@ const Daily = () => {
       <Container>
         <DailyMedication dailymeds={sortedMedicine} />
         <Link to={'/medicines'}>
-          <Button className="btn-block shadow">Edit Medications</Button>
+          <center>
+            <Button className="btn-block shadow dBtn">Edit Medications</Button>
+          </center>
         </Link>
       </Container>
     </section>
