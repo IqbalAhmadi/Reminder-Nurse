@@ -71,7 +71,6 @@ const resolvers = {
     },
     // updates fields of medicine depending on whats passed in
     updateMedicine: async (parent, { medicineId, medicine }, context) => {
-      console.log(medicine);
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
