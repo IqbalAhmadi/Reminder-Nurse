@@ -2,20 +2,56 @@ import addNotification from 'react-push-notification';
 import schedule from 'node-schedule';
 
 class Scheduler {
-  medicineReminder({ title, message }) {
+  constructor(jobs) {
+    this.jobs = jobs || [];
+  }
+  medicineReminder({ time, name }) {
     addNotification({
-      title,
-      message,
+      title: name + time,
+      message: 'Take your medicine',
       duration: 3000,
       native: true,
     });
   }
-  setReminder({ time }) {
-    const rule = new schedule.RecurrenceRule();
-    const job = schedule.RecurrenceRule('10 * * * * *', function () {
-      this.medicineReminder({ title: 'test', message: 'testing' });
+  setReminder({ time, name }) {
+    const date = new Date();
+    const hour = time[0] + time[1];
+    const minute = time[3] + time[4];
+    date.setHours(hour, minute, 0);
+
+    console.log(this.isScheduled(date));
+    if (this.isScheduled(date)) return false;
+
+    const job = schedule.scheduleJob(date, () => {
+      this.medicineReminder({ time, name });
     });
+
+    this.emptyPast();
+
+    if (job) this.jobs.push(job);
+
+    return job;
+  }
+  shutdown() {
+    return schedule.gracefulShutdown();
+  }
+  // checks if job is already created & returns boolean
+  isScheduled(date) {
+    let isScheduled = false;
+    this.jobs.forEach((job) => {
+      if (job.pendingInvocations.length > 0) {
+        const jobDate = new Date(job.pendingInvocations[0].fireDate._date.ts);
+        if (jobDate.toString() === date.toString()) return (isScheduled = true);
+      }
+    });
+
+    return isScheduled;
+  }
+  emptyPast() {
+    const tempJobs = this.jobs.filter((job) => job.pendingInvocations.length);
+    this.jobs = tempJobs;
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default new Scheduler();
