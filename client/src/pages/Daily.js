@@ -11,6 +11,8 @@ const Daily = () => {
 
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>{error}</h2>;
+  if (data.dailymeds.length < 1)
+    return <h2>You do not have any medication for today.</h2>;
 
   data.dailymeds.forEach((med) => {
     med.queue.forEach((time) => {
@@ -28,7 +30,19 @@ const Daily = () => {
   return (
     <section>
       <Container>
-        <DailyMedication dailymeds={sortedMedicine} />
+        <div>
+          <h2 className="dmedHeader">Daily Medication</h2>
+          <ul className="list-group">
+            {sortedMedicine.map((medicine) => (
+              <li
+                key={medicine._id + medicine.time}
+                className="card shadow p-2 mb-4 bg-white rounded container dailyCard"
+              >
+                <DailyMedication medicine={medicine} />
+              </li>
+            ))}
+          </ul>
+        </div>
         <Link to={'/medicines'}>
           <center>
             <Button className="btn-block shadow dBtn rounded-pill">Edit Medications</Button>
