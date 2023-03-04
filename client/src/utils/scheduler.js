@@ -1,6 +1,5 @@
 import addNotification from 'react-push-notification';
 import schedule from 'node-schedule';
-import { useNavigate } from 'react-router-dom';
 
 class Scheduler {
   constructor(jobs) {
