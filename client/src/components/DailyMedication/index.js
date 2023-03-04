@@ -13,15 +13,25 @@ const DailyMedication = ({ dailymeds }) => {
           return (
             <li
               key={med._id + med.time}
-              className="card shadow p-2 mb-4 bg-white rounded"
+              className="card shadow p-2 mb-4 bg-white rounded container dailyCard"
             >
-              <div className="card-body px-4 pt-3">
-                <h3 className="text-primary">{med.name}</h3>
-                <p className="text-dark">Take dosage at {med.time}</p>
-                <hr />
-                <p className="text-muted small">
-                  You have {med.amount} remaining dosages.
-                </p>
+              <div className="row">
+                <div className="card-body px-4 pt-1 col-7">
+                  <h3 className="dailyHeader">{med.name}</h3>
+                  <hr />
+                  <p className="dailystext">{med.time}</p>
+                  <p className="dailyRemain">
+                    You have {med.amount} remaining dosages.
+                  </p>
+                </div>
+                <div className="col">
+                  <div className="form-check">
+                    <input
+                      className="form-check-input dailyCheck"
+                      type="checkbox"
+                    ></input>
+                  </div>
+                </div>
               </div>
             </li>
           );

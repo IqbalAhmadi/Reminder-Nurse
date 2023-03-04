@@ -4,6 +4,8 @@
   --light: #bdcdd6;
   --contrast: #eee9da;
   --darkest: #1e2f44;
+  --shade: #f1f1f1;
+  --accentB: #3680e0;
 }
 
 h1,
@@ -11,7 +13,7 @@ h2,
 h3,
 h4,
 p {
-  color: var(--contrast);
+  color: var(--darkest);
 }
 
 header {
@@ -24,24 +26,72 @@ header {
 }
 
 body {
-  background-color: var(--dark);
+  background-color: var(--light);
 }
 
 button:hover {
   cursor: pointer;
+  background-color: var(--accentB) !important;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 /* / header styling */
 
 .headerImgAdj {
-  max-width: 65%;
+  max-width: 40%;
   user-select: none;
 }
 
 /* / daily styling */
 
 .dmedHeader {
+  font-size: 36px;
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.dBtn {
+  color: #fff !important;
+  background-color: var(--darkest) !important;
+  text-decoration: none !important;
+  max-width: 400px;
+}
+
+.dailyCard {
+  background-color: #fff;
+  border-color: var(--accentB);
+  max-width: 400px;
+}
+
+.dailyHeader {
+  color: var(--accentB);
+  font-size: 30px;
+}
+
+.dailystext {
+  font-size: 8.5px;
+  margin-bottom: 3px;
+}
+
+.dailyRemain {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 65%;
+}
+
+.dailyCheck {
+  margin-top: 30px;
+  height: 35px;
+  width: 35px;
 }
 
 /* /medicines styling */
