@@ -1,9 +1,17 @@
 import React from 'react';
+import Scheduler from '../../utils/scheduler';
 
 const DailyMedication = ({ dailymeds }) => {
   if (!dailymeds.length) {
     return <h2>You do not have any medication for today.</h2>;
   }
+
+  const createSchedules = async () => {
+    await Scheduler.shutdown();
+    Scheduler.setReminder({ time: '11:39', name: 'Xanax' });
+  };
+
+  createSchedules();
 
   return (
     <div>
