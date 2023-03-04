@@ -18,11 +18,13 @@ class Scheduler {
     const date = new Date();
     const hour = time[0] + time[1];
     const minute = time[3] + time[4];
+    const jobName = time + '_' + name;
+
     date.setHours(hour, minute, 0);
 
     if (this.isScheduled(date)) return false;
 
-    const job = schedule.scheduleJob(date, () => {
+    const job = schedule.scheduleJob(jobName, date, () => {
       this.medicineReminder({ time, name });
     });
 
