@@ -48,14 +48,8 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/medicines"
-              element={Auth.loggedIn() ? <Medicines /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/medicine/:medicineId"
-              element={Auth.loggedIn() ? <Medicine /> : <Navigate to="/" />}
-            />
+            <Route path="/medicines" element={<Medicines />} />
+            <Route path="/medicine/:medicineId" element={<Medicine />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
