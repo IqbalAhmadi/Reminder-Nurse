@@ -15,10 +15,10 @@ class Scheduler {
     });
   }
   setReminder({ time, name }) {
+    const jobName = time + '_' + name;
     const date = new Date();
     const hour = time[0] + time[1];
     const minute = time[3] + time[4];
-    const jobName = time + '_' + name;
 
     date.setHours(hour, minute, 0);
 
@@ -28,7 +28,7 @@ class Scheduler {
       this.medicineReminder({ time, name });
     });
 
-    this.emptyPast();
+    this.removeEmptyJobs();
 
     if (job) this.jobs.push(job);
 
@@ -49,7 +49,7 @@ class Scheduler {
 
     return isScheduled;
   }
-  emptyPast() {
+  removeEmptyJobs() {
     const tempJobs = this.jobs.filter((job) => job.pendingInvocations.length);
     this.jobs = tempJobs;
   }
