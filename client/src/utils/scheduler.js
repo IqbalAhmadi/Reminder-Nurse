@@ -1,5 +1,6 @@
 import addNotification from 'react-push-notification';
 import schedule from 'node-schedule';
+import { useNavigate } from 'react-router-dom';
 
 class Scheduler {
   constructor(jobs) {
@@ -7,9 +8,9 @@ class Scheduler {
   }
   medicineReminder({ time, name }) {
     addNotification({
-      title: name + time,
+      title: name + '@' + time,
       message: 'Take your medicine',
-      duration: 3000,
+      duration: 1000 * 60 * 60,
       native: true,
     });
   }
@@ -19,7 +20,6 @@ class Scheduler {
     const minute = time[3] + time[4];
     date.setHours(hour, minute, 0);
 
-    console.log(this.isScheduled(date));
     if (this.isScheduled(date)) return false;
 
     const job = schedule.scheduleJob(date, () => {
