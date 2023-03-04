@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_ACTIVE } from '../../utils/mutations';
+import { toggleMedicineCache } from '../../utils/handleCache';
 
 const MedicationList = ({ medicines, isActive }) => {
-  const [toggleMedicine] = useMutation(TOGGLE_ACTIVE);
+  const [toggleMedicine] = useMutation(TOGGLE_ACTIVE, toggleMedicineCache);
 
   const handleMedicineToggle = async (e) => {
     try {

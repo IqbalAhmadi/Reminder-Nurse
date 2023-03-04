@@ -11,9 +11,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from 'react-router-dom';
-import Auth from './utils/auth';
 import { Container } from 'react-bootstrap';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
