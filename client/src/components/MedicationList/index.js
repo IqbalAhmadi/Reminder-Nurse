@@ -29,6 +29,7 @@ const MedicationList = ({ medicines, isActive }) => {
                   <Button variant="secondary">Modify </Button>
                 </Link>
                 <Button
+                  disabled={medicine.amount > 0 ? false : true}
                   variant={isActive ? 'danger' : 'success'}
                   id={medicine._id}
                   onClick={handleMedicineToggle}
