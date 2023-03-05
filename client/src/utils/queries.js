@@ -9,6 +9,7 @@ export const QUERY_MEDICINE = gql`
       interval
       subInterval
       times
+      queue
       isActive
     }
   }
@@ -23,20 +24,8 @@ export const QUERY_MEDICINES = gql`
       interval
       subInterval
       times
-      isActive
-    }
-  }
-`;
-
-export const QUERY_DAILYMEDS = gql`
-  query Dailymeds {
-    dailymeds {
-      _id
-      name
-      amount
-      interval
-      subInterval
       queue
+      isActive
     }
   }
 `;
