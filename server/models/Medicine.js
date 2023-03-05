@@ -10,6 +10,7 @@ const medicineSchema = new Schema({
   amount: {
     type: Number,
     required: true,
+    min: 0,
   },
   interval: {
     type: String,
