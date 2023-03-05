@@ -80,7 +80,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
 
       const toggledMedicine = await Medicine.findOneAndUpdate(
-        { _id: medicineId, userId: context.user._id },
+        { _id: medicineId, userId: context.user._id, amount: { $gt: 0 } },
         [{ $set: { isActive: { $not: '$isActive' } } }],
         { new: true }
       );
