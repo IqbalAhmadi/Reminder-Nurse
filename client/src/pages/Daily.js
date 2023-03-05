@@ -1,18 +1,23 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_DAILYMEDS } from '../utils/queries';
+import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 
 const Daily = () => {
   const sortedMedicine = [];
-  const { loading, data, error } = useQuery(QUERY_DAILYMEDS);
+  // change query to all for caching purposes, handle isActive logic on this end
+  const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>{error}</h2>;
+  if (error) return <h2>{console.log(error)}</h2>;
 
-  data.dailymeds.forEach((med) => {
+  const activeMedicines = data.medicines.filter(
+    (medicine) => medicine.isActive
+  );
+
+  activeMedicines.forEach((med) => {
     med.queue.forEach((time) => {
       sortedMedicine.push({ ...med, time: time });
     });
