@@ -5,6 +5,7 @@ export const ADD_MEDICINE = gql`
     addMedicine(medicine: $medicine) {
       _id
       name
+      dosage
       amount
       interval
       subInterval
@@ -24,6 +25,7 @@ export const UPDATE_MEDICINE = gql`
     updateMedicine(medicineId: $medicineId, medicine: $medicine) {
       _id
       name
+      dosage
       amount
       interval
       subInterval
@@ -43,6 +45,7 @@ export const TOGGLE_ACTIVE = gql`
     toggleIsActive(medicineId: $medicineId) {
       _id
       name
+      dosage
       amount
       interval
       subInterval
@@ -62,6 +65,7 @@ export const TOGGLE_CHECKED = gql`
     toggleQueueChecked(medicineId: $medicineId, queueId: $queueId) {
       _id
       name
+      dosage
       amount
       interval
       subInterval

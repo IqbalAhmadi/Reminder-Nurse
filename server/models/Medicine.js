@@ -7,6 +7,11 @@ const medicineSchema = new Schema({
     required: true,
     trim: true,
   },
+  dosage: {
+    type: Number,
+    required: true,
+    min: [0]
+  },
   amount: {
     type: Number,
     required: true,
