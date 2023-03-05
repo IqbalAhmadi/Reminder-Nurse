@@ -32,13 +32,13 @@ const Medication = ({ medicine, isNew }) => {
     isNew
       ? await createMedicine({
           variables: {
-            medicine: { ...formData },
+            medicine: { ...formData, queue: formData.times },
           },
         })
       : await updateMedicine({
           variables: {
             medicineId: medicine._id,
-            medicine: { ...formData },
+            medicine: { ...formData, queue: formData.times },
           },
         });
 
