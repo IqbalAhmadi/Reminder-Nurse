@@ -11,9 +11,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from 'react-router-dom';
-import Auth from './utils/auth';
 import { Container } from 'react-bootstrap';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -48,14 +46,8 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/medicines"
-              element={Auth.loggedIn() ? <Medicines /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/medicine/:medicineId"
-              element={Auth.loggedIn() ? <Medicine /> : <Navigate to="/" />}
-            />
+            <Route path="/medicines" element={<Medicines />} />
+            <Route path="/medicine/:medicineId" element={<Medicine />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>

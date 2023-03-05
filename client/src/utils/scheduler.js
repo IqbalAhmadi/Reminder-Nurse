@@ -7,26 +7,27 @@ class Scheduler {
   }
   medicineReminder({ time, name }) {
     addNotification({
-      title: name + time,
+      title: name + '@' + time,
       message: 'Take your medicine',
-      duration: 3000,
+      duration: 1000 * 60 * 60,
       native: true,
     });
   }
   setReminder({ time, name }) {
+    const jobName = time + '_' + name;
     const date = new Date();
     const hour = time[0] + time[1];
     const minute = time[3] + time[4];
+
     date.setHours(hour, minute, 0);
 
-    console.log(this.isScheduled(date));
     if (this.isScheduled(date)) return false;
 
-    const job = schedule.scheduleJob(date, () => {
+    const job = schedule.scheduleJob(jobName, date, () => {
       this.medicineReminder({ time, name });
     });
 
-    this.emptyPast();
+    this.removeEmptyJobs();
 
     if (job) this.jobs.push(job);
 
@@ -47,7 +48,7 @@ class Scheduler {
 
     return isScheduled;
   }
-  emptyPast() {
+  removeEmptyJobs() {
     const tempJobs = this.jobs.filter((job) => job.pendingInvocations.length);
     this.jobs = tempJobs;
   }
