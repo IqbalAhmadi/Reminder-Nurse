@@ -33,17 +33,37 @@ export const updateMedicineCache = {
   },
 };
 
-export const toggleMedicineCache = {
-  update(cache, { data: { toggleMedicine } }) {
+export const toggleIsActiveCache = {
+  update(cache, { data: { toggleIsActive } }) {
     try {
       const { medicines } = cache.readQuery({ query: QUERY_MEDICINES });
       const filteredMedicines = medicines.filter(
-        (medicine) => medicine._id !== toggleMedicine._id
+        (medicine) => medicine._id !== toggleIsActive._id
       );
 
       cache.writeQuery({
         query: QUERY_MEDICINES,
-        data: { medicines: [...filteredMedicines, toggleMedicine] },
+        data: { medicines: [...filteredMedicines, toggleIsActive] },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  },
+};
+
+export const toggledQueueCheckedCache = {
+  // TODO finish this part
+  update(cache, { data: { toggleQueueChecked } }) {
+    try {
+      console.log(toggleQueueChecked);
+      const { medicines } = cache.readQuery({ query: QUERY_MEDICINES });
+      const filteredMedicines = medicines.filter(
+        (medicine) => medicine._id !== toggleQueueChecked._id
+      );
+
+      cache.writeQuery({
+        query: QUERY_MEDICINES,
+        data: { medicines: [...filteredMedicines, toggleQueueChecked] },
       });
     } catch (e) {
       console.error(e);
