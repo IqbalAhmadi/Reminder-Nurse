@@ -35,8 +35,9 @@ const DailyMedication = ({ medicine }) => {
       <div className="col">
         <div className="form-check">
           <input
-            checked={medicine.current.checked}
             onChange={handleCheck}
+            checked={medicine.current.checked}
+            disabled={medicine.current.checked}
             className="form-check-input dailyCheck"
             type="checkbox"
           />
