@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client';
 import { TOGGLE_CHECKED } from '../../utils/mutations';
 import { toggledQueueCheckedCache } from '../../utils/handleCache';
 import 'animate.css';
-// import rnStatic from '../../assets/images/rn_static_01.png';
 
 const DailyMedication = ({ medicine }) => {
   const [toggleChecked] = useMutation(TOGGLE_CHECKED, toggledQueueCheckedCache);
@@ -27,6 +26,7 @@ const DailyMedication = ({ medicine }) => {
       <div className="card-body px-4 pt-1 col-7">
         <h3 className="dailyHeader">{medicine.name}</h3>
         <hr />
+        <p className="dailystext">Take at {medicine.time}</p>
         <p className="dailystext">{medicine.current.time}</p>
         <p className="dailyRemain">
           You have {medicine.amount} remaining dosages.
