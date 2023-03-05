@@ -116,12 +116,12 @@ a {
 }
 
 .dailystext {
-  font-size: 10px;
+  font-size: 17px;
   margin-bottom: 3px;
 }
 
 .dailyRemain {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--gray);
 }
 
@@ -132,9 +132,15 @@ hr {
 }
 
 .dailyCheck {
-  margin-top: 30px;
+  margin-top: 45px;
   height: 35px;
   width: 35px;
+}
+
+@media only screen and (max-width: 896px) {
+  .dCardMob {
+    margin-left: -30px;
+  }
 }
 
 /* /medicines styling */
