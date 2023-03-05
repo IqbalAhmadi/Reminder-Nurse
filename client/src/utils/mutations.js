@@ -9,6 +9,7 @@ export const UPDATE_MEDICINE = gql`
       interval
       subInterval
       times
+      queue
       isActive
     }
   }
@@ -23,6 +24,7 @@ export const TOGGLE_ACTIVE = gql`
       interval
       subInterval
       times
+      queue
       isActive
     }
   }
@@ -37,6 +39,7 @@ export const ADD_MEDICINE = gql`
       interval
       subInterval
       times
+      queue
       isActive
     }
   }
