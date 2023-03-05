@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'News Cycle';
+  src: url(./assets/fonts/NewsCycle-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'News Cycle Bold';
+  src: url(./assets/fonts/NewsCycle-Bold.ttf);
+}
+
 :root {
   --dark: #6096b4;
   --gray: #5c9eb6;
@@ -6,6 +16,7 @@
   --darkest: #1e2f44;
   --shade: #f1f1f1;
   --accentB: #3680e0;
+  --accentP: #da7b94;
 }
 
 h1,
@@ -22,12 +33,19 @@ header {
   padding-bottom: 15px;
   margin-bottom: 15px;
   text-align: center;
-  background-color: var(--darkest);
+  background-color: var(--accentB);
 }
 
 body {
-  background-color: var(--dark);
-  font-family: 'Montserrat', sans-serif;
+  background-color: hsla(200, 0%, 100%, 1);
+  background-image: radial-gradient(
+      at 93% 92%,
+      hsla(201, 100%, 85%, 0.32) 0px,
+      transparent 20%
+    ),
+    radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
+    radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
+    radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
 }
 
 button:hover {
@@ -48,23 +66,49 @@ a {
 
 /* / daily styling */
 
-.dmedHeader {
-  font-size: 36px;
+.imgContain {
   text-align: center;
-  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.imgNurse {
+  width: 160px;
+  display: inline;
+  vertical-align: top;
+  float: none;
+}
+
+.dmedHeader {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 25px;
   margin-bottom: 20px;
+  font-family: 'News Cycle Bold';
+  color: var(--accentB);
 }
 
 .dBtn {
   color: #fff !important;
-  background-color: var(--darkest) !important;
+  background-color: var(--accentP) !important;
   text-decoration: none !important;
   max-width: 400px;
 }
 
+.dTop {
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.dailyDialogue {
+  margin-top: 50px;
+  margin-left: -2px;
+  border: none !important;
+  text-align: left;
+  font-size: 12px;
+}
+
 .dailyCard {
   background-color: #fff;
-  border-color: var(--accentB);
   max-width: 400px;
 }
 
@@ -74,7 +118,7 @@ a {
 }
 
 .dailystext {
-  font-size: 8.5px;
+  font-size: 10px;
   margin-bottom: 3px;
 }
 
