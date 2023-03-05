@@ -1,18 +1,23 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_DAILYMEDS } from '../utils/queries';
+import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 
 const Daily = () => {
   const sortedMedicine = [];
-  const { loading, data, error } = useQuery(QUERY_DAILYMEDS);
+  // change query to all for caching purposes, handle isActive logic on this end
+  const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>{error}</h2>;
+  if (error) return <h2>{console.log(error)}</h2>;
 
-  data.dailymeds.forEach((med) => {
+  const activeMedicines = data.medicines.filter(
+    (medicine) => medicine.isActive
+  );
+
+  activeMedicines.forEach((med) => {
     med.queue.forEach((time) => {
       sortedMedicine.push({ ...med, time: time });
     });
@@ -28,7 +33,23 @@ const Daily = () => {
   return (
     <section>
       <Container>
-        <DailyMedication dailymeds={sortedMedicine} />
+        <div>
+          <h2 className="dmedHeader">Daily Medication</h2>
+          <ul className="d-flex flex-wrap justify-content-around">
+            {sortedMedicine.length ? (
+              sortedMedicine.map((medicine, index) => (
+                <li
+                  key={medicine._id + medicine.time}
+                  className="card shadow m-5 p-2 mb-4 bg-white rounded dailyCard"
+                >
+                  <DailyMedication medicine={medicine} />
+                </li>
+              ))
+            ) : (
+              <h2>You do not have any medication for today. </h2>
+            )}
+          </ul>
+        </div>
         <Link to={'/medicines'}>
           <center>
             <Button className="btn-block shadow dBtn rounded-pill">Edit Medications</Button>

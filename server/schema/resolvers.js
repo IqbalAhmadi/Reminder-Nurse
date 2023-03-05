@@ -15,16 +15,8 @@ const resolvers = {
     medicines: async (parent, args, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-      return Medicine.find({ userId: context.user._id });
-    },
-    dailymeds: async (parent, args, context) => {
-      if (!context.user)
-        throw new AuthenticationError('You need to be logged in!');
-      const userMedicines = await Medicine.find({
-        userId: context.user._id,
-        amount: { $gt: 0 },
-        isActive: true,
-      });
+      const userMedicines = await Medicine.find({ userId: context.user._id });
+
       const updatedMedicines = await updateQueue(userMedicines);
 
       return updatedMedicines;
@@ -88,7 +80,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
 
       const toggledMedicine = await Medicine.findOneAndUpdate(
-        { _id: medicineId, userId: context.user._id },
+        { _id: medicineId, userId: context.user._id, amount: { $gt: 0 } },
         [{ $set: { isActive: { $not: '$isActive' } } }],
         { new: true }
       );

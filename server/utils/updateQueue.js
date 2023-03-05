@@ -1,5 +1,4 @@
 const { Medicine } = require('../models');
-const dayjs = require('dayjs');
 
 module.exports = {
   updateQueue: async (userMedicines) => {
