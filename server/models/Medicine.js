@@ -42,7 +42,7 @@ const medicineSchema = new Schema({
   queueLastFilled: {
     type: Date,
     required: true,
-    default: new Date(1995, 11, 17),
+    default: new Date(),
   },
   isActive: {
     type: Boolean,
@@ -58,8 +58,8 @@ const medicineSchema = new Schema({
 
 // makes inactive if amount < 1
 medicineSchema.pre('save', async function (next) {
-  if ((this.isNew || this.isModified('amount')) && this.amount < 1) {
-    this.isActive = false;
+  if (this.isNew || this.isModified('times')) {
+    this.queue = [...this.times];
   }
 
   next();
