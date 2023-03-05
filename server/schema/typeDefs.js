@@ -55,7 +55,7 @@ const typeDefs = gql`
     addMedicine(medicine: MedicineInput!): Medicine
     updateMedicine(medicineId: ID!, medicine: MedicineInput!): Medicine
     toggleIsActive(medicineId: ID!): Medicine
-    toggleQueueChecked(medicineId: ID!, queueId: ID!): Medicine
+    checkQueue(medicineId: ID!, queueId: ID!): Medicine
   }
 `;
 module.exports = typeDefs;

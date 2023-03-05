@@ -88,7 +88,7 @@ const resolvers = {
 
       return toggledIsActive;
     },
-    toggleQueueChecked: async (parent, { medicineId, queueId }, context) => {
+    checkQueue: async (parent, { medicineId, queueId }, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 

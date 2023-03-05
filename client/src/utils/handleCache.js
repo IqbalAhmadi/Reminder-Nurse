@@ -53,17 +53,16 @@ export const toggleIsActiveCache = {
 
 export const toggledQueueCheckedCache = {
   // TODO finish this part
-  update(cache, { data: { toggleQueueChecked } }) {
+  update(cache, { data: { checkQueue } }) {
     try {
-      console.log(toggleQueueChecked);
       const { medicines } = cache.readQuery({ query: QUERY_MEDICINES });
       const filteredMedicines = medicines.filter(
-        (medicine) => medicine._id !== toggleQueueChecked._id
+        (medicine) => medicine._id !== checkQueue._id
       );
 
       cache.writeQuery({
         query: QUERY_MEDICINES,
-        data: { medicines: [...filteredMedicines, toggleQueueChecked] },
+        data: { medicines: [...filteredMedicines, checkQueue] },
       });
     } catch (e) {
       console.error(e);

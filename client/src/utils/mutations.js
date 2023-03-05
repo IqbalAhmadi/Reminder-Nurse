@@ -61,8 +61,8 @@ export const TOGGLE_ACTIVE = gql`
 `;
 
 export const TOGGLE_CHECKED = gql`
-  mutation toggleQueueChecked($medicineId: ID!, $queueId: ID!) {
-    toggleQueueChecked(medicineId: $medicineId, queueId: $queueId) {
+  mutation checkQueue($medicineId: ID!, $queueId: ID!) {
+    checkQueue(medicineId: $medicineId, queueId: $queueId) {
       _id
       name
       dosage
