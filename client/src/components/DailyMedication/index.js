@@ -1,5 +1,7 @@
 import React from 'react';
 import Scheduler from '../../utils/scheduler';
+import 'animate.css';
+import rnStatic from '../../assets/images/rn_static_01.png';
 
 const DailyMedication = ({ medicine }) => {
   const createSchedules = async () => {
@@ -8,6 +10,8 @@ const DailyMedication = ({ medicine }) => {
   };
 
   createSchedules();
+
+
 
   return (
     <div className="row">

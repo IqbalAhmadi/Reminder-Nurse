@@ -52,7 +52,7 @@ const Daily = () => {
         </div>
         <Link to={'/medicines'}>
           <center>
-            <Button className="btn-block shadow dBtn">Edit Medications</Button>
+            <Button className="btn-block shadow dBtn rounded-pill">Edit Medications</Button>
           </center>
         </Link>
       </Container>
