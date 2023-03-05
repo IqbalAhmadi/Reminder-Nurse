@@ -4,6 +4,7 @@ import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
+import rnStatic from '../assets/images/rn_static_01.png';
 
 const Daily = () => {
   const sortedMedicine = [];
@@ -34,13 +35,31 @@ const Daily = () => {
     <section>
       <Container>
         <div>
-          <h2 className="dmedHeader">Daily Medication</h2>
-          <ul className="d-flex flex-wrap justify-content-around">
+        <h2 className="dmedHeader">daily medication</h2>
+      <center>
+      <div className="row dTop">
+        <div className='imgContain col-5'>
+          <img
+        src={rnStatic}
+        className="imgNurse"
+        alt="Icon of the Reminder Nurse"
+      />
+        </div>
+      <div className='col-5 animate__animated animate__fadeIn'>
+        <div className="card dailyDialogue border-0 shadow-sm">
+         <div className="card-body">
+          Let's look at your medications today.
+        </div>
+      </div>
+      </div>
+      </div>
+      </center>
+          <ul className="d-flex flex-wrap justify-content-around dCardMob">
             {sortedMedicine.length ? (
               sortedMedicine.map((medicine, index) => (
                 <li
                   key={medicine._id + medicine.time}
-                  className="card shadow m-5 p-2 mb-4 bg-white rounded dailyCard"
+                  className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
                 >
                   <DailyMedication medicine={medicine} />
                 </li>
@@ -52,7 +71,7 @@ const Daily = () => {
         </div>
         <Link to={'/medicines'}>
           <center>
-            <Button className="btn-block shadow dBtn rounded-pill">Edit Medications</Button>
+            <Button className="btn-block shadow dBtn rounded-pill mb-4">Edit Medications</Button>
           </center>
         </Link>
       </Container>
