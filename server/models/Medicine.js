@@ -10,7 +10,7 @@ const medicineSchema = new Schema({
   amount: {
     type: Number,
     required: true,
-    min: 0,
+    min: [0, 'must be higher than 0'],
   },
   interval: {
     type: String,
@@ -63,6 +63,12 @@ medicineSchema.pre('save', async function (next) {
     this.queue = [...this.times];
   }
 
+  next();
+});
+
+medicineSchema.pre('findOneAndUpdate', async function (next) {
+  const medicine = this.getUpdate();
+  if (medicine.amount < 1) medicine.isActive = false;
   next();
 });
 
