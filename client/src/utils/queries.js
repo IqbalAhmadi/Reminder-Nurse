@@ -9,7 +9,11 @@ export const QUERY_MEDICINE = gql`
       interval
       subInterval
       times
-      queue
+      queue {
+        _id
+        time
+        checked
+      }
       isActive
     }
   }
@@ -24,7 +28,11 @@ export const QUERY_MEDICINES = gql`
       interval
       subInterval
       times
-      queue
+      queue {
+        _id
+        time
+        checked
+      }
       isActive
     }
   }

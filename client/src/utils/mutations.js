@@ -1,35 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const UPDATE_MEDICINE = gql`
-  mutation updateMedicine($medicineId: ID!, $medicine: MedicineInput!) {
-    updateMedicine(medicineId: $medicineId, medicine: $medicine) {
-      _id
-      name
-      amount
-      interval
-      subInterval
-      times
-      queue
-      isActive
-    }
-  }
-`;
-
-export const TOGGLE_ACTIVE = gql`
-  mutation toggleMedicine($medicineId: ID!) {
-    toggleMedicine(medicineId: $medicineId) {
-      _id
-      name
-      amount
-      interval
-      subInterval
-      times
-      queue
-      isActive
-    }
-  }
-`;
-
 export const ADD_MEDICINE = gql`
   mutation addMedicine($medicine: MedicineInput!) {
     addMedicine(medicine: $medicine) {
@@ -39,8 +9,70 @@ export const ADD_MEDICINE = gql`
       interval
       subInterval
       times
-      queue
+      queue {
+        _id
+        time
+        checked
+      }
       isActive
+    }
+  }
+`;
+
+export const UPDATE_MEDICINE = gql`
+  mutation updateMedicine($medicineId: ID!, $medicine: MedicineInput!) {
+    updateMedicine(medicineId: $medicineId, medicine: $medicine) {
+      _id
+      name
+      amount
+      interval
+      subInterval
+      times
+      queue {
+        _id
+        time
+        checked
+      }
+      isActive
+    }
+  }
+`;
+
+export const TOGGLE_ACTIVE = gql`
+  mutation toggleIsActive($medicineId: ID!) {
+    toggleIsActive(medicineId: $medicineId) {
+      _id
+      name
+      amount
+      interval
+      subInterval
+      times
+      queue {
+        _id
+        time
+        checked
+      }
+      isActive
+    }
+  }
+`;
+
+export const TOGGLE_CHECKED = gql`
+  mutation toggleQueueChecked($medicineId: ID!, $queueId: ID!) {
+    toggleQueueChecked(medicineId: $medicineId, queueId: $queueId) {
+      _id
+      name
+      amount
+      interval
+      subInterval
+      times
+      queue {
+        _id
+        time
+        checked
+      }
+      isActive
+      userId
     }
   }
 `;
