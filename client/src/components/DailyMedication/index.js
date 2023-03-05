@@ -60,6 +60,23 @@ const DailyMedication = ({ medicine }) => {
           );
         })}
       </ul>
+    <div className="row">
+      <div className="card-body px-4 pt-1 col-7">
+        <h3 className="dailyHeader">{medicine.name}</h3>
+        <hr />
+        <p className="dailystext">Take at {medicine.time}</p>
+        <p className="dailyRemain">
+          You have {medicine.amount} remaining dosages.
+        </p>
+      </div>
+      <div className="col">
+        <div className="form-check">
+          <input
+            className="form-check-input dailyCheck"
+            type="checkbox"
+          ></input>
+        </div>
+      </div>
     </div>
     <div className="row">
       <div className="card-body px-4 pt-1 col-7">

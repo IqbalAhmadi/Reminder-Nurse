@@ -4,6 +4,7 @@ import rnIcon from '../../assets/images/rn_icon_white.png';
 import Auth from '../../utils/auth';
 import Auth from '../../utils/auth';
 
+
 const AppNavbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // assuming the user is initially authenticated
   const handleLogout = () => {
