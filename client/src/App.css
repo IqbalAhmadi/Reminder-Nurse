@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'News Cycle';
-  src: url(./assets/fonts/NewsCycle-Regular.ttf);
+  font-family: 'Lato';
+  src: url(./assets/fonts/Lato-Bold.ttf);
 }
 
 @font-face {
@@ -17,6 +17,12 @@
   --shade: #f1f1f1;
   --accentB: #3680e0;
   --accentP: #da7b94;
+  --accentPu: #8d02ff;
+}
+
+::selection {
+  background: var(--accentB);
+  color: #fff;
 }
 
 h1,
@@ -31,7 +37,6 @@ header {
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-bottom: 15px;
   text-align: center;
   background-color: var(--accentB);
 }
@@ -46,6 +51,7 @@ body {
     radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
     radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
     radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
+  margin-bottom: 60px;
 }
 
 .logout-button {
@@ -78,6 +84,100 @@ a {
   user-select: none;
 }
 
+/* / navbar styling */
+
+.navAlignR {
+  text-align: right;
+}
+
+.navContent {
+  background-color: var(--darkest) !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  list-style-type: none;
+  color: #fff;
+}
+
+.navContent a {
+  color: #fff;
+  font-family: 'Lato';
+  font-size: 14px;
+}
+
+.navContent a:hover {
+  color: #fff;
+  font-family: 'Lato';
+  cursor: pointer;
+  text-decoration: underline var(--accentP) 2px !important;
+  text-underline-offset: 7px;
+}
+
+.navContent ul {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.navContent li {
+  padding-right: 50px;
+  font-size: 14px;
+}
+
+.navNotButton {
+  font-size: 14px;
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  color: #fff;
+  font-family: 'Lato';
+}
+
+.navNotButton:hover {
+  background: none !important;
+  color: #fff;
+  font-family: 'Lato';
+  cursor: pointer;
+  text-decoration: underline var(--accentP) 2px !important;
+  text-underline-offset: 7px;
+}
+
+.navMobile {
+  background-color: var(--darkest) !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navIcons {
+  color: #fff;
+  word-spacing: 20px;
+}
+
+.navIcons a {
+  color: #fff;
+  cursor: pointer;
+}
+
+.navIcons a:hover {
+  color: var(--accentP);
+  cursor: pointer;
+}
+
+.navIcons button {
+  background: none !important;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 0 !important;
+}
+
+.navIcons button:hover {
+  color: var(--accentP);
+  cursor: pointer;
+}
+
 /* / daily styling */
 
 .imgContain {
@@ -90,6 +190,7 @@ a {
   display: inline;
   vertical-align: top;
   float: none;
+  user-select: none;
 }
 
 .dmedHeader {
@@ -153,9 +254,19 @@ hr {
   width: 35px;
 }
 
-@media only screen and (max-width: 896px) {
+@media only screen and (max-width: 600px) {
   .dCardMob {
     margin-left: -30px;
+  }
+
+  .hideMobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .hideDesktop {
+    display: none;
   }
 }
 
