@@ -2,8 +2,6 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
-import { Link } from 'react-router-dom';
-import { Container, Button } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
 
 const Daily = () => {
@@ -44,7 +42,7 @@ const Daily = () => {
   return (
     <section>
       <div>
-        <h2 className="dmedHeader">daily medication</h2>
+        <h2 className="dmedHeader">Daily Medication</h2>
         <center>
           <div className="row dTop">
             <div className="imgContain col-5">
@@ -65,9 +63,9 @@ const Daily = () => {
         </center>
         <ul className="d-flex flex-wrap justify-content-around dCardMob">
           {sortedMedicine.length ? (
-            sortedMedicine.map((medicine, index) => (
+            sortedMedicine.map((medicine) => (
               <li
-                key={medicine._id + medicine.time}
+                key={medicine.current._id}
                 className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
               >
                 <DailyMedication medicine={medicine} />

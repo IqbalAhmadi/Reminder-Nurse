@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
@@ -6,20 +6,19 @@ import { faCapsules } from '@fortawesome/free-solid-svg-icons';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(Auth.loggedIn());
 
   const logoutUser = () => {
     Auth.logout();
-    setIsAuthenticated(false);
+    setLoggedIn(false);
     navigate('/');
     window.location.reload();
   };
 
   return (
     <div className="hideDesktop">
-      {isAuthenticated ? (
+      {loggedIn ? (
         <div className="navMobile">
           <section className="d-flex flex-wrap justify-content-around navIcons">
             <a href="/">
