@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
-const DesktopNavbar = () => {
+const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(Auth.loggedIn());
 
   const logoutUser = () => {
     Auth.logout();
-    setIsAuthenticated(false);
+    setLoggedIn(false);
     navigate('/');
   };
 
   return (
     <div className="hideMobile navAlignR">
-      {isAuthenticated ? (
+      {loggedIn ? (
         <ul className="d-flex flex-wrap justify-content-center navContent">
           <li>
             <a href="/">Home</a>

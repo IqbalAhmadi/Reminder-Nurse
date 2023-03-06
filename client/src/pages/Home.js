@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import Auth from '../utils/auth';
+import React from 'react';
 import Access from '../components/Access';
 import Daily from './Daily';
 
-const Home = () => {
-  const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
-  return loggedIn ? <Daily /> : <Access setLoggedIn={setLoggedIn} />;
+const Home = ({ access: { loggedIn, setLoggedIn } }) => {
+  return loggedIn ? (
+    <Daily access={{ loggedIn, setLoggedIn }} />
+  ) : (
+    <Access access={{ setLoggedIn }} />
+  );
 };
 
 export default Home;
