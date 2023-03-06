@@ -51,12 +51,15 @@ body {
 .logout-button {
   margin-left: auto;
   margin-right: 20px;
-  background-color:hsla(200,0%,100%,1);
-  background-image:
-  radial-gradient(at 93% 92%, hsla(201,100%,85%,0.32) 0px, transparent 20%),
-  radial-gradient(at 0% 0%, hsla(191,95%,84%,1) 0px, transparent 20%),
-  radial-gradient(at 53% 0%, hsla(165,0%,100%,1) 0px, transparent 20%),
-  radial-gradient(at 90% 19%, hsla(26,100%,90%,1) 0px, transparent 20%);
+  background-color: hsla(200, 0%, 100%, 1);
+  background-image: radial-gradient(
+      at 93% 92%,
+      hsla(201, 100%, 85%, 0.32) 0px,
+      transparent 20%
+    ),
+    radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
+    radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
+    radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
 }
 
 button:hover {

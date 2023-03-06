@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Medicine } = require('../models');
+const { findOneAndUpdate } = require('../models/Medicine');
 const { signToken } = require('../utils/auth');
 const { updateQueue } = require('../utils/updateQueue');
 
@@ -75,17 +76,34 @@ const resolvers = {
       return updatedMedicine;
     },
     // toggles isActive of specific medicine
-    toggleMedicine: async (parent, { medicineId }, context) => {
+    toggleIsActive: async (parent, { medicineId }, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
 
-      const toggledMedicine = await Medicine.findOneAndUpdate(
+      const toggledIsActive = await Medicine.findOneAndUpdate(
         { _id: medicineId, userId: context.user._id, amount: { $gt: 0 } },
         [{ $set: { isActive: { $not: '$isActive' } } }],
         { new: true }
       );
 
-      return toggledMedicine;
+      return toggledIsActive;
+    },
+    checkQueue: async (parent, { medicineId, queueId }, context) => {
+      if (!context.user)
+        throw new AuthenticationError('You need to be logged in!');
+      const medicine = await Medicine.findOne({
+        _id: medicineId,
+        'queue._id': queueId,
+      });
+      const index = medicine.queue.findIndex((el) => el._id == queueId);
+
+      if (index > -1) {
+        medicine.queue[index].checked = true;
+        medicine.amount -= medicine.dosage;
+      }
+
+      const toggledQueueChecked = await medicine.save();
+      return toggledQueueChecked;
     },
   },
 };

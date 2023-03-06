@@ -19,14 +19,24 @@ const Daily = () => {
   );
 
   activeMedicines.forEach((med) => {
-    med.queue.forEach((time) => {
-      sortedMedicine.push({ ...med, time: time });
+    med.queue.forEach((timeObj) => {
+      sortedMedicine.push({ ...med, current: timeObj });
     });
   });
 
   sortedMedicine.sort((a, b) => {
-    const timeA = parseInt(a.time[0] + a.time[1] + a.time[3] + a.time[4]);
-    const timeB = parseInt(b.time[0] + b.time[1] + b.time[3] + b.time[4]);
+    const timeA = parseInt(
+      a.current.time[0] +
+        a.current.time[1] +
+        a.current.time[3] +
+        a.current.time[4]
+    );
+    const timeB = parseInt(
+      b.current.time[0] +
+        b.current.time[1] +
+        b.current.time[3] +
+        b.current.time[4]
+    );
     return timeA - timeB;
   });
   // add logic for checkboxes / boolean
@@ -35,30 +45,30 @@ const Daily = () => {
     <section>
       <Container>
         <div>
-        <h2 className="dmedHeader">daily medication</h2>
-      <center>
-      <div className="row dTop">
-        <div className='imgContain col-5'>
-          <img
-        src={rnStatic}
-        className="imgNurse"
-        alt="Icon of the Reminder Nurse"
-      />
-        </div>
-      <div className='col-5 animate__animated animate__fadeIn'>
-        <div className="card dailyDialogue border-0 shadow-sm">
-         <div className="card-body">
-          Let's look at your medications today.
-        </div>
-      </div>
-      </div>
-      </div>
-      </center>
+          <h2 className="dmedHeader">daily medication</h2>
+          <center>
+            <div className="row dTop">
+              <div className="imgContain col-5">
+                <img
+                  src={rnStatic}
+                  className="imgNurse"
+                  alt="Icon of the Reminder Nurse"
+                />
+              </div>
+              <div className="col-5 animate__animated animate__fadeIn">
+                <div className="card dailyDialogue border-0 shadow-sm">
+                  <div className="card-body">
+                    Let's look at your medications today.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
           <ul className="d-flex flex-wrap justify-content-around dCardMob">
             {sortedMedicine.length ? (
-              sortedMedicine.map((medicine, index) => (
+              sortedMedicine.map((medicine) => (
                 <li
-                  key={medicine._id + medicine.time}
+                  key={medicine._id + medicine.current._id}
                   className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
                 >
                   <DailyMedication medicine={medicine} />
@@ -69,9 +79,12 @@ const Daily = () => {
             )}
           </ul>
         </div>
+        {/* TODO: fix Link takes whole line in browser */}
         <Link to={'/medicines'}>
           <center>
-            <Button className="btn-block shadow dBtn rounded-pill mb-4">Edit Medications</Button>
+            <Button className="btn-block shadow dBtn rounded-pill mb-4">
+              Edit Medications
+            </Button>
           </center>
         </Link>
       </Container>
