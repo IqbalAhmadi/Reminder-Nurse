@@ -48,6 +48,17 @@ body {
     radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
 }
 
+.logout-button {
+  margin-left: auto;
+  margin-right: 20px;
+  background-color:hsla(200,0%,100%,1);
+  background-image:
+  radial-gradient(at 93% 92%, hsla(201,100%,85%,0.32) 0px, transparent 20%),
+  radial-gradient(at 0% 0%, hsla(191,95%,84%,1) 0px, transparent 20%),
+  radial-gradient(at 53% 0%, hsla(165,0%,100%,1) 0px, transparent 20%),
+  radial-gradient(at 90% 19%, hsla(26,100%,90%,1) 0px, transparent 20%);
+}
+
 button:hover {
   cursor: pointer;
   background-color: var(--accentB) !important;
@@ -195,6 +206,10 @@ hr {
 }
 
 /* Login & Sign In Form Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 .form-container,
 .form-container-login {
@@ -210,6 +225,12 @@ hr {
 .form-title {
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-size: 36px;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-size: 36px;
 }
 .label-usrName::first-letter {
   font-size: 2rem;
@@ -253,6 +274,18 @@ hr {
   color: #276873;
 }
 
+.subTitle {
+  font-size: 16px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.subTitle {
+  font-size: 16px;
+  color: #777;
+  margin-top: 5px;
+}
+
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -269,4 +302,46 @@ hr {
   .form-submit-btn {
     margin-top: 20px;
   }
+}
+
+/* 404 page */
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.text-center {
+  font-family: 'Shantell Sans', cursive;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 700px;
+  background-position: center;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
 }
