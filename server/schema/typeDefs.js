@@ -36,7 +36,6 @@ const typeDefs = gql`
     interval: String
     subInterval: String
     times: [String]
-    queue: [QueueInput]
   }
 
   input QueueInput {

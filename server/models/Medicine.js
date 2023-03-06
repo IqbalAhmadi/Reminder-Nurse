@@ -78,8 +78,20 @@ medicineSchema.pre('save', async function (next) {
 });
 
 medicineSchema.pre('findOneAndUpdate', async function (next) {
-  const medicine = this.getUpdate();
-  if (medicine.amount < 1) medicine.isActive = false;
+  const original = await this.model.findOne(this.getQuery());
+  const update = this.getUpdate();
+
+  if (update.amount < 1) update.isActive = false;
+
+  // copies times over to queue without changing checked status
+  if (update.times) {
+    update.queue = original.queue;
+    update.times.forEach((time, index) => {
+      if (index < update.queue.length) update.queue[index].time = time;
+      else update.queue.push({ time });
+    });
+  }
+
   next();
 });
 
