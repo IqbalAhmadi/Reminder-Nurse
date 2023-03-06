@@ -125,15 +125,15 @@ a {
 
 .navNotButton {
   font-size: 14px;
-  background: none!important;
+  background: none !important;
   border: none;
-  padding: 0!important;
+  padding: 0 !important;
   color: #fff;
   font-family: 'Lato';
 }
 
 .navNotButton:hover {
-  background: none!important;
+  background: none !important;
   color: #fff;
   font-family: 'Lato';
   cursor: pointer;
@@ -166,11 +166,11 @@ a {
 }
 
 .navIcons button {
-  background: none!important;
+  background: none !important;
   color: #fff;
   cursor: pointer;
   border: none;
-  padding: 0!important;
+  padding: 0 !important;
 }
 
 .navIcons button:hover {

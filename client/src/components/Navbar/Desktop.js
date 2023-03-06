@@ -22,7 +22,9 @@ const DesktopNavbar = () => {
           <li>
             <a href="/medicines">Your Medications</a>
           </li>
-          <button className='navNotButton' onClick={logoutUser}>Logout</button>
+          <button className="navNotButton" onClick={logoutUser}>
+            Logout
+          </button>
         </ul>
       ) : null}
     </div>
