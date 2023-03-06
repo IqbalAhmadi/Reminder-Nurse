@@ -52,7 +52,6 @@ export const toggleIsActiveCache = {
 };
 
 export const toggledQueueCheckedCache = {
-  // TODO finish this part
   update(cache, { data: { checkQueue } }) {
     try {
       const { medicines } = cache.readQuery({ query: QUERY_MEDICINES });

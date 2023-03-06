@@ -18,7 +18,7 @@ const DailyMedication = ({ medicine }) => {
     await toggleChecked({ variables: { medicineId, queueId } });
   };
 
-  if (false && !medicine.current.checked) createSchedules();
+  if (!medicine.current.checked) createSchedules();
 
   return (
     <div className="row">
