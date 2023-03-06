@@ -44,7 +44,7 @@ const client = new ApolloClient({
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
-  
+
   return (
     <ApolloProvider client={client}>
       <Router>
