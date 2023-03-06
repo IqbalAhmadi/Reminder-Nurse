@@ -1,5 +1,5 @@
 const dayjs = require('dayjs');
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const medicineSchema = new Schema({
   name: {
@@ -83,15 +83,39 @@ medicineSchema.pre('findOneAndUpdate', async function (next) {
 
   if (update.amount < 1) update.isActive = false;
 
-  // copies times over to queue without changing checked status
+  // removes not found times then adds new ones
   if (update.times) {
+    let removeIndexes = [];
+
+    // finds the indexes which will be removed
+    original.queue.forEach((obj, index) => {
+      let found = false;
+      // return false if time is in both original and update else return true
+      for (let i = 0; i < update.times.length; i++) {
+        if (update.times[i] === obj.time) found = true;
+      }
+
+      if (!found) removeIndexes.push(index);
+    });
+
+    for (let i = removeIndexes.length - 1; i >= 0; i--) {
+      original.queue.splice(removeIndexes[i], 1);
+    }
+
+    // copies over the queue we edited
     update.queue = original.queue;
-    update.times.forEach((time, index) => {
-      if (index < update.queue.length) update.queue[index].time = time;
-      else update.queue.push({ time });
+
+    // adds time to queue if not found
+    update.times.forEach((time) => {
+      let found = false;
+
+      update.queue.forEach((queueTime) =>
+        queueTime.time === time ? (found = true) : null
+      );
+
+      if (!found) update.queue.push({ time });
     });
   }
-
   next();
 });
 
