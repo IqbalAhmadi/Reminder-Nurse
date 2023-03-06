@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import rnIcon from '../../assets/images/rn_icon_white.png';
 import Auth from '../../utils/auth';
 
-const AppNavbar = () => {
+const DesktopNavbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // assuming the user is initially authenticated
   const handleLogout = () => {
     // TODO: how to implement the logout logic here? This is still incomplete
@@ -35,4 +34,4 @@ const AppNavbar = () => {
   );
 };
 
-export default AppNavbar;
+export default DesktopNavbar;

@@ -20,6 +20,11 @@
   --accentPu: #8d02ff;
 }
 
+::selection {
+  background: var(--accentB);
+  color: #fff;
+}
+
 h1,
 h2,
 h3,
@@ -46,6 +51,7 @@ body {
     radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
     radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
     radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
+    margin-bottom: 60px;
 }
 
 .logout-button {
@@ -114,6 +120,30 @@ a {
   font-size: 14px;
 }
 
+.navMobile {
+  background-color: var(--darkest) !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navIcons {
+  color: #fff;
+  word-spacing: 20px;
+}
+
+.navIcons a {
+  color: #fff;
+  cursor: pointer;
+}
+
+.navIcons a:hover {
+  color: var(--accentP);
+  cursor: pointer;
+}
+
 /* / daily styling */
 
 .imgContain {
@@ -126,6 +156,7 @@ a {
   display: inline;
   vertical-align: top;
   float: none;
+  user-select: none;
 }
 
 .dmedHeader {

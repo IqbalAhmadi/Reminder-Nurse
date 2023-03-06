@@ -68,11 +68,11 @@ const Daily = () => {
             )}
           </ul>
         </div>
-        <Link to={'/medicines'}>
+        {/* <Link to={'/medicines'}>
           <center>
             <Button className="btn-block shadow dBtn rounded-pill mb-4">Edit Medications</Button>
           </center>
-        </Link>
+        </Link> */}
     </section>
   );
 };
