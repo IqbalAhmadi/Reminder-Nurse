@@ -45,25 +45,25 @@ const Daily = () => {
     <section>
       <Container>
         <div>
-        <h2 className="dmedHeader">daily medication</h2>
-      <center>
-      <div className="row dTop">
-        <div className='imgContain col-5'>
-          <img
-        src={rnStatic}
-        className="imgNurse"
-        alt="Icon of the Reminder Nurse"
-      />
-        </div>
-      <div className='col-5 animate__animated animate__fadeIn'>
-        <div className="card dailyDialogue border-0 shadow-sm">
-         <div className="card-body">
-          Let's look at your medications today.
-        </div>
-      </div>
-      </div>
-      </div>
-      </center>
+          <h2 className="dmedHeader">daily medication</h2>
+          <center>
+            <div className="row dTop">
+              <div className="imgContain col-5">
+                <img
+                  src={rnStatic}
+                  className="imgNurse"
+                  alt="Icon of the Reminder Nurse"
+                />
+              </div>
+              <div className="col-5 animate__animated animate__fadeIn">
+                <div className="card dailyDialogue border-0 shadow-sm">
+                  <div className="card-body">
+                    Let's look at your medications today.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
           <ul className="d-flex flex-wrap justify-content-around dCardMob">
             {sortedMedicine.length ? (
               sortedMedicine.map((medicine) => (
@@ -82,7 +82,9 @@ const Daily = () => {
         {/* TODO: fix Link takes whole line in browser */}
         <Link to={'/medicines'}>
           <center>
-            <Button className="btn-block shadow dBtn rounded-pill mb-4">Edit Medications</Button>
+            <Button className="btn-block shadow dBtn rounded-pill mb-4">
+              Edit Medications
+            </Button>
           </center>
         </Link>
       </Container>
