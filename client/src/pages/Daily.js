@@ -43,42 +43,41 @@ const Daily = () => {
 
   return (
     <section>
-        <div>
+      <div>
         <h2 className="dmedHeader">daily medication</h2>
-      <center>
-      <div className="row dTop">
-        <div className='imgContain col-5'>
-          <img
-        src={rnStatic}
-        className="imgNurse"
-        alt="Icon of the Reminder Nurse"
-      />
-        </div>
-      <div className='col-5 animate__animated animate__fadeIn'>
-        <div className="card dailyDialogue border-0 shadow-sm">
-         <div className="card-body">
-          Let's look at your medications today.
-        </div>
+        <center>
+          <div className="row dTop">
+            <div className="imgContain col-5">
+              <img
+                src={rnStatic}
+                className="imgNurse"
+                alt="Icon of the Reminder Nurse"
+              />
+            </div>
+            <div className="col-5 animate__animated animate__fadeIn">
+              <div className="card dailyDialogue border-0 shadow-sm">
+                <div className="card-body">
+                  Let's look at your medications today.
+                </div>
+              </div>
+            </div>
+          </div>
+        </center>
+        <ul className="d-flex flex-wrap justify-content-around dCardMob">
+          {sortedMedicine.length ? (
+            sortedMedicine.map((medicine, index) => (
+              <li
+                key={medicine._id + medicine.time}
+                className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
+              >
+                <DailyMedication medicine={medicine} />
+              </li>
+            ))
+          ) : (
+            <h2>You do not have any medication for today. </h2>
+          )}
+        </ul>
       </div>
-      </div>
-      </div>
-      </center>
-          <ul className="d-flex flex-wrap justify-content-around dCardMob">
-            {sortedMedicine.length ? (
-              sortedMedicine.map((medicine, index) => (
-                <li
-                  key={medicine._id + medicine.time}
-                  className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
-                >
-                  <DailyMedication medicine={medicine} />
-                </li>
-              ))
-            ) : (
-              <h2>You do not have any medication for today. </h2>
-            )}
-          </ul>
-        </div>
-
     </section>
   );
 };

@@ -13,25 +13,17 @@ const DesktopNavbar = () => {
   };
 
   return (
-    <div className='hideMobile navAlignR'>
+    <div className="hideMobile navAlignR">
       {isAuthenticated ? (
-      <ul className="d-flex flex-wrap justify-content-center navContent">
-        <li>
-          <a href="/">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="/medicines">
-            Your Medications
-          </a>
-        </li>
-        <a
-          onClick={logoutUser}
-        >
-          Logout
-        </a>
-      </ul>
+        <ul className="d-flex flex-wrap justify-content-center navContent">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/medicines">Your Medications</a>
+          </li>
+          <a onClick={logoutUser}>Logout</a>
+        </ul>
       ) : null}
     </div>
   );

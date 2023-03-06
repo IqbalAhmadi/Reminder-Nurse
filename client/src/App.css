@@ -51,7 +51,7 @@ body {
     radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
     radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
     radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .logout-button {
@@ -385,7 +385,6 @@ hr {
   .form-submit-btn {
     margin-top: 20px;
   }
-
 }
 
 /* 404 page */
