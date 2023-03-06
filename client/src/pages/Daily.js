@@ -2,8 +2,6 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
-import { Link } from 'react-router-dom';
-import { Container, Button } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
 
 const Daily = () => {
@@ -44,7 +42,7 @@ const Daily = () => {
   return (
     <section>
       <div>
-        <h2 className="dmedHeader">daily medication</h2>
+        <h2 className="dmedHeader">Daily Medication</h2>
         <center>
           <div className="row dTop">
             <div className="imgContain col-5">

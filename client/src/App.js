@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ApolloClient,
   ApolloProvider,
@@ -7,8 +7,14 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import Auth from './utils/auth';
 import Header from './components/Header';
 import DesktopNavbar from './components/Navbar/Desktop';
 import MobileNavbar from './components/Navbar/Mobile';
@@ -37,20 +43,31 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
+  
   return (
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <DesktopNavbar />
+        <DesktopNavbar access={{ loggedIn, setLoggedIn }} />
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/medicines" element={<Medicines />} />
-            <Route path="/medicine/:medicineId" element={<Medicine />} />
+            <Route
+              path="/"
+              element={<Home access={{ loggedIn, setLoggedIn }} />}
+            />
+            <Route
+              path="/medicines"
+              element={loggedIn ? <Medicines /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/medicine/:medicineId"
+              element={loggedIn ? <Medicine /> : <Navigate to="/" />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
-        <MobileNavbar />
+        <MobileNavbar access={{ loggedIn, setLoggedIn }} />
       </Router>
     </ApolloProvider>
   );
