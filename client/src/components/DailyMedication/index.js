@@ -1,10 +1,8 @@
 import React from 'react';
 import Scheduler from '../../utils/scheduler';
-import rnStatic from '../../assets/images/rn_static_01.png';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_CHECKED } from '../../utils/mutations';
 import { toggledQueueCheckedCache } from '../../utils/handleCache';
-import 'animate.css';
 
 const DailyMedication = ({ medicine }) => {
   const [toggleChecked] = useMutation(TOGGLE_CHECKED, toggledQueueCheckedCache);

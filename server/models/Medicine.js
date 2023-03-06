@@ -9,8 +9,9 @@ const medicineSchema = new Schema({
   },
   dosage: {
     type: Number,
+    min: [1],
+    default: 1,
     required: true,
-    min: [0]
   },
   amount: {
     type: Number,
@@ -69,7 +70,6 @@ const medicineSchema = new Schema({
 
 // makes inactive if amount < 1
 medicineSchema.pre('save', async function (next) {
-  console.log('pre-save');
   if (this.isNew || this.isModified('times')) {
     this.times.forEach((time) => this.queue.push({ time }));
   }
