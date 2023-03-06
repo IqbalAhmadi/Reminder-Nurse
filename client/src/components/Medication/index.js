@@ -33,13 +33,13 @@ const Medication = ({ medicine, isNew }) => {
     isNew
       ? await createMedicine({
           variables: {
-            medicine: { ...formData, queue: formData.times },
+            medicine: { ...formData },
           },
         })
       : await updateMedicine({
           variables: {
             medicineId: medicine._id,
-            medicine: { ...formData, queue: formData.times },
+            medicine: { ...formData },
           },
         });
 
@@ -47,14 +47,15 @@ const Medication = ({ medicine, isNew }) => {
   };
 
   const handleChange = (e, index) => {
-    const times = [];
     const { name, value } = e.target;
 
     switch (name) {
+      case 'dosage':
       case 'amount':
         setFormData({ ...formData, [name]: parseInt(value) });
         break;
       case 'times':
+        const times = [];
         for (let i = 0; i < formData.times.length; i++)
           i === index ? times.push(value) : times.push(formData.times[i]);
         setFormData({ ...formData, times });

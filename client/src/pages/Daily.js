@@ -65,9 +65,9 @@ const Daily = () => {
         </center>
         <ul className="d-flex flex-wrap justify-content-around dCardMob">
           {sortedMedicine.length ? (
-            sortedMedicine.map((medicine, index) => (
+            sortedMedicine.map((medicine) => (
               <li
-                key={medicine._id + medicine.time}
+                key={medicine.current._id}
                 className="card shadow m-2 p-3 mb-4 bg-white rounded dailyCard"
               >
                 <DailyMedication medicine={medicine} />
