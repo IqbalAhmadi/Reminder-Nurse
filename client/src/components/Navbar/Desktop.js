@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 const DesktopNavbar = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // assuming the user is initially authenticated
-  const handleLogout = () => {
-    // TODO: how to implement the logout logic here? This is still incomplete
-    Auth.logout();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(Auth.loggedIn());
 
-    setIsAuthenticated(false); // update the auth status
+  const logoutUser = () => {
+    Auth.logout();
+    setIsAuthenticated(false);
+    navigate('/');
   };
+
   return (
     <div className='hideMobile navAlignR'>
-      {isAuthenticated && (
+      {isAuthenticated ? (
       <ul className="d-flex flex-wrap justify-content-center navContent">
         <li>
           <a href="/">
@@ -24,12 +27,12 @@ const DesktopNavbar = () => {
           </a>
         </li>
         <a
-          onClick={handleLogout}
+          onClick={logoutUser}
         >
           Logout
         </a>
       </ul>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_ACTIVE } from '../../utils/mutations';
-import { toggleMedicineCache } from '../../utils/handleCache';
+import { toggleIsActiveCache } from '../../utils/handleCache';
 
 const MedicationList = ({ medicines, isActive }) => {
-  const [toggleMedicine] = useMutation(TOGGLE_ACTIVE, toggleMedicineCache);
+  const [toggleIsActive] = useMutation(TOGGLE_ACTIVE, toggleIsActiveCache);
 
   const handleMedicineToggle = async (e) => {
     try {
       const medicineId = e.target.id;
-      await toggleMedicine({ variables: { medicineId } });
+      await toggleIsActive({ variables: { medicineId } });
     } catch (err) {
       console.error(err);
     }

@@ -13,6 +13,7 @@ const Medication = ({ medicine, isNew }) => {
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     name: medicine?.name || '',
+    dosage: medicine?.dosage || 1,
     amount: medicine?.amount || 0,
     interval: medicine?.interval || 'daily',
     subInterval: medicine?.subInterval || 'every',
@@ -126,6 +127,18 @@ const Medication = ({ medicine, isNew }) => {
             <option>Every</option>
             <option>Every Other</option>
           </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="form-title" controlId="medicineAmount">
+          <Form.Label>Dosage:</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            name="dosage"
+            className="form-input"
+            onChange={handleChange}
+            defaultValue={medicine ? medicine.dosage : null}
+          ></Form.Control>
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineAmount">

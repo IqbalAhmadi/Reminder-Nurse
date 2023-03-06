@@ -7,6 +7,12 @@ const medicineSchema = new Schema({
     required: true,
     trim: true,
   },
+  dosage: {
+    type: Number,
+    min: [1],
+    default: 1,
+    required: true,
+  },
   amount: {
     type: Number,
     required: true,
@@ -39,7 +45,12 @@ const medicineSchema = new Schema({
       },
     },
   ],
-  queue: [String],
+  queue: [
+    {
+      time: { type: String, required: true },
+      checked: { type: Boolean, default: false },
+    },
+  ],
   queueLastFilled: {
     type: Date,
     required: true,
@@ -60,7 +71,7 @@ const medicineSchema = new Schema({
 // makes inactive if amount < 1
 medicineSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('times')) {
-    this.queue = [...this.times];
+    this.times.forEach((time) => this.queue.push({ time }));
   }
 
   next();

@@ -5,11 +5,16 @@ export const QUERY_MEDICINE = gql`
     medicine(medicineId: $medicineId) {
       _id
       name
+      dosage
       amount
       interval
       subInterval
       times
-      queue
+      queue {
+        _id
+        time
+        checked
+      }
       isActive
     }
   }
@@ -20,11 +25,16 @@ export const QUERY_MEDICINES = gql`
     medicines {
       _id
       name
+      dosage
       amount
       interval
       subInterval
       times
-      queue
+      queue {
+        _id
+        time
+        checked
+      }
       isActive
     }
   }
