@@ -33,7 +33,6 @@ const Daily = () => {
 
   return (
     <section>
-      <Container>
         <div>
         <h2 className="dmedHeader">daily medication</h2>
       <center>
@@ -74,7 +73,6 @@ const Daily = () => {
             <Button className="btn-block shadow dBtn rounded-pill mb-4">Edit Medications</Button>
           </center>
         </Link>
-      </Container>
     </section>
   );
 };

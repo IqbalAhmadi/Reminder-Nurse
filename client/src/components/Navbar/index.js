@@ -11,23 +11,27 @@ const AppNavbar = () => {
     setIsAuthenticated(false); // update the auth status
   };
   return (
-    <header className="d-flex flex-wrap justify-content-center">
-      <section>
-        <img
-          src={rnIcon}
-          className="headerImgAdj"
-          alt="Logo that reads Reminder Nurse"
-        />
-      </section>
+    <div className='hideMobile navAlignR'>
       {isAuthenticated && (
-        <button
-          className="logout-button btn btn-light btn-sm  "
+      <ul className="d-flex flex-wrap justify-content-center navContent">
+        <li>
+          <a href="/">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/medicines">
+            Your Medications
+          </a>
+        </li>
+        <a
           onClick={handleLogout}
         >
-          Log out
-        </button>
+          Logout
+        </a>
+      </ul>
       )}
-    </header>
+    </div>
   );
 };
 
