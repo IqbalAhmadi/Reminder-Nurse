@@ -91,19 +91,18 @@ const resolvers = {
     checkQueue: async (parent, { medicineId, queueId }, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');
-
-      const findQueue = await Medicine.findOne({
+      const medicine = await Medicine.findOne({
         _id: medicineId,
         'queue._id': queueId,
       });
+      const index = medicine.queue.findIndex((el) => el._id == queueId);
 
-      const { checked } = findQueue.queue.id(queueId);
-      const toggledQueueChecked = await Medicine.findOneAndUpdate(
-        { _id: medicineId, 'queue._id': queueId },
-        { $set: { 'queue.$.checked': !checked } },
-        { new: true }
-      );
+      if (index > -1) {
+        medicine.queue[index].checked = true;
+        medicine.amount -= medicine.dosage;
+      }
 
+      const toggledQueueChecked = await medicine.save();
       return toggledQueueChecked;
     },
   },
