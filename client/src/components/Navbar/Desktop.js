@@ -10,6 +10,7 @@ const DesktopNavbar = () => {
     Auth.logout();
     setIsAuthenticated(false);
     navigate('/');
+    window.location.reload();
   };
 
   return (

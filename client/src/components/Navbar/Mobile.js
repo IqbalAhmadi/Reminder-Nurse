@@ -14,6 +14,7 @@ const MobileNavbar = () => {
     Auth.logout();
     setIsAuthenticated(false);
     navigate('/');
+    window.location.reload();
   };
 
   return (
