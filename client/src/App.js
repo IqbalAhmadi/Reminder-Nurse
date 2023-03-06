@@ -9,7 +9,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
+import DesktopNavbar from './components/Navbar/Desktop';
+import MobileNavbar from './components/Navbar/Mobile';
 import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
@@ -38,7 +40,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
+        <Header />
+        <DesktopNavbar />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -47,6 +50,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
+        <MobileNavbar />
       </Router>
     </ApolloProvider>
   );
