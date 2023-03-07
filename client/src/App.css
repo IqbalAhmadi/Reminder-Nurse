@@ -361,7 +361,7 @@ hr {
 
 .form-submit-btn {
   display: block;
-  margin: 0 auto;
+  margin: 2px 3px;
   box-shadow: 0px 10px 14px -7px #276873;
   background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
   background-color: #599bb3;
