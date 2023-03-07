@@ -449,6 +449,27 @@ hr {
   margin-top: 5px;
 }
 
+.fade-enter .userForm {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.fade-enter-active .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit-active .userForm {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.fade-enter-active .userForm,
+.fade-exit-active .userForm {
+  transition: opacity 500ms, transform 500ms;
+}
+
 /* Media Queries */
 
 @media (max-width: 576px) {
