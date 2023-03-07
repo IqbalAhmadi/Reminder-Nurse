@@ -13,7 +13,6 @@ const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
     Auth.logout();
     setLoggedIn(false);
     navigate('/');
-    window.location.reload();
   };
 
   return (

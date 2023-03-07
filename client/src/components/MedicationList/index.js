@@ -36,22 +36,26 @@ const MedicationList = ({ medicines, isActive }) => {
                   />
                 </Link>
                 {isActive ? (
-                  <Button className="MedToggleB">
+                  <Button
+                    className="MedToggleB"
+                    onClick={handleMedicineToggle}
+                    id={medicine._id}
+                  >
                     <FontAwesomeIcon
                       icon={faTrashCan}
                       className="fa-xl fa-regular MedFAIcon"
-                      id={medicine._id}
-                      onClick={handleMedicineToggle}
                       disabled={medicine.amount > 0 ? false : true}
                     />
                   </Button>
                 ) : (
-                  <Button className="MedToggleB">
+                  <Button
+                    className="MedToggleB"
+                    onClick={handleMedicineToggle}
+                    id={medicine._id}
+                  >
                     <FontAwesomeIcon
                       icon={faCirclePlus}
-                      id={medicine._id}
                       className="fa-xl fa-regular MedFAIcon"
-                      onClick={handleMedicineToggle}
                       disabled={medicine.amount > 0 ? false : true}
                     />
                   </Button>

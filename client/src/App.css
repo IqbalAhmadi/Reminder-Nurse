@@ -324,6 +324,7 @@ hr {
   cursor: pointer;
   margin-left: 10px;
   margin-right: 5px;
+  pointer-events: none;
 }
 
 .MedToggleB {
@@ -331,11 +332,11 @@ hr {
   border: none !important;
   outline: none !important;
   padding: 0 !important;
-  background: transparent !important;
+  background: #fff !important;
 }
 
 .MedToggleB:hover {
-  background-color: transparent !important;
+  background-color: #fff !important;
 }
 
 @media only screen and (max-width: 700px) {
