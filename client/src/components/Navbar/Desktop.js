@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
@@ -16,10 +16,10 @@ const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
       {loggedIn ? (
         <ul className="d-flex flex-wrap justify-content-center navContent">
           <li>
-            <a href="/">Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href="/medicines">Your Medications</a>
+            <Link to='/medicines'>Your Medications</Link>
           </li>
           <button className="navNotButton" onClick={logoutUser}>
             Logout

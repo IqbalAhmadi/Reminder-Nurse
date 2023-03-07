@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faCapsules } from '@fortawesome/free-solid-svg-icons';
@@ -20,12 +20,12 @@ const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
       {loggedIn ? (
         <div className="navMobile">
           <section className="d-flex flex-wrap justify-content-around navIcons">
-            <a href="/">
+            <Link to="/">
               <FontAwesomeIcon icon={faHouse} className="fa-xl" />
-            </a>
-            <a href="/medicines">
+            </Link>
+            <Link to="/medicines">
               <FontAwesomeIcon icon={faCapsules} className="fa-xl" />
-            </a>
+            </Link>
             <button onClick={logoutUser}>
               <FontAwesomeIcon icon={faRightFromBracket} className="fa-xl" />
             </button>
