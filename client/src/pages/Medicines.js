@@ -5,6 +5,7 @@ import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
+import rnStatic from '../assets/images/rn_static_01.png';
 
 const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);

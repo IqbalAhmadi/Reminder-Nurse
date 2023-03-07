@@ -37,7 +37,6 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
       const { data } = await login({ variables: { ...userFormData } });
       Auth.login(data.login.token);
       setLoggedIn(true);
-      window.location.reload();
     } catch (err) {
       console.error(err);
       setShowAlert(true);
