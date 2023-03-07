@@ -274,19 +274,20 @@ hr {
 
 .tab-content {
   border: solid 1px var(--accentB);
+  background-color: var(--shade);
 }
 
 .nav-item .nav-link {
   font-family: 'Lato';
   color: var(--accentB);
-  font-size: 14px;
+  font-size: 13px;
   border: 0;
 }
 
 .nav-item .nav-link:hover {
-  background-color: var(--accentP)!important;
+  background-color: var(--accentP) !important;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   border: 0;
 }
 
@@ -307,8 +308,50 @@ hr {
 .medication-list li {
   padding: 5px;
   margin: 10px;
-  border: solid var(--contrast);
-  background-color: var(--gray);
+  margin-top: 15px;
+  background-color: #fff;
+  border: solid 1px var(--accentP);
+  border-radius: 25px;
+}
+
+.MedName {
+  font-family: 'Lato';
+  font-size: 16px;
+}
+
+.MedFAIcon {
+  color: var(--accentB);
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.MedToggleB {
+  display: inline-block !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.MedToggleB:hover {
+  background-color: transparent !important;
+}
+
+@media only screen and (max-width: 700px) {
+  .medication-list li {
+    width: 100%;
+  }
+
+  .MedContMob {
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .medication-list li {
+    width: 45%;
+  }
 }
 
 .medication-list h3 {

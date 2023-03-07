@@ -12,10 +12,9 @@ const Medicines = () => {
   if (loading) return <h2>Loading...</h2>;
 
   return (
-    <Container>
+    <Container className="container-fluid pl-4">
       <section className="medicines">
-
-      <h2 className="dmedHeader">your medications</h2>
+        <h2 className="dmedHeader">your medications</h2>
         <center>
           <div className="row dTop">
             <div className="imgContain col-5">
@@ -27,9 +26,7 @@ const Medicines = () => {
             </div>
             <div className="col-5 animate__animated animate__fadeIn">
               <div className="card dailyDialogue border-0 shadow-sm">
-                <div className="card-body">
-                  Need to edit your medications?
-                </div>
+                <div className="card-body">Need to edit your medications?</div>
               </div>
             </div>
           </div>
@@ -44,7 +41,11 @@ const Medicines = () => {
         </Tabs>
         <section className="d-flex flex-wrap justify-content-center">
           <Link to="../medicine/add">
-            <Button className="form-submit-btn rounded-pill MedAddM" variant="primary" type="submit">
+            <Button
+              className="form-submit-btn rounded-pill MedAddM"
+              variant="primary"
+              type="submit"
+            >
               Add Medication
             </Button>
           </Link>

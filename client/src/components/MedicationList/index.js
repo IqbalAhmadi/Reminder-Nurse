@@ -4,6 +4,10 @@ import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_ACTIVE } from '../../utils/mutations';
 import { toggleIsActiveCache } from '../../utils/handleCache';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePen } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 const MedicationList = ({ medicines, isActive }) => {
   const [toggleIsActive] = useMutation(TOGGLE_ACTIVE, toggleIsActiveCache);
@@ -18,24 +22,40 @@ const MedicationList = ({ medicines, isActive }) => {
   };
 
   return (
-    <ol className="medication-list display-flex flex-wrap justify-content-center">
+    <ol className="medication-list display-flex flex-wrap justify-content-between MedContMob">
       {medicines.map((medicine) =>
         isActive === medicine.isActive ? (
           <li key={medicine._id} style={{ listStyleType: 'none' }}>
-            <section className="m-1 display-flex justify-content-between flex-wrap">
-              <h3>{medicine.name}</h3>
+            <section className="m-1 display-flex justify-content-around flex-wrap">
+              <h3 className="MedName">{medicine.name}</h3>
               <section className="d-flex m-1 flex-wrap justify-content-end">
                 <Link to={'../medicine/' + medicine._id}>
-                  <Button variant="secondary">Modify </Button>
+                  <FontAwesomeIcon
+                    icon={faFilePen}
+                    className="fa-xl MedFAIcon MedToggleB"
+                  />
                 </Link>
-                <Button
-                  disabled={medicine.amount > 0 ? false : true}
-                  variant={isActive ? 'danger' : 'success'}
-                  id={medicine._id}
-                  onClick={handleMedicineToggle}
-                >
-                  {isActive ? 'Deactivate' : 'Activate'}
-                </Button>
+                {isActive ? (
+                  <Button className="MedToggleB">
+                    <FontAwesomeIcon
+                      icon={faTrashCan}
+                      className="fa-xl fa-regular MedFAIcon"
+                      id={medicine._id}
+                      onClick={handleMedicineToggle}
+                      disabled={medicine.amount > 0 ? false : true}
+                    />
+                  </Button>
+                ) : (
+                  <Button className="MedToggleB">
+                    <FontAwesomeIcon
+                      icon={faCirclePlus}
+                      id={medicine._id}
+                      className="fa-xl fa-regular MedFAIcon"
+                      onClick={handleMedicineToggle}
+                      disabled={medicine.amount > 0 ? false : true}
+                    />
+                  </Button>
+                )}
               </section>
             </section>
           </li>
