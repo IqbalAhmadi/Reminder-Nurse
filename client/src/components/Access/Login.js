@@ -48,70 +48,39 @@ const LoginForm = ({ setLoggedIn }) => {
     });
   };
   return (
-    <article>
-      <Form
-        className="form-container-login"
-        noValidate
-        validated={validated}
-        onSubmit={handleFormSubmit}
-      >
-        <Alert
-          className="alert"
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Incorrect username/password!
-        </Alert>
-        <Form.Group className="form-title">
-          <h4 className="title-signup">Log In</h4>
-          <Form.Label className="label-usrName" htmlFor="username">
-            Username
-          </Form.Label>
-          <Form.Control
-            className="form-input"
-            type="text"
-            placeholder="Your username"
-            name="username"
-            onChange={handleInputChange}
-            value={userFormData.username}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Username is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="form-title">
-          <Form.Label className="label-usrName" htmlFor="password">
-            Password
-          </Form.Label>
-          <Form.Control
-            className="form-input"
-            disabled={loading}
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Button
-          className="form-submit-btn"
-          disabled={
-            !(userFormData.username && userFormData.password) || loading
-          }
-          type="submit"
-          variant="success"
-        >
-          Submit
-        </Button>
-      </Form>
-    </article>
+    <form className="login form" onSubmit={handleFormSubmit}>
+      <span className="login__icon">RN</span>
+      <h2 className="login__title">log in to Reminder Nurse</h2>
+      <div className="login__row">
+        <label className="login__label" htmlFor="lg-em">
+          Username
+        </label>
+        <input
+          className="login__input"
+          id="lg-em"
+          type="text"
+          placeholder="username"
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="login__row">
+        <label className="login__label" htmlFor="lg-ps">
+          password
+        </label>
+        <input
+          className="login__input"
+          id="lg-ps"
+          type="password"
+          placeholder="**********"
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="login__row">
+        <button className="login__button" type="submit">
+          sign in
+        </button>
+      </div>
+    </form>
   );
 };
 

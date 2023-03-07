@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 import { ADD_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
-const SignupForm = ({ setLoggedIn }) => {
+const SignupForm = ({ setLoggedIn, switchForm, signupFormOpen }) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -50,72 +50,69 @@ const SignupForm = ({ setLoggedIn }) => {
   };
 
   return (
-    <article>
-      {/* This is needed for the validation functionality above */}
-      <Form
-        className="form-container"
-        noValidate
-        validated={validated}
-        onSubmit={handleFormSubmit}
+    <form
+      className={signupFormOpen ? 'signup is-form-open form' : 'signup form'}
+      id="signup"
+    >
+      <svg
+        onClick={switchForm}
+        className={
+          signupFormOpen
+            ? 'svg-icon signup__trigger signup__trigger--fixed'
+            : 'svg-icon signup__trigger signup__trigger--fixed is-trigger-hidden'
+        }
+        viewBox="0 0 20 20"
       >
-        {/* show alert if server response is bad */}
-        <Alert
-          className="alert"
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Something went wrong with your signup!
-        </Alert>
-        <Form.Group className="form-title">
-          <h4 className="title-signup">Sign Up</h4>
-          <p className="subTitle">Create your account today!</p>
-          <Form.Label className="label-usrName" htmlFor="username">
-            Username
-          </Form.Label>
-          <Form.Control
-            className="form-input"
+        <path d="M14.613,10c0,0.23-0.188,0.419-0.419,0.419H10.42v3.774c0,0.23-0.189,0.42-0.42,0.42s-0.419-0.189-0.419-0.42v-3.774H5.806c-0.23,0-0.419-0.189-0.419-0.419s0.189-0.419,0.419-0.419h3.775V5.806c0-0.23,0.189-0.419,0.419-0.419s0.42,0.189,0.42,0.419v3.775h3.774C14.425,9.581,14.613,9.77,14.613,10 M17.969,10c0,4.401-3.567,7.969-7.969,7.969c-4.402,0-7.969-3.567-7.969-7.969c0-4.402,3.567-7.969,7.969-7.969C14.401,2.031,17.969,5.598,17.969,10 M17.13,10c0-3.932-3.198-7.13-7.13-7.13S2.87,6.068,2.87,10c0,3.933,3.198,7.13,7.13,7.13S17.13,13.933,17.13,10"></path>
+      </svg>
+      <div
+        className={
+          signupFormOpen
+            ? 'signup__wrapper is-wrapper-open'
+            : 'signup__wrapper '
+        }
+        id="signup-wrapper"
+      >
+        <div className="signup__row signup__row--flex">
+          <span className="signup__icon">RN</span>
+          <svg
+            onClick={switchForm}
+            className="svg-icon signup__trigger"
+            viewBox="0 0 20 20"
+          >
+            <path d="M10.185,1.417c-4.741,0-8.583,3.842-8.583,8.583c0,4.74,3.842,8.582,8.583,8.582S18.768,14.74,18.768,10C18.768,5.259,14.926,1.417,10.185,1.417 M10.185,17.68c-4.235,0-7.679-3.445-7.679-7.68c0-4.235,3.444-7.679,7.679-7.679S17.864,5.765,17.864,10C17.864,14.234,14.42,17.68,10.185,17.68 M10.824,10l2.842-2.844c0.178-0.176,0.178-0.46,0-0.637c-0.177-0.178-0.461-0.178-0.637,0l-2.844,2.841L7.341,6.52c-0.176-0.178-0.46-0.178-0.637,0c-0.178,0.176-0.178,0.461,0,0.637L9.546,10l-2.841,2.844c-0.178,0.176-0.178,0.461,0,0.637c0.178,0.178,0.459,0.178,0.637,0l2.844-2.841l2.844,2.841c0.178,0.178,0.459,0.178,0.637,0c0.178-0.176,0.178-0.461,0-0.637L10.824,10z"></path>
+          </svg>
+        </div>
+        <h2 className="signup__title">sign up for Reminder Nurse</h2>
+        <div className="signup__row">
+          <label className="signup__label" htmlFor="su-us">
+            username
+          </label>
+          <input
+            className="signup__input"
+            id="su-us"
             type="text"
-            placeholder="Your username"
-            name="username"
-            onChange={handleInputChange}
-            value={userFormData.username}
-            required
+            placeholder="John Doe"
           />
-          <Form.Control.Feedback type="invalid">
-            Username is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="form-title">
-          <Form.Label className="label-usrName" htmlFor="password">
-            Password
-          </Form.Label>
-          <Form.Control
-            className="form-input"
+        </div>
+        <div className="signup__row">
+          <label className="signup__label" htmlFor="su-ps">
+            password
+          </label>
+          <input
+            className="signup__input"
+            id="su-ps"
             type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
+            placeholder="**********"
           />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Button
-          className="form-submit-btn"
-          disabled={
-            !(userFormData.username && userFormData.password) || loading
-          }
-          type="submit"
-          variant="success"
-        >
-          Submit
-        </Button>
-      </Form>
-    </article>
+        </div>
+        <div className="signup__row">
+          <button className="signup__button" type="submit">
+            sign up
+          </button>
+        </div>
+      </div>
+    </form>
   );
 };
 
