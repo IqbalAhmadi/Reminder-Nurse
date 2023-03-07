@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 import { LOGIN_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
-const LoginForm = ({ setLoggedIn }) => {
+const LoginForm = ({ setLoggedIn, switchForm }) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -48,7 +48,7 @@ const LoginForm = ({ setLoggedIn }) => {
     });
   };
   return (
-    <article>
+    <article className="userForm">
       <Form
         className="form-container-login"
         noValidate
@@ -66,6 +66,7 @@ const LoginForm = ({ setLoggedIn }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Log In</h4>
+          <Button onClick={switchForm}>Sign up</Button>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
