@@ -383,6 +383,7 @@ hr {
 
 .form-container,
 .form-container-login {
+  position: relative;
   max-width: 500px;
   margin: 10px auto;
   padding: 20px;
@@ -448,6 +449,11 @@ hr {
   font-size: 16px;
   color: #777;
   margin-top: 5px;
+}
+
+.form-switch-btn {
+  position: absolute;
+  right: 10%;
 }
 
 .fade-enter .userForm {

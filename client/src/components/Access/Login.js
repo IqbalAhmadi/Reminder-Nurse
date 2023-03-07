@@ -55,6 +55,9 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
         validated={validated}
         onSubmit={handleFormSubmit}
       >
+        <Button className="form-switch-btn" onClick={switchForm}>
+          Sign up
+        </Button>
         <Alert
           className="alert"
           dismissible
@@ -66,7 +69,6 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Log In</h4>
-          <Button onClick={switchForm}>Sign up</Button>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
