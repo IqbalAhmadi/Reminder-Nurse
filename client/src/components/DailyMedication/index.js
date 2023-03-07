@@ -26,9 +26,8 @@ const DailyMedication = ({ medicine }) => {
         <h3 className="dailyHeader">{medicine.name}</h3>
         <hr />
         <p className="dailystext">
-          Take {medicine.dosage} at {medicine.time}
+          Take {medicine.dosage} dosage at {medicine.current.time}.
         </p>
-        <p className="dailystext">{medicine.current.time}</p>
         <p className="dailyRemain">
           You have {medicine.amount} remaining dosages.
         </p>

@@ -233,7 +233,7 @@ a {
 }
 
 .dailystext {
-  font-size: 17px;
+  font-size: 14px;
   margin-bottom: 3px;
 }
 
@@ -273,14 +273,27 @@ hr {
 /* /medicines styling */
 
 .tab-content {
-  border: solid var(--contrast);
+  border: solid 1px var(--accentB);
+  background-color: var(--shade);
 }
 
 .nav-item .nav-link {
-  background-color: var(--light);
+  font-family: 'Lato';
+  color: var(--accentB);
+  font-size: 13px;
+  border: 0;
 }
-.nav-item.nav-link.active {
-  background-color: var(--contrast);
+
+.nav-item .nav-link:hover {
+  background-color: var(--accentP) !important;
+  color: #fff;
+  font-size: 13px;
+  border: 0;
+}
+
+.nav-item .nav-link.active {
+  background-color: var(--accentB);
+  color: #fff;
 }
 
 .medicines a {
@@ -295,8 +308,51 @@ hr {
 .medication-list li {
   padding: 5px;
   margin: 10px;
-  border: solid var(--contrast);
-  background-color: var(--gray);
+  margin-top: 15px;
+  background-color: #fff;
+  border: solid 1px var(--accentP);
+  border-radius: 25px;
+}
+
+.MedName {
+  font-family: 'Lato';
+  font-size: 16px;
+}
+
+.MedFAIcon {
+  color: var(--accentB);
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 5px;
+  pointer-events: none;
+}
+
+.MedToggleB {
+  display: inline-block !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  background: #fff !important;
+}
+
+.MedToggleB:hover {
+  background-color: #fff !important;
+}
+
+@media only screen and (max-width: 700px) {
+  .medication-list li {
+    width: 100%;
+  }
+
+  .MedContMob {
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .medication-list li {
+    width: 45%;
+  }
 }
 
 .medication-list h3 {
@@ -361,23 +417,17 @@ hr {
 
 .form-submit-btn {
   display: block;
-  margin: 2px 3px;
-  box-shadow: 0px 10px 14px -7px #276873;
-  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-  background-color: #599bb3;
-  border-radius: 8px;
+  margin: 0 auto;
+  background-color: var(--accentP) !important;
   cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 20px;
-  font-weight: bold;
+  color: #ffffff !important;
+  font-family: 'Lato';
+  font-size: 14px;
   padding: 13px 32px;
-  text-decoration: none;
 }
 
 .form-submit-btn:hover {
-  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-  background-color: #408c99;
+  background-color: var(--accentB);
 }
 
 .form-submit-btn:active {
