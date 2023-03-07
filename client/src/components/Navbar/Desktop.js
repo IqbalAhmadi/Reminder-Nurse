@@ -16,10 +16,10 @@ const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
       {loggedIn ? (
         <ul className="d-flex flex-wrap justify-content-center navContent">
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='/medicines'>Your Medications</Link>
+            <Link to="/medicines">Your Medications</Link>
           </li>
           <button className="navNotButton" onClick={logoutUser}>
             Logout
