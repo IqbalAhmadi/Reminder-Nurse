@@ -24,7 +24,7 @@ import Medicine from './pages/Medicine';
 import NotFound from './pages/NotFound';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
