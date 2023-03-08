@@ -12,9 +12,8 @@ const Medicines = () => {
   if (loading) return <h2>Loading...</h2>;
 
   return (
-    <Container className="container-fluid pl-4">
-      <section className="medicines">
-        <h2 className="dmedHeader">your medications</h2>
+    <div className='MedBottom'>
+    <h2 className="dmedHeader">Your Medications</h2>
         <center>
           <div className="row dTop">
             <div className="imgContain col-5">
@@ -31,6 +30,8 @@ const Medicines = () => {
             </div>
           </div>
         </center>
+    <Container className="container-fluid pl-4">
+      <section className="medicines">
         <Tabs defaultActiveKey="active" id="active-inactive-medication" justify>
           <Tab eventKey="active" title="Active Medication">
             <MedicationList medicines={data.medicines} isActive={true} />
@@ -52,6 +53,7 @@ const Medicines = () => {
         </section>
       </section>
     </Container>
+    </div>
   );
 };
 

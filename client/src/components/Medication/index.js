@@ -80,7 +80,7 @@ const Medication = ({ medicine, isNew }) => {
   return (
     <Container>
       <Form
-        className="form-container"
+        className="form-container shadow"
         noValidate
         validated={validated}
         onSubmit={handleSubmit}

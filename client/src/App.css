@@ -77,6 +77,8 @@ a {
   text-decoration: none !important;
 }
 
+
+
 /* / header styling */
 
 .headerImgAdj {
@@ -262,6 +264,11 @@ hr {
   .hideMobile {
     display: none;
   }
+
+  .dailyHeader {
+    font-size: 22px !important;
+  }
+
 }
 
 @media only screen and (min-width: 601px) {
@@ -347,12 +354,26 @@ hr {
   .MedContMob {
     padding-right: 30px;
   }
+
+  .MedAddM {
+    width: 300px;
+  }
+
+  .MedBottom {
+    margin-bottom: 70px;
+  }
+
 }
 
 @media screen and (min-width: 701px) {
   .medication-list li {
     width: 45%;
   }
+
+  .MedAddM {
+    width: 450px;
+  }
+
 }
 
 .medication-list h3 {
@@ -381,23 +402,31 @@ hr {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-.form-container,
-.form-container-login {
+.LandingContain {
+  margin-top: 50px;
+}
+
+.form-container {
   max-width: 500px;
-  margin: 10px auto;
+  margin: 20px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accentB) !important;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container-login {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid var(--accentB) !important;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .form-title {
   margin-bottom: 20px;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
-  font-size: 36px;
   font-family: 'Raleway', sans-serif;
   color: #333;
   font-size: 36px;
@@ -416,14 +445,23 @@ hr {
 }
 
 .form-submit-btn {
-  display: block;
+  width: 100%;
   margin: 0 auto;
-  background-color: var(--accentP) !important;
+  background-color: #fff !important;
   cursor: pointer;
-  color: #ffffff !important;
+  color: var(--accentP) !important;
   font-family: 'Lato';
   font-size: 14px;
   padding: 13px 32px;
+  border: solid 2px var(--accentP) !important;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.form-submit-btn:hover {
+  background-color: var(--accentP) !important;
+  cursor: pointer;
+  color: #fff !important;
 }
 
 .form-submit-btn:hover {
@@ -435,7 +473,9 @@ hr {
   top: 1px;
 }
 .title-signup {
-  color: #276873;
+  color: var(--accentB);
+  font-family: 'Lato';
+  font-size: 30px;
 }
 
 .subTitle {

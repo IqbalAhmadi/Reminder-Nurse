@@ -65,8 +65,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
           Incorrect username/password!
         </Alert>
         <Form.Group className="form-title">
-          <h4 className="title-signup">Log In</h4>
-          <Button onClick={switchForm}>Sign up</Button>
+          <h4 className="title-signup">Login</h4>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
@@ -111,6 +110,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
         >
           Submit
         </Button>
+        <Button onClick={switchForm}>Sign up</Button>
       </Form>
     </article>
   );
