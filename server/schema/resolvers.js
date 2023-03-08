@@ -21,12 +21,6 @@ const resolvers = {
 
       return updatedMedicines;
     },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id });
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
   },
   Mutation: {
     // User login mutation
@@ -87,6 +81,7 @@ const resolvers = {
 
       return toggledIsActive;
     },
+    // updates check value on queue obj to true and decreases amount on medicine by dosage
     checkQueue: async (parent, { medicineId, queueId }, context) => {
       if (!context.user)
         throw new AuthenticationError('You need to be logged in!');

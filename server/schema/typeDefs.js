@@ -43,7 +43,6 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User!
     medicine(medicineId: ID!): Medicine
     medicines: [Medicine]
   }
