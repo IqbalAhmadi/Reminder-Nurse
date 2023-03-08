@@ -43,7 +43,7 @@ const Medication = ({ medicine, isNew }) => {
           },
         });
 
-    navigate('/medicines');
+    navigate('/');
   };
 
   const handleChange = (e, index) => {
