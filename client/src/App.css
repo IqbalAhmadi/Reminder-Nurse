@@ -78,8 +78,6 @@ a {
   text-decoration: none !important;
 }
 
-
-
 /* / header styling */
 
 .headerImgAdj {
@@ -269,7 +267,6 @@ hr {
   .dailyHeader {
     font-size: 22px !important;
   }
-
 }
 
 @media only screen and (min-width: 601px) {
@@ -363,7 +360,6 @@ hr {
   .MedBottom {
     margin-bottom: 70px;
   }
-
 }
 
 @media screen and (min-width: 701px) {
@@ -374,7 +370,6 @@ hr {
   .MedAddM {
     width: 450px;
   }
-
 }
 
 .medication-list h3 {
@@ -410,7 +405,7 @@ hr {
 .form-container {
   max-width: 500px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 40px;
   border: 1px solid var(--accentB) !important;
   border-radius: 5px;
   background-color: #fff;
@@ -443,7 +438,7 @@ hr {
   border-right: none !important;
   border-bottom: solid 2px #d6d6d6 !important;
   border-radius: 0px !important;
-  font-family: sans-serif;
+  font-family: 'Montserrat';
   font-size: 16px !important;
 }
 
@@ -501,20 +496,72 @@ hr {
 }
 
 .subTitle {
-  font-size: 16px;
-  color: #777;
-  margin-top: 5px;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  color: var(--darkest) !important;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.subTitle {
-  font-size: 16px;
-  color: #777;
-  margin-top: 5px;
+.widthHundred {
+  width: 100%;
 }
 
-.form-switch-btn {
-  position: absolute;
-  right: 10%;
+.add-time {
+  width: 100px;
+  height: 40px;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  border: solid 2px var(--accentB) !important;
+  position: relative;
+  bottom: 40px !important;
+  margin-bottom: -25px !important;
+}
+
+.medTime {
+  width: 45%;
+}
+
+.MedFeedback {
+  font-size: 15px;
+  margin-left: 13px;
+}
+
+@media only screen and (max-width: 700px) {
+  .subTitle {
+    font-size: 12px !important;
+    margin-top: 20px;
+    margin-bottom: 0px !important;
+  }
+
+  .title-signup {
+    font-size: 25px;
+    margin-top: -10px;
+  }
+
+  .label-usrName {
+    font-size: 14px !important;
+  }
+
+  .form-input {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .switchClick {
+    margin-bottom: -5px;
+  }
+
+  .add-time {
+    font-size: 12px;
+    width: 90px;
+    height: 35px;
+    bottom: 35px !important;
+  }
 }
 
 .fade-enter .userForm {

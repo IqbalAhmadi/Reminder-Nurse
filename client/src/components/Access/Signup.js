@@ -53,7 +53,7 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
     <article className="userForm">
       {/* This is needed for the validation functionality above */}
       <Form
-        className="form-container-login"
+        className="form-container-login shadow"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
@@ -70,7 +70,10 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Sign Up</h4>
-          <p className="subTitle">Create your account today!</p>
+          <p className="subTitle">
+            Sign up with Reminder Nurse to stay on top of your daily
+            medications.
+          </p>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
@@ -115,7 +118,7 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
           Submit
         </Button>
         <Button className="switchClick" onClick={switchForm}>
-          Login
+          Already have an account?
         </Button>
       </Form>
     </article>

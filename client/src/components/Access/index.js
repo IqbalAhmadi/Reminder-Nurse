@@ -14,7 +14,7 @@ const Access = ({ access: { setLoggedIn } }) => {
   };
 
   return (
-    <section className='LandingContain'>
+    <section className="LandingContain">
       <SwitchTransition mode="out-in">
         <CSSTransition
           key={showLoginForm}

@@ -48,7 +48,6 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
     });
   };
   return (
-  
     <article className="userForm">
       <Form
         className="form-container-login shadow"
@@ -112,7 +111,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
           Submit
         </Button>
         <Button className="switchClick" onClick={switchForm}>
-          Sign up
+          Don't have an account? Sign up!
         </Button>
       </Form>
     </article>
