@@ -58,6 +58,9 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
         validated={validated}
         onSubmit={handleFormSubmit}
       >
+        <Button className="form-switch-btn" onClick={switchForm}>
+          Login
+        </Button>
         {/* show alert if server response is bad */}
         <Alert
           className="alert"
@@ -70,7 +73,6 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Sign Up</h4>
-          <Button onClick={switchForm}>Sign up</Button>
           <p className="subTitle">Create your account today!</p>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
