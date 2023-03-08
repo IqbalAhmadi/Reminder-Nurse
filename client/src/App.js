@@ -22,6 +22,7 @@ import Home from './pages/Home';
 import Medicines from './pages/Medicines';
 import Medicine from './pages/Medicine';
 import NotFound from './pages/NotFound';
+import Notify from './pages/Notify';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -64,6 +65,7 @@ function App() {
               path="/medicine/:medicineId"
               element={loggedIn ? <Medicine /> : <Navigate to="/" />}
             />
+            <Route path="notify" element={<Notify />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
