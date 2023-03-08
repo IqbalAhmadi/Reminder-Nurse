@@ -1,6 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Medicine } = require('../models');
-const { findOneAndUpdate } = require('../models/Medicine');
 const { signToken } = require('../utils/auth');
 const { updateQueue } = require('../utils/updateQueue');
 

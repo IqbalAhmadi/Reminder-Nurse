@@ -7,9 +7,13 @@ import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
 
 const Medicines = () => {
-  const { loading, data } = useQuery(QUERY_MEDICINES);
+  const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
+  if (error) {
+    console.log(error);
+    return <h2>Error</h2>;
+  }
 
   return (
     <Container className="container-fluid pl-4">

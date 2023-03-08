@@ -54,7 +54,7 @@ const medicineSchema = new Schema({
   queueLastFilled: {
     type: Date,
     required: true,
-    default: new Date(),
+    default: new Date().setHours(0, 0, 0, 0),
   },
   isActive: {
     type: Boolean,
