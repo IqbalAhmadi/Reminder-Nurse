@@ -83,7 +83,7 @@ medicineSchema.pre('findOneAndUpdate', async function (next) {
 
   if (update.amount < 1) update.isActive = false;
 
-  // removes not found times then adds new ones
+  // removes not found times from queue then adds new ones
   if (update.times) {
     let removeIndexes = [];
 
@@ -98,6 +98,7 @@ medicineSchema.pre('findOneAndUpdate', async function (next) {
       if (!found) removeIndexes.push(index);
     });
 
+    // removes queue obj from original document based on removeIndexes
     for (let i = removeIndexes.length - 1; i >= 0; i--) {
       original.queue.splice(removeIndexes[i], 1);
     }
