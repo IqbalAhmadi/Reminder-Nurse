@@ -12,7 +12,7 @@ module.exports = {
           const newQueue = medicine.queue.concat(
             medicine.times.filter((time) => {
               for (let i = 0; i < medicine.queue.length; i++) {
-                if (time == medicine.queue[i]) return false;
+                if (time == medicine.queue[i].time) return false;
               }
               return true;
             })
@@ -23,7 +23,7 @@ module.exports = {
               { _id: medicine._id },
               {
                 queue: [...newQueue],
-                queueLastFilled: Date.now(),
+                queueLastFilled: new Date().setHours(0, 0, 0, 0),
               },
               { new: true }
             )
