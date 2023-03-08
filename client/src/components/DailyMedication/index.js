@@ -21,8 +21,8 @@ const DailyMedication = ({ medicine }) => {
   if (!medicine.current.checked) createSchedules();
 
   return (
-    <div className="row">
-      <div className="card-body px-4 pt-1 col-7 ">
+    <section className="row">
+      <article className="card-body px-4 pt-1 col-7 ">
         <h3 className="dailyHeader">{medicine.name}</h3>
         <hr />
         <p className="dailystext">
@@ -31,8 +31,8 @@ const DailyMedication = ({ medicine }) => {
         <p className="dailyRemain">
           You have {medicine.amount} remaining dosages.
         </p>
-      </div>
-      <div className="col">
+      </article>
+      <aside className="col">
         <div className="form-check">
           <input
             onChange={handleCheck}
@@ -42,8 +42,8 @@ const DailyMedication = ({ medicine }) => {
             type="checkbox"
           />
         </div>
-      </div>
-    </div>
+      </aside>
+    </section>
   );
 };
 
