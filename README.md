@@ -13,7 +13,7 @@
   - [**Features**](#features)
     - [**Front-End**](#front-end)
     - [**Back-End**](#back-end)
-  - [**Global Assets**](#global-assets)
+    - [**Global Assets**](#global-assets)
   - [**Roadmap**](#roadmap)
   - [**Installation**](#installation)
     - [**HTTPS**:](#https)
@@ -45,7 +45,7 @@ The deployed application and repository contains the following features:
 - **Node.js** establishes the environment for JavaScript to run, and is used in tandem with **Express.js** to manage and launch server routes.
 - Protects information and data through user authentication and tokens, and allows pages to be conditionally rendered depending on authentication.
 
-## **Global Assets**
+### **Global Assets**
 
 - The repository is structured between client and server-side, with different node packages and package.json files. The package.json file at the root level establishes the script for commands to run both client and server-side concurrently.
 
