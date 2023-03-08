@@ -14,7 +14,7 @@ const Medicine = () => {
 
   return (
     <section className="edit-medication">
-      <h2>Edit your medications info</h2>
+      <h2 className="dmedHeader">Medication Information</h2>
       {/* if route has proper id or add load edit or add */}
       {data || medicineId === 'add' ? (
         data ? (

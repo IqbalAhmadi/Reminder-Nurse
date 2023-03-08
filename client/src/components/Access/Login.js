@@ -50,14 +50,11 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
   return (
     <article className="userForm">
       <Form
-        className="form-container-login"
+        className="form-container-login shadow"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
       >
-        <Button className="form-switch-btn" onClick={switchForm}>
-          Sign up
-        </Button>
         <Alert
           className="alert"
           dismissible
@@ -68,14 +65,14 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
           Incorrect username/password!
         </Alert>
         <Form.Group className="form-title">
-          <h4 className="title-signup">Log In</h4>
+          <h4 className="title-signup">Login</h4>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
           <Form.Control
             className="form-input"
             type="text"
-            placeholder="Your username"
+            placeholder="👤 Type your username"
             name="username"
             onChange={handleInputChange}
             value={userFormData.username}
@@ -93,7 +90,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
             className="form-input"
             disabled={loading}
             type="password"
-            placeholder="Your password"
+            placeholder="🔒 Type your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
@@ -112,6 +109,9 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
           variant="success"
         >
           Submit
+        </Button>
+        <Button className="switchClick" onClick={switchForm}>
+          Don't have an account? Sign up!
         </Button>
       </Form>
     </article>

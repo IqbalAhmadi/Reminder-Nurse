@@ -53,14 +53,11 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
     <article className="userForm">
       {/* This is needed for the validation functionality above */}
       <Form
-        className="form-container"
+        className="form-container-login shadow"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
       >
-        <Button className="form-switch-btn" onClick={switchForm}>
-          Login
-        </Button>
         {/* show alert if server response is bad */}
         <Alert
           className="alert"
@@ -73,14 +70,17 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Sign Up</h4>
-          <p className="subTitle">Create your account today!</p>
+          <p className="subTitle">
+            Sign up with Reminder Nurse to stay on top of your daily
+            medications.
+          </p>
           <Form.Label className="label-usrName" htmlFor="username">
             Username
           </Form.Label>
           <Form.Control
             className="form-input"
             type="text"
-            placeholder="Your username"
+            placeholder="👤 Type your username"
             name="username"
             onChange={handleInputChange}
             value={userFormData.username}
@@ -97,7 +97,7 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
           <Form.Control
             className="form-input"
             type="password"
-            placeholder="Your password"
+            placeholder="🔒 Type your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
@@ -116,6 +116,9 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
           variant="success"
         >
           Submit
+        </Button>
+        <Button className="switchClick" onClick={switchForm}>
+          Already have an account?
         </Button>
       </Form>
     </article>

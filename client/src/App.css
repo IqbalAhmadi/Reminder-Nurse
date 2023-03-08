@@ -1,3 +1,7 @@
+/*  -- / REMINDER NURSE STYLING  */
+
+/* importing fonts */
+
 @font-face {
   font-family: 'Lato';
   src: url(./assets/fonts/Lato-Bold.ttf);
@@ -8,6 +12,8 @@
   src: url(./assets/fonts/NewsCycle-Bold.ttf);
 }
 
+/* color variables */
+
 :root {
   --dark: #6096b4;
   --gray: #5c9eb6;
@@ -17,18 +23,20 @@
   --shade: #f1f1f1;
   --accentB: #3680e0;
   --accentP: #da7b94;
-  --accentPu: #8d02ff;
+  --accentPLight: #f097af;
 }
+
+/* universal styles */
 
 ::selection {
   background: var(--accentB);
   color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
+a {
+  text-decoration: none !important;
+}
+
 p {
   color: var(--darkest);
 }
@@ -54,27 +62,9 @@ body {
   margin-bottom: 60px;
 }
 
-.logout-button {
-  margin-left: auto;
-  margin-right: 20px;
-  background-color: hsla(200, 0%, 100%, 1);
-  background-image: radial-gradient(
-      at 93% 92%,
-      hsla(201, 100%, 85%, 0.32) 0px,
-      transparent 20%
-    ),
-    radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
-    radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
-    radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
-}
-
 button:hover {
   cursor: pointer;
   background-color: var(--accentB) !important;
-}
-
-a {
-  text-decoration: none !important;
 }
 
 /* / header styling */
@@ -262,6 +252,10 @@ hr {
   .hideMobile {
     display: none;
   }
+
+  .dailyHeader {
+    font-size: 22px !important;
+  }
 }
 
 @media only screen and (min-width: 601px) {
@@ -347,11 +341,23 @@ hr {
   .MedContMob {
     padding-right: 30px;
   }
+
+  .MedAddM {
+    width: 300px;
+  }
+
+  .MedBottom {
+    margin-bottom: 70px;
+  }
 }
 
 @media screen and (min-width: 701px) {
   .medication-list li {
     width: 45%;
+  }
+
+  .MedAddM {
+    width: 450px;
   }
 }
 
@@ -381,35 +387,48 @@ hr {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-.form-container,
+.LandingContain {
+  margin-top: 50px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 40px;
+  border: 1px solid var(--accentB) !important;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
 .form-container-login {
   position: relative;
   max-width: 500px;
   margin: 10px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+  padding: 40px;
+  border: 1px solid var(--light) !important;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-title {
   margin-bottom: 20px;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
-  font-size: 36px;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
+  font-family: 'Lato';
   font-size: 36px;
 }
-.label-usrName::first-letter {
-  font-size: 2rem;
-  color: #276873;
+.label-usrName {
+  color: var(--accentB);
+  font-family: 'Lato';
 }
 
 .form-input {
   margin-bottom: 15px;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px #d6d6d6 !important;
+  border-radius: 0px !important;
+  font-family: 'Montserrat';
+  font-size: 16px !important;
 }
 
 .alert {
@@ -417,43 +436,121 @@ hr {
 }
 
 .form-submit-btn {
-  display: block;
+  width: 100%;
   margin: 0 auto;
   background-color: var(--accentP) !important;
   cursor: pointer;
-  color: #ffffff !important;
+  color: #fff !important;
   font-family: 'Lato';
   font-size: 14px;
   padding: 13px 32px;
+  border: solid 2px var(--accentP) !important;
+  border-radius: 25px;
+  margin-top: 20px;
 }
 
 .form-submit-btn:hover {
-  background-color: var(--accentB);
+  background-color: var(--accentPLight) !important;
+  border: solid 2px var(--accentPLight) !important;
+  cursor: pointer;
 }
 
-.form-submit-btn:active {
-  position: relative;
-  top: 1px;
+.switchClick {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  padding: 13px 32px;
+  border: solid 2px var(--accentB) !important;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
+
+.switchClick:hover {
+  background-color: var(--accentB) !important;
+  border: solid 2px var(--accentB) !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
 .title-signup {
-  color: #276873;
+  color: var(--accentB);
+  font-family: 'Lato';
+  font-size: 30px;
+  text-align: center;
 }
 
 .subTitle {
-  font-size: 16px;
-  color: #777;
-  margin-top: 5px;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  color: var(--darkest) !important;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.subTitle {
-  font-size: 16px;
-  color: #777;
-  margin-top: 5px;
+.widthHundred {
+  width: 100%;
 }
 
-.form-switch-btn {
-  position: absolute;
-  right: 10%;
+.add-time {
+  width: 100px;
+  height: 40px;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  border: solid 2px var(--accentB) !important;
+  position: relative;
+  bottom: 40px !important;
+  margin-bottom: -25px !important;
+}
+
+.medTime {
+  width: 45%;
+}
+
+.MedFeedback {
+  font-size: 15px;
+  margin-left: 13px;
+}
+
+@media only screen and (max-width: 700px) {
+  .subTitle {
+    font-size: 12px !important;
+    margin-top: 20px;
+    margin-bottom: 0px !important;
+  }
+
+  .title-signup {
+    font-size: 25px;
+    margin-top: -10px;
+  }
+
+  .label-usrName {
+    font-size: 14px !important;
+  }
+
+  .form-input {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .switchClick {
+    margin-bottom: -5px;
+  }
+
+  .add-time {
+    font-size: 12px;
+    width: 90px;
+    height: 35px;
+    bottom: 35px !important;
+  }
 }
 
 .fade-enter .userForm {

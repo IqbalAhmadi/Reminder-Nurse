@@ -80,29 +80,30 @@ const Medication = ({ medicine, isNew }) => {
   return (
     <Container>
       <Form
-        className="form-container"
+        className="form-container shadow"
         noValidate
         validated={validated}
         onSubmit={handleSubmit}
         action="/medicines"
       >
         <Form.Group className="form-title" controlId="medicineName">
-          <Form.Label>Name:</Form.Label>
+          <Form.Label className="label-usrName">Name</Form.Label>
           <Form.Control
             required
             type="text"
             name="name"
             className="form-input"
+            placeholder="Type in the name of your medicine"
             onChange={handleChange}
             defaultValue={medicine ? medicine.name : null}
           ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            Please choose a username.
+          <Form.Control.Feedback type="invalid" className="MedFeedback">
+            Please input a name!
           </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineInterval">
-          <Form.Label>Interval:</Form.Label>
+          <Form.Label className="label-usrName">Interval</Form.Label>
           <Form.Select
             type="interval"
             name="interval"
@@ -117,7 +118,7 @@ const Medication = ({ medicine, isNew }) => {
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineSubInterval">
-          <Form.Label>Subinterval:</Form.Label>
+          <Form.Label className="label-usrName">Subinterval</Form.Label>
           <Form.Select
             type="subInterval"
             name="subInterval"
@@ -131,32 +132,37 @@ const Medication = ({ medicine, isNew }) => {
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineAmount">
-          <Form.Label>Dosage:</Form.Label>
+          <Form.Label className="label-usrName">Dosage</Form.Label>
           <Form.Control
             required
             type="number"
             name="dosage"
             className="form-input"
             onChange={handleChange}
+            placeholder="Type in the name of your medication dosage"
             defaultValue={medicine ? medicine.dosage : null}
           ></Form.Control>
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineAmount">
-          <Form.Label>Total Amount:</Form.Label>
+          <Form.Label className="label-usrName">Total Amount</Form.Label>
           <Form.Control
             required
             type="number"
             name="amount"
             className="form-input"
             onChange={handleChange}
+            placeholder="Type in the remaining quantities of your medication"
             defaultValue={medicine ? medicine.amount : null}
           ></Form.Control>
         </Form.Group>
 
         <Form.Group className="form-title" controlId="medicineTimes">
-          <Form.Label>Times:</Form.Label>
-          <ul className="none d-flex flex-wrap justify-content-evenly">
+          <Form.Label className="label-usrName">Times</Form.Label>
+          <Button className="add-time" onClick={handleAddTime}>
+            Add Time
+          </Button>
+          <ul className="none d-flex flex-wrap justify-content-between">
             {formData.times.map((time, index) => {
               return (
                 <Time
@@ -168,9 +174,6 @@ const Medication = ({ medicine, isNew }) => {
               );
             })}
           </ul>
-          <Button className="add-time" onClick={handleAddTime}>
-            Add Time
-          </Button>
         </Form.Group>
 
         <section className="d-flex flex-wrap justify-content-evenly">
@@ -181,8 +184,8 @@ const Medication = ({ medicine, isNew }) => {
           >
             Save
           </Button>
-          <Link to={'../medicines'}>
-            <Button className="form-submit-btn" variant="primary">
+          <Link to={'../medicines'} className="widthHundred">
+            <Button className="switchClick" variant="primary">
               Cancel
             </Button>
           </Link>
