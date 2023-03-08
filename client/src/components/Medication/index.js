@@ -160,7 +160,6 @@ const Medication = ({ medicine, isNew }) => {
         <Form.Group className="form-title" controlId="medicineTimes">
           <Form.Label className="label-usrName">Times</Form.Label>
           <Button className="add-time" onClick={handleAddTime}>
-            {/* <FontAwesomeIcon icon={faPlus} className="fa-xs" /> */}
             Add Time
           </Button>
           <ul className="none d-flex flex-wrap justify-content-between">

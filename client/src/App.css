@@ -1,3 +1,7 @@
+/*  -- / REMINDER NURSE STYLING  */
+
+/* importing fonts */
+
 @font-face {
   font-family: 'Lato';
   src: url(./assets/fonts/Lato-Bold.ttf);
@@ -7,6 +11,8 @@
   font-family: 'News Cycle Bold';
   src: url(./assets/fonts/NewsCycle-Bold.ttf);
 }
+
+/* color variables */
 
 :root {
   --dark: #6096b4;
@@ -18,18 +24,19 @@
   --accentB: #3680e0;
   --accentP: #da7b94;
   --accentPLight: #f097af;
-  --accentPu: #8d02ff;
 }
+
+/* universal styles */
 
 ::selection {
   background: var(--accentB);
   color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
+a {
+  text-decoration: none !important;
+}
+
 p {
   color: var(--darkest);
 }
@@ -55,27 +62,9 @@ body {
   margin-bottom: 60px;
 }
 
-.logout-button {
-  margin-left: auto;
-  margin-right: 20px;
-  background-color: hsla(200, 0%, 100%, 1);
-  background-image: radial-gradient(
-      at 93% 92%,
-      hsla(201, 100%, 85%, 0.32) 0px,
-      transparent 20%
-    ),
-    radial-gradient(at 0% 0%, hsla(191, 95%, 84%, 1) 0px, transparent 20%),
-    radial-gradient(at 53% 0%, hsla(165, 0%, 100%, 1) 0px, transparent 20%),
-    radial-gradient(at 90% 19%, hsla(26, 100%, 90%, 1) 0px, transparent 20%);
-}
-
 button:hover {
   cursor: pointer;
   background-color: var(--accentB) !important;
-}
-
-a {
-  text-decoration: none !important;
 }
 
 /* / header styling */

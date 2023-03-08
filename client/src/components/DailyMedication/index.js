@@ -22,7 +22,7 @@ const DailyMedication = ({ medicine }) => {
 
   return (
     <div className="row">
-      <div className="card-body px-4 pt-1 col-7">
+      <div className="card-body px-4 pt-1 col-7 ">
         <h3 className="dailyHeader">{medicine.name}</h3>
         <hr />
         <p className="dailystext">
