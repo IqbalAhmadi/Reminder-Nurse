@@ -12,10 +12,12 @@
   src: url(./assets/fonts/NewsCycle-Bold.ttf);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 /* color variables */
 
 :root {
-  --dark: #6096b4;
   --gray: #5c9eb6;
   --light: #bdcdd6;
   --contrast: #eee9da;
@@ -244,26 +246,6 @@ hr {
   width: 35px;
 }
 
-@media only screen and (max-width: 600px) {
-  .dCardMob {
-    margin-left: -30px;
-  }
-
-  .hideMobile {
-    display: none;
-  }
-
-  .dailyHeader {
-    font-size: 22px !important;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .hideDesktop {
-    display: none;
-  }
-}
-
 /* /medicines styling */
 
 .tab-content {
@@ -333,38 +315,6 @@ hr {
   background-color: #fff !important;
 }
 
-@media only screen and (max-width: 700px) {
-  .medication-list li {
-    width: 100%;
-  }
-
-  .MedContMob {
-    padding-right: 30px;
-  }
-
-  .MedAddM {
-    width: 300px;
-  }
-
-  .MedBottom {
-    margin-bottom: 70px;
-  }
-}
-
-@media screen and (min-width: 701px) {
-  .medication-list li {
-    width: 45%;
-  }
-
-  .MedAddM {
-    width: 450px;
-  }
-}
-
-.medication-list h3 {
-  margin: auto;
-}
-
 /* /medicine:medicineId styling */
 
 .edit-medication button {
@@ -381,11 +331,7 @@ hr {
   text-decoration: none;
 }
 
-/* Login & Sign In Form Styles */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+/* / forms styling */
 
 .LandingContain {
   margin-top: 50px;
@@ -415,6 +361,7 @@ hr {
   font-family: 'Lato';
   font-size: 36px;
 }
+
 .label-usrName {
   color: var(--accentB);
   font-family: 'Lato';
@@ -511,6 +458,10 @@ hr {
   margin-bottom: -25px !important;
 }
 
+.add-time:hover {
+  color: #fff !important;
+}
+
 .medTime {
   width: 45%;
 }
@@ -518,6 +469,97 @@ hr {
 .MedFeedback {
   font-size: 15px;
   margin-left: 13px;
+}
+
+.fade-enter .userForm {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.fade-enter-active .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit-active .userForm {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.fade-enter-active .userForm,
+.fade-exit-active .userForm {
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* media queries */
+
+@media (max-width: 576px) {
+  .form-container {
+    max-width: 100%;
+    margin: 0;
+    border: none;
+  }
+
+  .form-input {
+    margin-bottom: 10px;
+  }
+
+  .form-submit-btn {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .dCardMob {
+    margin-left: -30px;
+  }
+
+  .hideMobile {
+    display: none;
+  }
+
+  .dailyHeader {
+    font-size: 22px !important;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .hideDesktop {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .medication-list li {
+    width: 100%;
+  }
+
+  .MedContMob {
+    padding-right: 30px;
+  }
+
+  .MedAddM {
+    width: 300px;
+  }
+
+  .MedBottom {
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .medication-list li {
+    width: 45%;
+  }
+
+  .MedAddM {
+    width: 450px;
+  }
+}
+
+.medication-list h3 {
+  margin: auto;
 }
 
 @media only screen and (max-width: 700px) {
@@ -550,45 +592,6 @@ hr {
     width: 90px;
     height: 35px;
     bottom: 35px !important;
-  }
-}
-
-.fade-enter .userForm {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-.fade-enter-active .userForm {
-  opacity: 1;
-  transform: translateX(0%);
-}
-.fade-exit .userForm {
-  opacity: 1;
-  transform: translateX(0%);
-}
-.fade-exit-active .userForm {
-  opacity: 0;
-  transform: translateX(100%);
-}
-.fade-enter-active .userForm,
-.fade-exit-active .userForm {
-  transition: opacity 500ms, transform 500ms;
-}
-
-/* Media Queries */
-
-@media (max-width: 576px) {
-  .form-container {
-    max-width: 100%;
-    margin: 0;
-    border: none;
-  }
-
-  .form-input {
-    margin-bottom: 10px;
-  }
-
-  .form-submit-btn {
-    margin-top: 20px;
   }
 }
 
@@ -630,6 +633,7 @@ hr {
   margin: 20px 0;
   display: inline-block;
 }
+
 .contant_box_404 {
   margin-top: -50px;
 }
