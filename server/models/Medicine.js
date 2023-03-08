@@ -68,7 +68,6 @@ const medicineSchema = new Schema({
   },
 });
 
-// makes inactive if amount < 1
 medicineSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('times')) {
     this.times.forEach((time) => this.queue.push({ time }));
