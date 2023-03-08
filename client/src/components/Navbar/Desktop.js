@@ -1,6 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import { subscribeUser } from '../../subscription';
 
 const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
           </button>
         </ul>
       ) : null}
+      <Button onClick={subscribeUser}>Click</Button>
     </div>
   );
 };
