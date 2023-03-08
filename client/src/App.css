@@ -17,6 +17,7 @@
   --shade: #f1f1f1;
   --accentB: #3680e0;
   --accentP: #da7b94;
+  --accentPLight: #f097af;
   --accentPu: #8d02ff;
 }
 
@@ -416,28 +417,34 @@ hr {
 }
 
 .form-container-login {
+  position: relative;
   max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid var(--accentB) !important;
+  margin: 10px auto;
+  padding: 40px;
+  border: 1px solid var(--light) !important;
   border-radius: 5px;
   background-color: #fff;
 }
 
 .form-title {
   margin-bottom: 20px;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
+  font-family: 'Lato';
   font-size: 36px;
 }
-.label-usrName::first-letter {
-  font-size: 2rem;
-  color: #276873;
+.label-usrName {
+  color: var(--accentB);
+  font-family: 'Lato';
 }
 
 .form-input {
   margin-bottom: 15px;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px #d6d6d6 !important;
+  border-radius: 0px !important;
+  font-family: sans-serif;
+  font-size: 16px !important;
 }
 
 .alert {
@@ -447,35 +454,50 @@ hr {
 .form-submit-btn {
   width: 100%;
   margin: 0 auto;
-  background-color: #fff !important;
+  background-color: var(--accentP) !important;
   cursor: pointer;
-  color: var(--accentP) !important;
+  color: #fff !important;
   font-family: 'Lato';
   font-size: 14px;
   padding: 13px 32px;
   border: solid 2px var(--accentP) !important;
   border-radius: 25px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .form-submit-btn:hover {
-  background-color: var(--accentP) !important;
+  background-color: var(--accentPLight) !important;
+  border: solid 2px var(--accentPLight) !important;
   cursor: pointer;
+}
+
+.switchClick {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  padding: 13px 32px;
+  border: solid 2px var(--accentB) !important;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.switchClick:hover {
+  background-color: var(--accentB) !important;
+  border: solid 2px var(--accentB) !important;
   color: #fff !important;
+  cursor: pointer;
 }
 
-.form-submit-btn:hover {
-  background-color: var(--accentB);
-}
-
-.form-submit-btn:active {
-  position: relative;
-  top: 1px;
-}
 .title-signup {
   color: var(--accentB);
   font-family: 'Lato';
   font-size: 30px;
+  text-align: center;
 }
 
 .subTitle {
@@ -488,6 +510,11 @@ hr {
   font-size: 16px;
   color: #777;
   margin-top: 5px;
+}
+
+.form-switch-btn {
+  position: absolute;
+  right: 10%;
 }
 
 .fade-enter .userForm {

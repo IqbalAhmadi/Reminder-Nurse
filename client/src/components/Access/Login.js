@@ -48,9 +48,10 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
     });
   };
   return (
+  
     <article className="userForm">
       <Form
-        className="form-container-login"
+        className="form-container-login shadow"
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
@@ -72,7 +73,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
           <Form.Control
             className="form-input"
             type="text"
-            placeholder="Your username"
+            placeholder="👤 Type your username"
             name="username"
             onChange={handleInputChange}
             value={userFormData.username}
@@ -90,7 +91,7 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
             className="form-input"
             disabled={loading}
             type="password"
-            placeholder="Your password"
+            placeholder="🔒 Type your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
@@ -110,7 +111,9 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
         >
           Submit
         </Button>
-        <Button onClick={switchForm}>Sign up</Button>
+        <Button className="switchClick" onClick={switchForm}>
+          Sign up
+        </Button>
       </Form>
     </article>
   );
