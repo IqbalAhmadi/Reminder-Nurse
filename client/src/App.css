@@ -18,7 +18,6 @@
 /* color variables */
 
 :root {
-  --dark: #6096b4;
   --gray: #5c9eb6;
   --light: #bdcdd6;
   --contrast: #eee9da;
@@ -634,6 +633,7 @@ hr {
   margin: 20px 0;
   display: inline-block;
 }
+
 .contant_box_404 {
   margin-top: -50px;
 }
