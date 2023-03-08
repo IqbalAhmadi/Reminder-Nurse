@@ -1,4 +1,5 @@
 import icon from './assets/images/rn_static_01.png';
+import { useMutation } from '@apollo/client';
 
 const convertedVapidKey = urlBase64ToUint8Array(
   'BEWOytsZz34O1JgD-UgcRFhVtKYzVwpxMdFjMP3EAw7A394Pci1Peiy0EkWn2X5dPQNya3eR_tSZFdN1dd7YURI'
@@ -18,14 +19,14 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 
-function sendSubscription(subscription) {
-  console.log(subscription);
+function sendSubscription(subscription, data) {
+  console.log('here', subscription);
   return fetch(`/notifications/subscribe`, {
     method: 'POST',
     body: JSON.stringify({
       subscription: subscription,
-      title: 'Notified by Precision Ordance',
-      description: 'someone buy a product',
+      title: 'Welcome!',
+      description: 'This is how notifications will look',
       icon: icon,
     }),
     headers: {
@@ -36,52 +37,31 @@ function sendSubscription(subscription) {
 //conditional render
 let clicked = true;
 
-export function subscribeUser() {
+export async function subscribeUser() {
   if (clicked) {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.ready
-        .then(function (registration) {
-          if (!registration.pushManager) {
-            console.log('Push manager unavailable.');
-            return;
-          }
+      const registration = await navigator.serviceWorker.ready;
 
-          registration.pushManager
-            .getSubscription()
-            .then(function (existedSubscription) {
-              if (existedSubscription === null) {
-                console.log('No subscription detected, make a request.');
-                registration.pushManager
-                  .subscribe({
-                    applicationServerKey: convertedVapidKey,
-                    userVisibleOnly: true,
-                  })
-                  .then(function (newSubscription) {
-                    console.log('New subscription added.', newSubscription);
-                    sendSubscription(newSubscription);
-                  })
-                  .catch(function (e) {
-                    if (Notification.permission !== 'granted') {
-                      console.log('Permission was not granted.');
-                    } else {
-                      console.error(
-                        'An error ocurred during the subscription process.',
-                        e
-                      );
-                    }
-                  });
-              } else {
-                console.log('Existed subscription detected.');
-                sendSubscription(existedSubscription);
-              }
-            });
-        })
-        .catch(function (e) {
-          console.error(
-            'An error ocurred during Service Worker registration.',
-            e
-          );
+      if (!registration.pushManager) {
+        console.log('Push manager unavailable.');
+        return;
+      }
+
+      const existedSubscription =
+        await registration.pushManager.getSubscription();
+
+      if (existedSubscription === null) {
+        console.log('No subscription detected, make a request.');
+        const newSubscription = await registration.pushManager.subscribe({
+          applicationServerKey: convertedVapidKey,
+          userVisibleOnly: true,
         });
+        console.log('New subscription added.', newSubscription);
+        sendSubscription(newSubscription);
+      } else {
+        console.log('Existed subscription detected.');
+        sendSubscription(existedSubscription);
+      }
     }
   } else {
     console.log('Can not reachable to the service worker');

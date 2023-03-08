@@ -43,8 +43,8 @@ app.post('/notifications/subscribe', (req, res) => {
   });
   webPush
     .sendNotification(req.body.subscription, payload)
-    .then((result) => console.log(result))
-    .catch((e) => console.log(e.stack));
+    .then((result) => console.log())
+    .catch((e) => console.log('error', e.stack));
 
   res.status(200).json({ success: true });
 });
