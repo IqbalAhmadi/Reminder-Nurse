@@ -9,10 +9,11 @@ const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
     Auth.logout();
     setLoggedIn(false);
     navigate('/');
+    window.location.reload();
   };
 
   return (
-    <div className="hideMobile navAlignR">
+    <section className="hideMobile navAlignR">
       {loggedIn ? (
         <ul className="d-flex flex-wrap justify-content-center navContent">
           <li>
@@ -26,7 +27,7 @@ const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
           </button>
         </ul>
       ) : null}
-    </div>
+    </section>
   );
 };
 

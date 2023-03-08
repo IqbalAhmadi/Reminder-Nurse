@@ -13,10 +13,11 @@ const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
     Auth.logout();
     setLoggedIn(false);
     navigate('/');
+    window.location.reload();
   };
 
   return (
-    <div className="hideDesktop">
+    <section className="hideDesktop">
       {loggedIn ? (
         <div className="navMobile">
           <section className="d-flex flex-wrap justify-content-around navIcons">
@@ -32,7 +33,7 @@ const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
           </section>
         </div>
       ) : null}
-    </div>
+    </section>
   );
 };
 
