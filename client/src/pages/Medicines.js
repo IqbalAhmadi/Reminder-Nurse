@@ -5,6 +5,7 @@ import { QUERY_MEDICINES } from '../utils/queries';
 import MedicationList from '../components/MedicationList';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
+// import rnStatic from '../assets/images/rn_static_01.png';
 
 const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
@@ -16,23 +17,23 @@ const Medicines = () => {
   }
 
   return (
-    <div className="MedBottom">
+    <section className="MedBottom">
       <h2 className="dmedHeader">Your Medications</h2>
       <center>
-        <div className="row dTop">
-          <div className="imgContain col-5">
+        <article className="row dTop">
+          <figure className="imgContain col-5">
             <img
               src={rnStatic}
               className="imgNurse"
               alt="Icon of the Reminder Nurse"
             />
-          </div>
-          <div className="col-5 animate__animated animate__fadeIn">
+          </figure>
+          <section className="col-5 animate__animated animate__fadeIn">
             <div className="card dailyDialogue border-0 shadow-sm">
               <div className="card-body">Need to edit your medications?</div>
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       </center>
       <Container className="container-fluid pl-4">
         <section className="medicines">
@@ -61,7 +62,7 @@ const Medicines = () => {
           </section>
         </section>
       </Container>
-    </div>
+    </section>
   );
 };
 

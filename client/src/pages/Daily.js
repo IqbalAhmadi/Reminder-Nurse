@@ -44,7 +44,7 @@ const Daily = () => {
       <div>
         <h2 className="dmedHeader">Daily Medication</h2>
         <center>
-          <div className="row dTop">
+          <section className="row dTop">
             <div className="imgContain col-5">
               <img
                 src={rnStatic}
@@ -53,13 +53,13 @@ const Daily = () => {
               />
             </div>
             <div className="col-5 animate__animated animate__fadeIn">
-              <div className="card dailyDialogue border-0 shadow-sm">
+              <article className="card dailyDialogue border-0 shadow-sm">
                 <div className="card-body">
                   Let's look at your medications today.
                 </div>
-              </div>
+              </article>
             </div>
-          </div>
+          </section>
         </center>
         <ul className="d-flex flex-wrap justify-content-around dCardMob">
           {sortedMedicine.length ? (
