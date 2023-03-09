@@ -73,6 +73,8 @@ medicineSchema.pre('save', async function (next) {
     this.times.forEach((time) => this.queue.push({ time }));
   }
 
+  if (this.amount < 1) this.isActive = false;
+
   next();
 });
 
