@@ -11,7 +11,7 @@ const Notify = () => {
       native: true,
     });
   };
-  
+
   return (
     <Container>
       <h2>Test if notifications work here</h2>

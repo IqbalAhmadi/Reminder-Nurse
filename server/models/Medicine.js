@@ -68,11 +68,12 @@ const medicineSchema = new Schema({
   },
 });
 
-// makes inactive if amount < 1
 medicineSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('times')) {
     this.times.forEach((time) => this.queue.push({ time }));
   }
+
+  if (this.amount < 1) this.isActive = false;
 
   next();
 });
@@ -83,7 +84,7 @@ medicineSchema.pre('findOneAndUpdate', async function (next) {
 
   if (update.amount < 1) update.isActive = false;
 
-  // removes not found times then adds new ones
+  // removes not found times from queue then adds new ones
   if (update.times) {
     let removeIndexes = [];
 
@@ -98,6 +99,7 @@ medicineSchema.pre('findOneAndUpdate', async function (next) {
       if (!found) removeIndexes.push(index);
     });
 
+    // removes queue obj from original document based on removeIndexes
     for (let i = removeIndexes.length - 1; i >= 0; i--) {
       original.queue.splice(removeIndexes[i], 1);
     }
